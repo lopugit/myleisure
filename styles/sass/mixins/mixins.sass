@@ -1,0 +1,258 @@
+=animate($what, $time, $ease-type)
+	transition: $what $time $ease-type
+=sunflare()
+	@for $i from 1 through 10
+		$i: $i * 2
+		.flare:nth-child(#{$i})
+			transform: rotate(#{$i}deg)
+			background: linear-gradient(to bottom, rgba(red,0) 97%, rgba(rgb(254, 237, 80),1) 100%)
+=canopy($product-width, $number, $colour)
+	$number: $number + 2
+	.product-container:nth-child(n + #{$number})>.chair-1
+		background: rgba($nav-bg-colour,.0)
+		border-radius: 4px
+		text-align: center
+		width: $product-width
+		position: relative
+		+animate(all,150ms,ease-out)
+		>a
+			div
+				&:nth-child(1)
+					position: absolute
+					left: $strut-box-left
+					top: $strut-box-top
+					width: $strut-width
+					height: $strut-height
+					background: $strut-colour
+					content: ""
+					display: inline-block
+					border-radius: 8px 0px 0px 0px
+
+				&:nth-child(2)
+					position: absolute
+					left: $strut-box-left-2
+					top: $strut-box-top
+					width: $strut-width
+					height: $strut-height
+					background: $strut-colour
+					content: ""
+					display: inline-block
+					border-radius: 0px 8px 0px 0px
+
+				&:nth-child(3)
+					position: absolute
+					left: $canopy-box-left
+					top: $canopy-box-top
+					width: $canopy-width
+					height: $canopy-height
+					background: darken($colour, 0)
+					content: ""
+					display: inline-block
+
+					$canopy-border-radius-tops: 0px
+					$canopy-border-radius-bots: 0px
+
+					border-radius: $canopy-border-radius-tops $canopy-border-radius-tops $canopy-border-radius-bots $canopy-border-radius-bots
+
+				&:nth-child(4)
+					position: absolute
+					left: $canopy-box-left-2
+					top: $canopy-box-top
+					width: $canopy-width-2
+					height: $canopy-height
+					background: darken($colour, 10)
+					content: ""
+					display: inline-block
+					$canopy-border-radius-tops: 0px
+					$canopy-border-radius-bots: 0px
+					border-radius: $canopy-border-radius-tops $canopy-border-radius-tops $canopy-border-radius-bots $canopy-border-radius-bots
+
+				&:nth-child(5)
+					position: absolute
+					left: $canopy-box-left-3
+					top: $canopy-box-top
+					width: $canopy-width-3
+					height: $canopy-height
+					background: darken($colour, 20)
+					content: ""
+					display: inline-block
+
+					$canopy-border-radius-tops: 0px
+					$canopy-border-radius-bots: 0px
+
+					border-radius: $canopy-border-radius-tops $canopy-border-radius-tops $canopy-border-radius-bots $canopy-border-radius-bots
+
+				&:hover
+					opacity: 1
+=splashitem ($i, $imgurl)
+	.splash-box:nth-child(#{$i})
+		width: 33.3333%
+		height: 33.3333%
+		flex-grow: 1
+		flex-basis: auto
+		align-self: stretch
+		background: url($imgurl)
+		background-position: center center
+		background-size: cover
+		+animate(all, 200ms, ease-out)
+		&:hover
+			// background-size: 120%
+		// 	width: 20%
+=makeBoxShadowsWithBlur($length, $blur, $colour)
+	$string: null
+	$comma: ','
+	@for $i from 1 through $length
+		@if $i == $length
+			$string: $string #{$i}px #{$i}px #{$blur}px 0px $colour
+		@else
+			$string: $string #{$i}px #{$i}px #{$blur}px 0px $colour #{$comma}
+
+	box-shadow: $string
+
+=makeboxshadows($length, $colour)
+	$string: null
+	$comma: ','
+	@for $i from 1 through $length
+		@if $i == $length
+			$string: $string #{$i}px #{$i}px 0px 0px $colour
+		@else
+			$string: $string #{$i}px #{$i}px 0px 0px $colour #{$comma}
+
+	box-shadow: $string
+=makenegativeboxshadows($length, $colour)
+	$string: null
+	$comma: ','
+	// $colour: darken($color-border-primary, 4)
+
+	@for $i from 1 through 3
+		@if $i == 3
+			$string: $string -#{$i}px #{$i}px 0px 0px $colour
+		@else
+			$string: $string -#{$i}px #{$i}px 0px 0px $colour #{$comma}
+
+	box-shadow: $string
+=textshadows($length, $colour)
+	$string: null
+	$comma: ','
+	@for $i from 1 through $length
+		@if $i == $length
+			$string: $string #{$i}px #{$i}px 0px $colour
+		@else
+			$string: $string #{$i}px #{$i}px 0px $colour #{$comma}
+
+	text-shadow: $string
+=button($padding-vert, $padding-horiz, $font-size, $colour,$textcolour, $border-radius)
+	background: $colour
+	color: $textcolour
+	padding: #{$padding-vert}px #{$padding-horiz}px
+	border-radius: #{$border-radius}px
+	font-size: #{$font-size}rem
+	display: inline-block
+	width: auto
+	height: auto
+	&:hover
+		background: darken($colour, 4)
+		box-shadow: 0 2px 3px 0 rgba(0,0,0,.25) inset
+=addtocartbtn($height, $max-width)
+	// $height: 40px
+	$border-size: 2px
+	$sac: #FFF
+	$button-ratio: 70%
+	.two-buttons
+		position: relative
+		vertical-align: center
+		line-height: $height + 2
+		margin: 5px
+		left: 0px
+		bottom: 0px
+		font-size: 14px
+		letter-spacing: 1px
+		text-transform: uppercase
+		font-family: futura-lt-light
+		color: $nav-font-colour
+		width: 100%
+		max-width: $max-width
+		height: $height
+		text-align: center
+		display: block
+		z-index: 200
+		animation: slideupout 300ms ease-out 1 forwards
+		display: block
+		&:hover
+			.shop-cart-button
+				// background: darken($dgc, 1.5)
+				color: white
+
+
+				.fa
+					text-shadow: -1px 0px $gc, -2px 0px $gc, -3px 0px $gc, -4px 0px darken($gc,5), -5px 0px darken($gc,10), -6px 0px darken($gc,20), -7px 0px darken($gc, 30)
+					transform: translate(4px)
+		.order-button
+			width: ($button-ratio - 0)
+			height: $height
+			line-height: $height
+			text-transform: uppercase
+			font-size: 13px
+			font: futura-lt-heavy
+			letter-spacing: 2px
+			word-spacing: 0
+			text-align: center
+			color: $sac
+			background-color: $gc
+			+animate(all, 100ms, ease-in)
+			// display: flex
+			// order: 1
+			// justify-content: center
+			// align-items: center
+			// flex-wrap: nowrap
+			display: block
+			float: left
+			-webkit-font-smoothing: antialiased
+			vertical-align: middle
+			cursor: pointer
+			border-radius: 0px
+			+textshadows(5, $dgc)
+			&:hover
+				background-color: darken($gc, 5)
+				// border: solid $border-size $gc
+				color: darken($sac, 1.5)
+				cursor: pointer
+			@media(max-width: 650px)
+				+textshadows(3,$dgc)
+
+		.shop-cart-button
+			color: $gc
+			width: (100 - $button-ratio)
+			height: $height
+			line-height: $height
+			// display: flex
+			// order: 2
+			// justify-content: center
+			// align-items: center
+			// flex-wrap: nowrap
+			display: block
+			float: right
+			font: futura-lt-medium
+			letter-spacing: 2px
+			// top: 0
+			// right: 0
+			$dgc: #121F2A
+			background: $dgc
+			text-align: center
+			cursor: pointer
+			white-space: nowrap
+			border-radius: 0px 7px 7px 0px
+			-webkit-user-select: none
+			+animate(all, 100ms, ease-in-out)
+
+			.fa
+				+animate(all, 200ms, ease-in-out)
+
+			&:hover
+				background: darken($dgc, 1.5)
+				color: white
+
+
+				.fa
+					text-shadow: -1px 0px $gc, -2px 0px $gc, -3px 0px $gc, -4px 0px darken($gc,5), -5px 0px darken($gc,10), -6px 0px darken($gc,20), -7px 0px darken($gc, 30)
+					transform: translate(4px)

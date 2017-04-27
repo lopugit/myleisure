@@ -1,0 +1,230 @@
+#subscribe
+	// background-image: url("../img/shop/accessories/cushions/testmask.png")
+	background-color: $gc
+	// background-size: cover
+	// background-position: right 1000px
+	// background-repeat: no-repeat
+	// background-size: 1100px
+	// @media(max-width: 1720px)
+	// 	background-size: 100px
+	// @media(max-width: 1420px)
+	// 	background-size: 850px
+	// @media(max-width: 1250px)
+	// 	background-size: 800px
+	// @media(max-width: 950px)
+	// 	background-size: 700px
+	// @media(max-width: 842px)
+	// 	background-size: 600px
+	// @media(max-width: 750px)
+	// 	background-size: 500px
+	// @media(max-width: 550px)
+	// 	background-size: 400px
+	// @media(max-width: 350px)
+	// 	background-size: 300px
+	// border-top: 4px solid $dgc
+	// border-bottom: 4px solid $dgc
+	color: white
+	text-align: center
+	display: flex
+	width: 100%
+	max-width: 100% !important
+	overflow: hidden
+	// margin-top: -2px
+	// margin-bottom: -4px
+	position: relative
+	align-items: center
+	justify-content: center
+	padding: 130px 15px 130px 15px
+	z-index: 99
+	@media(max-width: 1180px)
+		padding: 100px 15px 100px 15px
+	.img-container
+		display: flex
+		justify-content: flex-end
+		align-items: center
+		overflow: hidden
+		position: absolute
+		top: 0px
+		z-index: 0
+		left: 0
+		width: 100%
+		height: 100%
+
+		img
+			z-index: 0
+			width: 70%
+			float: right
+			height: auto
+			@media(max-width: 1180px)
+				width: 83%
+			@media(max-width: 700px)
+				width: 120%
+				margin-right: -200px
+			@media(max-width: 500px)
+				width: 160%
+				margin-right: -300px
+			@media(max-width: 380px)
+				width: 190%
+				margin-right: -200px
+	#mc_embed_signup
+		max-width: 100% !important
+		form
+			max-width: 100% !important
+			width: 100%
+			input
+				outline: none
+				outline-color: transparent
+				-webkit-tap-highlight-color: rgba(black, 0) !important
+				border: none
+
+			.subscribe-container
+				max-width: 100% !important
+				// overflow: hidden
+				height: auto
+				display: flex
+				z-index: 99
+				justify-content: center
+				align-items: center
+				flex-direction: column
+				position: relative
+				margin-right: auto
+				margin-left: auto
+				.cta-header
+					+textshadows(5, $dgc)
+					text-transform: uppercase
+					font-family: futura-lt-light
+					letter-spacing: 5px
+					word-spacing: 10px
+					z-index: 99
+					font-size: 4rem
+					margin-bottom: 30px
+					@media(max-width: 870px)
+						margin-bottom: 15px
+						font-size: 3rem
+				.mc-field-group
+					display: flex
+					position: relative
+					width: 700px
+					max-width: 100% !important
+					z-index: 99
+					justify-content: center
+					align-items: center
+					flex-direction: column
+					.email
+						max-width: 700px !important
+						@media(max-width: )
+						width: 100% !important
+						background: rgba(white,.5)
+						font-family: futura-lt-light
+						font-size: 2.7rem
+						// color: $gc !important
+						color: white !important
+						text-align: center
+						border-radius: 25px
+						border: 2px solid rgba(white,.35)
+						// letter-spacing: 2px
+						margin-bottom: 15px
+						height: 50px
+						// text-transform:
+						// +makeboxshadows(4,$dgc)
+						display: flex
+						justify-content: center
+						align-items: center
+						+animate(all, 250ms, ease)
+						@media(max-width: 620px)
+							height: 40px
+							font-size: 2.4rem
+							&::-webkit-input-placeholder
+								font-size: 2.4rem
+						&:hover, &:focus, &:active
+							color: $gc !important
+							background: white
+							+makeboxshadows(4,$dgc)
+							&::-webkit-input-placeholder
+								color: rgba(0,0,0,0)
+							&:-moz-placeholder
+								color: rgba(0,0,0,0)
+							&::-moz-placeholder
+								color: rgba(0,0,0,0)
+							&:-ms-input-placeholder
+								color: rgba(0,0,0,0)
+						&::-webkit-input-placeholder
+							+animate(all, 250ms, ease)
+							font-size: 2.7rem
+							// color: $gc
+							color: white
+							// color: rgba(black, .4)
+							font-family: futura-lt-light
+							letter-spacing: 2px
+						&:-moz-placeholder
+							+animate(all, 250ms, ease)
+							font-size: 2.7rem
+							// color: $gc
+							color: white
+							// color: rgba(black, .4)
+							font-family: futura-lt-light
+							letter-spacing: 2px
+						&::-moz-placeholder
+							+animate(all, 250ms, ease)
+							font-size: 2.7rem
+							// color: $gc
+							color: white
+							// color: rgba(black, .4)
+							font-family: futura-lt-light
+							letter-spacing: 2px
+						&:-ms-input-placeholder
+							+animate(all, 250ms, ease)
+							font-size: 2.7rem
+							// color: $gc
+							color: white
+							// color: rgba(black, .4)
+							font-family: futura-lt-light
+							letter-spacing: 2px
+					.mce_inline_error:nth-child(2)
+						display: block
+						white-space: nowrap
+						position: absolute
+						top: -5px
+						right: -5px
+						font-size: 1rem
+						color: white
+						border-radius: 15px
+						background: $dgc
+				#mce-responses
+					margin-top: 15px
+					max-width: 700px
+					width: 100%
+					text-align: left
+					z-index: 99
+				.response
+					white-space: pre-wrap
+					// width: 700px
+					height: 0px
+					width: auto
+					max-width: 95%
+					z-index: 99
+					+textshadows(2,$dgc)
+					animation: responseANIM 1s 500ms ease-out 1 forwards
+				@keyframes reponseANIM
+					0%
+						height: 0px
+					100%
+						height: 300px
+						max-height: auto
+				.submit-btn
+					margin-left: 0
+					margin-right: auto
+					z-index: 99
+					input
+						border-radius: 15px
+						font-size: 1.8rem
+						color: white
+						// text-transform:
+						padding: 6px 17px
+						background-color: $dgc
+						+animate(all, 200ms, ease)
+						+textshadows(2,$gc)
+						box-shadow: 0px 8px 4px -3px rgba(lighten($dgc,5),.9)
+						&:hover
+							transform: translateY(-3px)
+							box-shadow: 0px 15px 9px -10px rgba(lighten($dgc,5),.9)

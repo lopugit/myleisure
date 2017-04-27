@@ -1,0 +1,49 @@
+html
+  body
+    .row.related-articles-row
+      .col-lg-12.col-lg-offset-4.col-md-16.col-md-offset-2
+        .related-articles-title
+          | Related articles
+        .related-articles-squares
+          each blog1 in blog.relatedBlogs
+            .col-lg-12.col-md-12.col-sm-18.col-xs-24.related-article-square
+              .related-article-text
+                .title= blog1.title.text
+                .subtitle
+                  | By
+                  .author= blog1.author.fullName
+                  .date= blog1.dateCreated.formatted
+              img(data-original= blog1.image.url)
+
+          //- .col-lg-12.col-md-12.col-sm-18.col-xs-24.related-article-square
+          //-   .related-article-text
+          //-     .title Caring for a Lettini
+          //-     .subtitle
+          //-       | By
+          //-       .author Marietta Frey
+          //-       .date April 21, 2017
+          //-   img(data-original="/img/splash/hq/cushion.jpg")
+          //- .col-lg-12.col-md-12.col-sm-18.col-xs-24.related-article-square
+          //-   .related-article-text
+          //-     .title My Journey
+          //-     .subtitle
+          //-       | By
+          //-       .author Marietta Frey
+          //-       .date April 17, 2017
+          //-   img(data-original="/img/splash/hq/groovy.jpg")
+          //- .col-lg-12.col-md-12.col-sm-18.col-xs-24.related-article-square
+          //-   .related-article-text
+          //-     .title For Hotels
+          //-     .subtitle
+          //-       | By
+          //-       .author Marietta Frey
+          //-       .date May 1, 2017
+          //-   img(data-original="/img/customerShots/brand.jpg")
+          //- .col-lg-12.col-md-12.col-sm-18.col-xs-24.related-article-square
+          //-   .related-article-text
+          //-     .title Folding your lettini
+          //-     .subtitle
+          //-       | By
+          //-       .author Marietta Frey
+          //-       .date April 12, 2017
+          //-   img(data-original="/img/splash/hq/foldable.jpg")

@@ -1,0 +1,104 @@
+.cart-btn
+	color: white !important
+	font-size: 16px
+	background: $color-border-primary
+	// transform: translateX(-100%)
+	padding: 10px 5px
+	border-width: 1px
+	border-style: solid
+	// box-shadow: -3px 3px 0px 0px darken($color-border-primary, 4)
+	$string: null
+	$comma: ','
+	$colour: darken($color-border-primary, 4)
+	@for $i from 1 through 3
+		@if $i == 3
+			$string: $string -#{$i}px #{$i}px 0px 0px $colour
+		@else
+			$string: $string -#{$i}px #{$i}px 0px 0px $colour #{$comma}
+
+	box-shadow: $string
+	border-radius: $btn-border-radius
+	border-color: $color-border-primary
+	cursor: pointer
+	+animate(all, 200ms, ease)
+	max-width: 100%
+	width: 100%
+	text-overflow: ellipsis
+	-webkit-appearance: none
+	-moz-appearance: none
+	overflow: hidden
+	line-height: 20px
+
+
+	&:hover,
+	&:focus
+		background: $color-primary-hover
+	// &:focus, &:visited, &:active
+	// 	right: 350px
+
+.btn--cart-tab
+	// padding: 5px 11px
+	// border-radius: 20px 0px 0px 20px
+	// position: fixed
+	// right: 0
+	position: relative
+	margin-top: -5px
+	// top: 50%
+	// @media(max-width: 700px)
+	// 	top: 85%
+	// 	padding: 8px 14px
+	// transform: translate(100%,-50%)
+	// transform: translateY(-50%)
+	opacity: 100
+	min-width: inherit
+	width: auto
+	height: auto
+	z-index: 99999
+	opacity: 1
+	outline: 0 !important
+	background-color: rgba(white, 0)
+	.cart-holder
+		display: flex
+		position: relative
+		justify-content: center
+		align-items: center
+		text
+			position: absolute
+			top: -4px
+			right: -5px
+			color: $dgc
+			+animate(all, 200ms, ease)
+
+	&.js-active
+		// transform: translateX(-347px)
+
+		@media(max-width: 416px)
+			border-radius: 0px 20px 20px 0px
+			z-index: 9999999
+			left: 0 !important
+			top: 75% !important
+			transform: translateX(0%)
+		opacity: 1
+	&:hover
+		.cart-holder
+			text
+				transform: translate(2px, -2px)
+		.fa
+			color: white
+			// text-shadow: -1px 0px lighten($gc,1), -2px 0px lighten($gc,2), -3px 0px lighten($gc,3), -4px 0px lighten($gc,4), -5px 0px lighten($gc,7), -6px 0px lighten($gc,10), -7px 0px lighten($gc,13)
+			transform: translate(0px, 3px)
+	.fa
+		font-size: 2.7rem
+		+animate(all, 200ms, ease)
+		color: white
+.btn__counter
+	display: block
+	// margin: 0 auto 5px auto
+	color: white
+	&:hover
+		color: white
+	font-size: 18px
+
+.icon-cart--side
+	height: 20px
+	width: 20px

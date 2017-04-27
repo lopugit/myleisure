@@ -1,0 +1,95 @@
+html
+  body
+  footer
+    include /snippets/footerJs
+    .container.clearfix
+      .row
+        .col-md-7.col-md-offset-1
+          .well.well-lg
+            a.myleisure(href='index')
+              .brand-title
+                span.my my
+                |  leisure
+            |         &#x9;
+            br
+            |             
+            .identity
+              i.fa.fa-map-marker-fa(style='color: red; font-size: 20px; text-shadow: 1px 1px 0px black')
+              |  
+              a(target='_blank', href='https://goo.gl/maps/Ji2ycDJ2X362')
+                | 22 Clifton Park Drive
+                br
+                | Carrum Downs, VIC 3201
+                br
+                a(style='color: white', href='tel:0422016261') (+61) 406 421 708
+            |             
+            br
+            |             
+            span(style='display: block;')
+              | &copy;
+              | My Leisure
+            | &#x9;&#x9;&#x9;
+            a.footer-email(href='mailto:info@myleisure.com.au') Marietta@myleisure.com.au
+        |       
+        .col-md-9.clearfix
+          .well.well-lg.clearfix
+            dl
+              dt Index
+              each navItems, key in nav.indexes
+                dd
+                  a(href=navItems.url)= navItems.name            
+            |           
+            dl
+              dt Quick Links
+              each quickLinks, key in nav.quickLinks
+                dd
+                  a(href=quickLinks.url)= quickLinks.name   
+            //- br
+        |       
+        .col-md-7.clearfix
+          .well.well-lg.clearfix
+            // <h4>Can't Get Enough?</h4>
+            h5.social-title Social media
+            | &#x9;        
+            .footer-social-icons.clearfix
+              a(target='_blank', href='http://www.facebook.com/myleisure')
+                i.fa.fa-facebook(aria-hidden='true')
+              // <a target="_blank" href="http://www.youtube.com/myleisure"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+              a(target='_blank', href='http://www.instagram.com/myleisurelettinis')
+                i.fa.fa-instagram-mdc(aria-hidden='true')
+              | &#x9;&#x9;&#x9;&#x9;
+              .phone-numbers
+                a(target='_blank')
+                  i.fa.fa-cellphone-iphone(aria-hidden='true')
+                  | 0406 421 708
+                // <a target="_blank"><i class="fa fa-cellphone-iphone" aria-hidden="true"></i>0412 998 936</a>
+    |   
+    div(style='display: none', itemscope='itemscope', itemtype='http://schema.org/LocalBusiness')
+      span(itemprop='name') My Leisure, Lettinis and Sun Lounges
+      |     
+      div(itemprop='address', itemscope='itemscope', itemtype='http://schema.org/PostalAddress')
+        span(itemprop='streetAddress') 22 Clifton park drive
+        |         
+        span(itemprop='addressLocality') Melbourne
+        | ,
+        |         
+        span(itemprop='addressRegion') Victoria
+        |         
+        span(itemprop='postalCode') 3201
+        |         
+        span(itemprop='addressCountry') AU
+      |     Phone: 
+      span(itemprop='telephone') 0406421708
+      |     Website: 
+      a(itemprop='URL') https://www.myleisure.com.au
+    .footer-bottom.clearfix
+      .col-xs-24
+        a(href='termsandconditions#terms') Terms &amp; Conditions
+        | &#x9;&#x9;
+        a(href='termsandconditions#privacy') Privacy Policy
+        | &#x9;&#x9;
+        a(href='termsandconditions#returns') Returns
+        | &#x9;&#x9;
+        a(href='termsandconditions') ABN: 774 506 918 76
+        | &#x9;&#x9;
+        a.copy(href='termsandconditions') &copy; 2017 www.myleisure.com.au

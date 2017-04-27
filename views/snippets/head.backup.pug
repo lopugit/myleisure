@@ -1,0 +1,76 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(charset='utf-8')
+    | &apos;;
+    | break;
+    | case &quot;/pool&quot;:
+    | $description = &quot;Make life by the poolside even more enjoyable and stylish with pool lounge chairs that can be customised to your tastes. Order online from My Leisure today.&quot;;
+    | break;
+    | case &quot;/beach&quot;:
+    | $description = &quot;Design your own beach chair with My Leisure. Choose from a range of colour and frame designs and enjoy the unique canopy feature.&quot;;
+    | break;
+    | case &quot;/&quot;:
+    | $description = &quot;My Leisure takes relaxing in the sun to a whole new level with a range of quality sun loungers complete with canopy. Order yours online. &quot;;
+    | break;
+    | }
+    | if (!$title) {
+    | $title = &quot;My Leisure | Lettinis, Italian made Sun Lounges&quot;;
+    | }
+    | if (!$description) {
+    | $description = &quot;Italian made Lettini Sun Lounge featuring a 99% Sun glare blocking canopy, over 24 designs and colours Lettinis are a stylish replacement for Beach Umbrella&quot;;
+    | }
+    | echo &quot;
+    title $title
+    | &quot;;
+    | echo &apos;
+    meta(name='description', content="'.$description.'")
+    | &apos;;
+    |  ?&gt;
+    link(rel='icon', type='image/png', href='/img/icon.png')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='author', content='Nikolaj Frey')
+    meta(name='ROBOTS', content='INDEX, FOLLOW, ARCHIVE')
+    link(href='/css/bootstrap.css', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', type='text/css', href='/slick/slick.css')
+    link(rel='stylesheet', type='text/css', href='/slick/slick-theme.css')
+    // <link href="/css/css.css" rel="stylesheet" type="text/css" />
+    link(href='/css/postcss.css', rel='stylesheet', type='text/css')
+    // <link href="/css/autocss.css" rel="stylesheet" type="text/css" />
+    // <link href="/css/flipclock.css" rel="stylesheet" type="text/css" />
+    script(type='text/javascript', src='/js/jquery-2.2.4.min.js')
+    script(type='text/javascript', src='/lazyload/dist/lazyload.min.js')
+    script(type='text/javascript', src='/js/masonry.pkgd.min.js')
+    script(type='text/javascript', src='/js/functions.js')
+    script(type='text/javascript', src='/js/nik.js')
+    script(type='text/javascript', src='/js/nav.js')
+    script(type='text/javascript', src='/js/shop/shopify-sdk.js')
+    script(type='text/javascript', src='/js/shop/shop.js')
+    script(type='text/javascript', src='/js/bootstrap.min.js')
+    script(type='text/javascript', src='/js/jqBootstrapValidation.js')
+    script(type='text/javascript', src='/js/parallax.min.js')
+    script(type='text/javascript', src='/js/jquery.stellar.min.js')
+    script(type='text/javascript', src='/js/contact_me.js')
+    script(type='text/javascript', src='/js/jquery.unveil.js')
+    script(type='text/javascript', src='/js/menu-scroll.js')
+    script(type='text/javascript', src='/js/jquery.zoom.min.js')
+    script(type='text/javascript', src='/slick/slick.min.js')
+    script(type='text/javascript', src='/js/imagesloaded.pkgd.min.js')
+    script(type='text/javascript', src='/js/velocity.min.js')
+    script(type='text/javascript', src='/js/gallery.js')
+    script(type='text/javascript', src='/js/slider.js')
+    script(src='https://use.fortawesome.com/2b0a3f32.js')
+    link(href='https://fonts.googleapis.com/css?family=Lora:400,700italic,700,400italic|Lato:400,700,900', rel='stylesheet', type='text/css')
+  body#page-top.index
+    | &apos;;
+    | echo &apos;console.log(&apos;. json_encode( $data ) .&apos;)&apos;;
+    | echo &apos;&apos;;
+    | };
+    | include &apos;snippets/sqlconnect&apos;;
+    | include &apos;snippets/cart&apos;;
+    | include &apos;snippets/nav&apos;;
+    | include &apos;snippets/nav-menu&apos;;
+    | include &apos;snippets/cart/cart&apos;;
+    | ?&gt;

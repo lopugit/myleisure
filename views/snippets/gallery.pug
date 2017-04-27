@@ -1,0 +1,161 @@
+html
+  body
+    section#gallery
+      .fade(onclick='switchGallery(this)')
+        .fade-fill
+          .gallery-extend
+            span.more-imgs
+              | more images
+            | &#x9;&#x9;&#x9;&#x9;
+            span.less-imgs
+              | less images
+      | &#x9;
+      .container-fluid
+        .row
+          .col-xs-24
+            .button-container
+              span All
+            | &apos;;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;$colours = array(&apos;beach&apos;,&apos;blue&apos;);
+            | &#x9;&#x9;&#x9;&#x9;&#x9;$ccount = 0;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;foreach($tagsList as $tags){
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;echo &apos;
+            .btn(class="'.$colours[$ccount].'", onclick='filterImgTags(this)')
+              span &apos;.$tags.&apos;
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .btn-wave.-one
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .btn-wave.-two
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .btn-wave.-three
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .btn-wave.-four
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .btn-wave.-five
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .btn-wave.-six
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .btn-wave.-seven
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .btn-wave.-eight
+            | &apos;;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;$ccount++;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;}
+            | &#x9;&#x9;&#x9;&#x9;&#x9; ?&gt;
+        //
+          <div class='wave -one'></div>
+          <div class='wave -two'></div>
+          <div class='wave -three'></div>
+          <div class='wave -four'></div>
+          <div class='wave -five'></div>
+          <div class='wave -six'></div>
+        .col-xs-24.clearfix
+          #galleryImages.gallery
+            .grid-sizer
+            // IMG BLOCK
+            | $imgTags) {
+            | foreach ($imgTags as $filetags) {
+            | $temptags[] = $filetags;
+            | }
+            | $datatags = implode(&apos;, &apos;, $temptags);
+            | $imgUrl = $dir.$imgTags[0].&apos;/thumb/&apos;.$key;
+            | createImgBlock($imgUrl, $datatags,$temptags,$key);
+            | $imgnum++;
+            | $Scount++;
+            | $Scount = 0;
+            | $count++;
+            | unset($temptags);
+            | unset($tags);
+            | }
+            | unset($imgnum);
+            | unset($count);
+            | unset($Scount);
+            | function createImgBlock($imgUrl,$datatag,$temptag,$key){
+            | $ammountoftags = sizeof($temptag);
+            | echo &apos;
+            .img-holder(data-url="'.$key.'", data-tag="'.$datatag.'", onclick='openGallery(this)')
+              .gallery-img-holder
+                .icon-holder
+                  i.fa.fa-photo-size-select-large
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                .caption
+                  | &apos;;
+                  | foreach ($temptag as $thetag){
+                  | echo &apos;
+                  a(onclick='\\'openTagGallery("\'.$thetag.\'")\\'') &apos;.$thetag.&apos;
+                  | &apos;;
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if ($ammountoftags &gt; 1){
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;echo &apos;, &apos;;
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;$ammountoftags--;
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;echo &apos;
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                img(src="'.$imgUrl.'")
+            | &apos;;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}
+            | &#x9;&#x9;&#x9;&#x9;&#x9; ?&gt;
+    .gallery-modal
+      .imgs-container
+        .inside-img-container
+          | $imgTags) {
+          | foreach ($imgTags as $filetags) {
+          | $temptags[] = $filetags;
+          | }
+          | $datatags = implode(&apos;, &apos;, $temptags);
+          | // MAYBE LATER
+          | //$texttags = implode(&apos;,
+          a(onclick="', $temptags);\
+          $imgUrl = $dir.'/'.$quality.'/'.$key;\
+          if ($count == 0){\
+          echo '<img class=", img='', src="'.$imgUrl.'", data-tag="'.$datatags.'", data-url="'.$key.'")
+            | &apos;;
+            | } else {
+            | echo &apos;
+            img.img.hidden(src="'.$imgUrl.'", data-tag="'.$datatags.'", data-url="'.$key.'")
+            | &apos;;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;$count ++;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;unset($temptags);
+            | &#x9;&#x9;&#x9;&#x9;&#x9;}
+            | &#x9;&#x9;&#x9;&#x9;&#x9;unset($count);
+            | &#x9;&#x9;&#x9;&#x9;&#x9;unset($Scount);
+            | &#x9;&#x9;&#x9;&#x9;}
+            | &#x9;&#x9;&#x9;&#x9;createImgElements($dir,$tagFiles,$tagsList,&apos;hq&apos;);
+            | &#x9;&#x9;&#x9;?&gt;
+      | &#x9;
+      .buttons-container
+        .arrow-container.left
+          .arrow-button.left
+            i.fa.fa-chevron-small-left
+        | &#x9;&#x9;
+        .arrow-container.right
+          .arrow-button.right
+            i.fa.fa-chevron-small-right
+      | &#x9;
+      .close-container
+        .close-button
+          i.fa.fa-close
+      | &#x9;
+      .dots-container
+        .dots
+          | $value) {
+          | if ($count == 0){
+          | echo &apos;
+          .dot.active(onclick='changeImage(this)', data-url="'.$key.'")
+            .fill
+          | &apos;;
+          | &#x9;&#x9;&#x9;&#x9;&#x9;} else {
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;echo &apos;
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+          .dot(onclick='changeImage(this)', data-url="'.$key.'")
+            .fill
+          | &apos;;
+          | &#x9;&#x9;&#x9;&#x9;&#x9;}
+          | &#x9;&#x9;&#x9;&#x9;&#x9;$count++;
+          | &#x9;&#x9;&#x9;&#x9;}
+          | &#x9;&#x9;&#x9;&#x9;unset($count);
+          | &#x9;&#x9;&#x9;&#x9;unset($Scount);
+          | &#x9;&#x9;&#x9;}
+          | &#x9;&#x9;&#x9;createDots($tagFiles);
+          | &#x9;&#x9;&#x9;?&gt;

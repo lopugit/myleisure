@@ -1,0 +1,70 @@
+#about
+	padding: 20px 0px 30px 0px
+	color: white
+	background: darken($gc,0)
+	font-size: 16px
+	position: relative
+	.title
+		padding-bottom: 10px
+		text-transform: uppercase
+		font-size: 1.5em
+		+textshadows(5,$dgc)
+		color: white
+	.subtitle
+		display: block
+		+textshadows(4,$dgc)
+	.about-text
+		font-size: 1em
+		letter-spacing: 1px
+		line-height: 1.7em
+		font-family: futura-lt-light
+	@media(max-width: 450px)
+		.about-text
+			line-height: 1.6em
+	.icon-container
+		text-align: center
+		padding-top: 25px
+		font-family: futura-lt-heavy
+		.about-blocks
+			margin-bottom: 25px
+			// max-width: 60%
+		i
+			font-size: 80px
+			+textshadows(7, $dgc)
+
+		span
+			display: block
+			font-family: futura-lt-light
+			font-size: 16px
+			text-align: center
+			letter-spacing: 1px
+			margin-top: 18px
+			// +textshadows(4,$dgc)
+		@media(max-width: 600px)
+			// .about-blocks
+			// 	max-width: 100%
+			padding-right: 25px
+			padding-left: 25px
+	.row:nth-child(2)
+		padding-bottom: 20px
+
+	.stick-chair
+		height: auto
+		padding-top: 40px
+		background: darken($gc,2)
+		padding-bottom: 40px
+		img
+			max-width: 100%
+	.row:nth-child(3)
+		height: auto
+	.stats
+		padding-top: 15%
+		background: darken($gc,2)
+		height: 100%
+		.text-class
+			display: flex
+			height: 100%
+			width: 100%
+			justify-content: flex-start
+			align-items: center
+			font-size: 25px

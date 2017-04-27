@@ -1,0 +1,128 @@
+footer
+	display: block
+	background-color: rgba(darken($gc,0), 1)
+	width: 100%
+	height: auto
+	color: #fff
+	font-family: futura-lt-medium
+	padding-bottom: 10px
+	dl
+		list-style: none
+		width: 47%
+		display: inline-block
+		vertical-align: top
+		dt
+			text-transform: uppercase
+			font-family: futura-lt-heavy
+			font-size: 13px
+			letter-spacing: 1px
+			color: white
+			+textshadows(3, darken($gc,15))
+	.footer-email
+		text-transform: none !important
+		display: block
+		// float: left
+
+	img
+		max-width: 100%
+
+	.myleisure
+		&:hover, :focus, :active, :visited
+			text-decoration: none
+		.brand-title
+			margin-top: 0px
+			font-size: 1.5em
+			color: white
+			font-family: futura-lt-medium
+			text-transform: uppercase
+			line-height: .75em
+			order: 2
+			text-shadow: 1px 1px 0px darken($gc, 10), 2px 2px 0px darken($gc, 10), 3px 3px 0px darken($gc, 10), 4px 4px 0px darken($gc, 10), 5px 5px 0px darken($gc, 10)
+		.my
+			display: block
+			font-size: .7em
+			padding-bottom: 4px
+
+	.container
+		padding-top: 20px !important
+
+	.identity
+		font-family: futura-lt-light
+		font-size: 15px
+
+	.well
+		background: rgba(0,0,0,0)
+		border: none
+		box-shadow: none
+		margin-bottom: 0
+	.well-lg
+		border-radius: 0px
+		border: none
+		box-shadow: none
+	a
+		font-family: futura-lt-light
+		color: white
+		text-transform: capitalize
+		+animate(all, 250ms, ease-out)
+		cursor: pointer
+		&:hover
+			color: white
+			+textshadows(3, darken($gc,15))
+			text-decoration: none
+
+	.footer-social-icons
+		width: auto
+		height: 40px
+		display: block
+		position: relative
+		float: left
+		a
+			padding-right: 20px
+			+animate(all, 180ms, ease-out)
+			&:hover
+			text-decoration: none
+			i
+				+textshadows(3, darken($gc, 15))
+				cursor: pointer
+
+		i
+			+animate(all, 200ms, ease-out)
+			font-size: 1.7rem
+			color: lighten($gc,90)
+			padding-right: 2px
+		.phone-numbers
+			margin-top: 10px
+			width: auto
+			white-space: nowrap
+			margin-left: -2px
+			a
+
+				white-space: nowrap
+				display: block
+				padding: 0
+				// i
+				// 	display: inline-block
+	.social-title
+		margin-top: 0px
+		text-transform: uppercase
+		font-size: 13px
+		font-family: futura-lt-heavy
+		color: white
+		+textshadows(3, darken($gc,15))
+
+	.footer-bottom
+		>div
+			text-align: center
+			@media(max-width: 995px)
+				padding-top: 40px
+				text-align: left
+			a
+				display: inline-block
+				color: rgba(white, .9)
+				margin-right: 15px
+				margin-left: 15px
+				margin-bottom: 2px
+				&:hover
+					// text-decoration: underline
+			.copy
+				text-transform: none

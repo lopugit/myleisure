@@ -1,0 +1,287 @@
+#accessories
+	height: auto
+	background: $gc
+	width: 100%
+	overflow: hidden
+	position: relative
+	display: block
+
+	.accessoriesTitle
+		padding-top: 80px
+		padding-bottom: 50px
+		font-size: 4rem
+		@media(max-width: 450px)
+			padding-top: 30px
+			font-size: 2.2rem
+	.cushion
+		width: 100%
+		height: auto
+		color: white
+		padding: 0px !important
+		position: relative
+		display: block
+		text-align: center
+		.cushion-info
+			display: block
+			z-index: 100
+			text-align: left
+			position: absolute
+			bottom: 10%
+			left: 6%
+			@media(max-width: 662px)
+				max-width: 50%
+				left: 8%
+			.info-container
+				display: flex
+				align-items: flex-start
+				justify-content: center
+				flex-direction: column
+				z-index: 100
+				.heading
+					color: white
+					// +textshadows(4,$dgc)
+					text-transform: uppercase
+					letter-spacing: 15px
+					margin-top: 0
+					font-family: futura-lt-heavy
+					+textshadows(4,$gc)
+					display: block
+					// font-size: 3rem
+					+animate(text-shadow, 200ms, ease)
+					&.sub
+						letter-spacing: 10px !important
+					&:hover
+						cursor: pointer
+					@media(max-width: 700px)
+						font-size: 2rem
+						&.sub
+							font-size: 1.5rem !important
+				.btn
+					text-transform: uppercase
+					font-family: futura-lt-heavy
+					+animate(all, 200ms, ease)
+					border: 1px solid white
+					border-radius: 1px
+					background: white
+					margin-top: 10px
+					margin-left: 0
+					color: black
+					span
+						font-family: futura-lt-heavy
+		.image-holder
+			overflow: hidden
+			// display: flex
+			// justify-content: center
+			// align-items: center
+			padding: 0 !important
+			&.first
+				height: 650px
+			.slider-main-cushion
+				height: 100%
+				max-height: 100%
+				.slick-list
+					height: 100%
+					.slick-track
+						height: 100%
+						.slick-slide
+							display: flex
+							align-items: center
+							justify-content: center
+							height: 100%
+							text-align: center
+			@media(max-width: 650px)
+				&.first
+					height: 380px
+					img
+						// margin-top: -14%
+						height: 100%
+						max-height: 100%
+						// width: auto
+						// max-width: none
+						// max-width: 160%
+			@media(max-width: 300px)
+				&.first
+					img
+						margin-top: 0
+						height: 100%
+			img
+				// width: 1000px !important
+				height: 100%
+				width: auto
+				object-fit: cover
+				min-width: 100%
+				// max-height: 100%
+				// max-width: 100%
+				// object-fit: cover
+				display: block
+				// min-height: 100%
+				// -webkit-mask-image: -webkit-gradient(linear, left 0%, right 1%, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)))
+		.slider-nav-cushion
+			// max-height: 150px
+			overflow: hidden
+			.slick-slide
+				height: 100%
+				display: flex
+				justify-content: center
+				align-items: center
+				img
+					// height: 100%
+					max-height: 100%
+					width: 100%
+					// width: 5
+	.break
+		padding: 55px 15px 100px 15px
+		background: white
+		color: black
+		font-family: futura-lt-medium
+		display: block
+		position: relative
+		text-align: center
+		.col-xs-24
+			text-align: center
+		h2
+			// text-transform: uppercase
+		form
+			text-align: center
+			max-width: 600px
+			display: block
+			position: relative
+			margin: 0 auto
+		input
+			position: relative
+			padding: 6px 8px
+			font-size: 1.4rem
+			min-width: 14%
+			display: block
+			width: 100%
+			margin-bottom: 10px
+			border: 1px solid rgba(black, .2) !important
+			border-radius: 1px
+			font-family: futura-lt-medium
+		button
+			display: block
+			margin-top: 5px
+			background: rgba(black, .93)
+			border: rgba(black, 1)
+			color: white
+			border-radius: 1px
+			padding: 6px 16px
+	.cup
+		width: 100%
+		height: auto
+		color: white
+		padding: 0px !important
+		position: relative
+		display: block
+		text-align: center
+		.cushion-info
+			display: block
+			z-index: 100
+			text-align: left
+			position: absolute
+			bottom: 10%
+			left: 6%
+			@media(max-width: 662px)
+				max-width: 65%
+				left: 8%
+			.info-container
+				display: flex
+				align-items: flex-start
+				justify-content: center
+				flex-direction: column
+				z-index: 100
+				.heading
+					color: white
+					// +textshadows(4,$dgc)
+					text-transform: uppercase
+					letter-spacing: 15px
+					margin-top: 0
+					font-family: futura-lt-heavy
+					+textshadows(4,$gc)
+					display: block
+					// font-size: 3rem
+					+animate(text-shadow, 200ms, ease)
+					&.sub
+						letter-spacing: 10px !important
+					&:hover
+						cursor: pointer
+					@media(max-width: 700px)
+						font-size: 2rem
+						&.sub
+							font-size: 1.5rem !important
+				.btn
+					text-transform: uppercase
+					font-family: futura-lt-heavy
+					+animate(all, 200ms, ease)
+					border: 1px solid white
+					border-radius: 1px
+					background: white
+					margin-top: 10px
+					margin-left: 0
+					color: black
+					display: inline-block
+					&:nth-child(2)
+						margin-left: 10px
+					span
+						font-family: futura-lt-heavy
+		.image-holder
+			overflow: hidden
+			// display: flex
+			// justify-content: center
+			// align-items: center
+			padding: 0 !important
+			&.first
+				height: 650px
+			.slider-main-cup
+				height: 100%
+				max-height: 100%
+				.slick-list
+					height: 100%
+					.slick-track
+						height: 100%
+						.slick-slide
+							display: flex
+							align-items: center
+							justify-content: center
+							height: 100%
+							text-align: center
+			@media(max-width: 650px)
+				&.first
+					height: 380px
+					img
+						// margin-top: -14%
+						height: 100%
+						max-height: 100%
+						// width: auto
+						// max-width: none
+						// max-width: 160%
+			@media(max-width: 300px)
+				&.first
+					img
+						margin-top: 0
+						height: 100%
+			img
+				// width: 1000px !important
+				height: 100%
+				width: auto
+				object-fit: cover
+				min-width: 100%
+				// max-height: 100%
+				// max-width: 100%
+				// object-fit: cover
+				display: block
+				// min-height: 100%
+				// -webkit-mask-image: -webkit-gradient(linear, left 0%, right 1%, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)))
+		.slider-nav-cup
+			// max-height: 200px
+			overflow: hidden
+			.slick-slide
+				height: 100%
+				display: flex
+				justify-content: center
+				align-items: center
+				img
+					// height: 100%
+					max-height: 100%
+					width: 100%
+					// width: 5

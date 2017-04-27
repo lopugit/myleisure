@@ -1,0 +1,162 @@
+#finishes
+	padding: 0px 0px 0px 0px
+	background-color: darken(white, 0)
+	background-image: url('/img/hq/quality.jpg')
+	background-size: cover
+	background-position: center center
+	background-repeat: no-repeat
+	height: auto
+	overflow: hidden
+	.finishes-gallery
+		padding-left: 0px
+		// background: darken(white, 10)
+		// margin-top: -100px
+		position: relative
+		overflow: hidden
+		// overflow-y: visible
+		display: flex
+		align-items: flex-start
+		height: auto
+		padding-bottom: 100px
+		max-width: 100%
+		width: 100%
+		padding: 0px
+		.finishes-row
+			max-width: 100%
+			width: 100%
+			margin: 0px
+			.finishes-slider
+				padding: 0px
+				margin: 0px
+				.slick-arrow
+					width: auto
+					height: auto
+					z-index: 999
+					top: 55%
+					&:before
+						font-size: 6.5rem
+						color: white
+
+						+animate(all, 200ms, ease)
+					&.slick-prev
+						left: auto
+						right: 14%
+					&.slick-next
+						right: 1%
+					@media(max-width: 733px)
+						&:before
+							font-size: 5rem
+						&.slick-prev
+							right: 14%
+						&.slick-next
+							right: 1%
+						top: 54%
+				.each-finish-container
+					height: auto
+					position: relative
+					flex-shrink: 1
+					// &:nth-child(1)
+					// 	margin-left: -140px
+					.each-finish-label
+						width: 100%
+						position: absolute
+						top: 0
+						left: 0
+						height: 100%
+						display: flex
+						justify-content: center
+						align-items: center
+						flex-direction: col
+						text-align: left
+						// z-index: 10
+						.each-finish-title
+							position: absolute
+							top: 15%
+							left: 43%
+							color: white
+							+textshadows(4, $gc)
+							font-family: futura-lt-heavy
+							text-transform: uppercase
+							font-size: 4.5rem
+							letter-spacing: 1px
+							z-index: 12
+							@media(max-width: 600px)
+								top: 11%
+								font-size: 4rem
+						.each-finish-more-btn
+							position: absolute
+							top: 38%
+							left: 72%
+							background: $gc
+							// background-color: rgba(0,0,0,0)
+							color: white
+							padding: 7px 25px
+							border: 2px solid lighten($gc, 7)
+							border-radius: 0px
+							font-size: 1.4rem
+							text-transform: uppercase
+							font-family: futura-lt-heavy
+							cursor: pointer
+							z-index: 12
+							+animate(all, 250ms, ease)
+							@media(max-width: 400px)
+								padding: 4px 16px
+							&:hover
+								text-decoration: none
+								margin-top: -5px
+								margin-left: -5px
+								+makeboxshadows(5, $dgc)
+						// @media(max-width: 1600px)
+						// 	.each-finish-title
+						// 		left: 75%
+						// 	.each-finish-more-btn
+						// 		left: 120%
+
+		.finishes-img
+			position: absolute
+			// right: 100px
+			z-index: 10
+			max-width: 100%
+			width: auto
+			height: auto
+			margin: 0
+			padding: 0
+			min-width: 0
+			position: relative
+			text-align: right
+		.finishes-effects
+			z-index: -1
+			height: 100%
+			width: 100%
+
+			position: absolute
+			background-color: rgba(white,.25)
+			// background-image: -webkit-gradient(linear, left top, right top, color-stop(0.05, rgba(255,255,255,0)), color-stop(0.22, rgba(0,255,255,0))) !important
+
+		.finishes-column
+			// display: flex
+			// flex-direction: row
+			// justify-content: center
+			// align-items: center
+			// flex-grow: 1
+			// flex-shrink: 1
+			// width: 100%
+			// max-width: 100%
+			// overflow: hidden
+
+		.finish-title-container
+			margin-bottom: -200px
+
+			.title
+				text-align: left
+				// text-transform: capitalize
+				font-size: 9rem
+				font-family: futura-lt-medium !important
+				+textshadows(8, lighten($gc, 8))
+			.subtitle
+				color: white
+				font-size: 1.4rem
+				margin-top: -8px
+				+textshadows(1, $gc)
+				&:hover
+					cursor: pointer

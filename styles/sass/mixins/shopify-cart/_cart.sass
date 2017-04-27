@@ -1,0 +1,244 @@
+.cart
+	position: fixed
+	width: 100%
+	max-width: 100%
+	height: 100%
+	right: 0%
+	top: 0%
+	z-index: 99999
+	background: $gw
+	border-radius: 1px
+	box-shadow: 0 0 0 rgba(0, 0, 0, 0.1)
+	transform: translateY(-100%)
+	// opacity: 0
+	// margin: 50px
+	+animate(all, 350ms, ease-in-out)
+	color: #141D24
+	font-family: futura-lt-medium
+	&.js-active
+		transform: translateY(0)
+		box-shadow: -5px -2px 10px rgba(black, 0.1), 5px 2px 10px rgba(0, 0, 0, 0.1)
+		opacity: 1
+	&.lone-page
+		max-width: 100%
+		transform: translateY(0)
+.type--center
+	text-align: center
+
+.visuallyhidden
+	border: 0
+	height: 1px
+	margin: -1px
+	overflow: hidden
+	padding: 0
+	position: absolute
+	width: 1px
+
+.cart-subtitle
+	font-size: 14px
+	display: block
+	margin-top: -8px
+	&:hover
+		cursor: pointer
+		color: lighten($gc, 4)
+.cart-section
+	position: relative
+	padding: 20px
+
+.cart-section--top
+	z-index: 5
+
+.cart-title
+	color: $color-title
+	display: inline-block
+	text-transform: capitalize
+	font-weight: 400
+	font-size: 18px
+	line-height: 1.5
+	overflow: hidden
+	white-space: nowrap
+	text-overflow: ellipsis
+	max-width: 90%
+	margin-top: 0
+	margin-bottom: 0
+
+.btn--close
+	position: absolute
+	right: 9px
+	top: 8px
+	font-size: 35px
+	color: $color-title
+	border: none
+	background: transparent
+	+animate(transform,100ms,ease)
+	cursor: pointer
+	-webkit-backface-visibility: hidden
+
+	&:hover,
+	&:visited,
+	&:active
+		transform: scale(1.2)
+		color: darken($color-title, 5%)
+		outline-color: rgba(white, 0)
+.cart-form
+	position: absolute
+	height: 100%
+	width: 100%
+	top: 0
+	padding: 70px 0 140px 0
+
+.cart-item-container
+	height: 100%
+	position: relative
+	overflow-x: hidden
+	overflow-y: auto
+	-webkit-overflow-scrolling: touch
+	perspective: 400px
+	perspective-origin: 50% 0px
+
+.cart-item
+	margin-bottom: 20px
+	overflow: hidden
+	backface-visibility: visible
+	min-height: 65px
+	position: relative
+	opacity: 1
+	+animate(opacity,0.2s,ease-in-out)
+
+	&.js-hidden
+		opacity: 0
+
+	&.js-working:after
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background: rgba(255, 255, 255, 0.5)
+		z-index: 2
+
+.cart-item__img
+	width: 65px
+	height: 65px
+	border-radius: 3px
+	background-size: contain
+	background-repeat: no-repeat
+	background-position: center center
+	background-color: #e5e5e5
+	position: absolute
+
+.cart-item__content
+	width: 100%
+	padding-left: 75px
+
+.cart-item__content-row
+	margin-bottom: 5px
+
+.cart-item__variant-title
+	float: right
+	font-weight: bold
+	font-size: 11px
+	line-height: 17px
+	color: #767676
+
+.cart-item__quantity-container
+	// border: 1px solid #767676
+
+	float: left
+	border-radius: 3px
+	.items
+		background: $gc
+.quantity-decrement, .quantity-increment
+	color: white
+	display: block
+	float: left
+	height: 21px
+	line-height: 16px
+	font-family: monospace
+	width: 25px
+	padding: 0
+	border: none
+	background: $gc
+
+	box-shadow: none
+	cursor: pointer
+	font-size: 18px
+	text-align: center
+	// margin: 0
+	+makenegativeboxshadows(3,darken($color-border-primary, 4))
+
+.quantity-decrement
+	// overflow: visible
+	outline: 0 !important
+	border-radius: 9px 0px 0px 9px
+.quantity-increment
+	// overflow: visible
+	outline: 0 !important
+	border-radius: 0px 9px 9px 0px
+.cart-item__quantity
+	color: white
+	width: 38px
+	height: 21px
+	font-size: inherit
+	border: none
+	text-align: center
+	-moz-appearance: textfield
+	background: $gc
+
+	// border-left: 1px solid #767676
+	// border-right: 1px solid #767676
+	display: block
+	float: left
+	padding: 0
+	border-radius: 0
+	margin-left: 5px
+	margin-right: 5px
+	+makenegativeboxshadows(3,darken($color-border-primary, 4))
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+	-webkit-appearance: none
+	margin: 0
+
+.cart-item__price
+	line-height: 23px
+	float: right
+	font-weight: bold
+
+.cart-bottom
+	border-top: 1px solid $color-border
+
+.cart-info
+	padding: 15px 20px 10px
+
+.cart-info__total
+	float: left
+	text-transform: uppercase
+
+.cart-info__small
+	font-size: 11px
+
+.cart-info__pricing
+	float: right
+
+.cart-discount-notice
+	color: $color-title
+	margin-bottom: 10px
+
+.cart-actions-container
+	padding-top: 5px
+
+.pricing
+	margin-left: 5px
+	font-size: 16px
+	color: black
+.btn--cart-checkout
+	background: $color-primary
+	color: white
+	width: 80%
+	opacity: 1
+	+animate(all, 200ms, ease)
+	+makeBoxShadowsWithBlur(2, 4, rgba(black, .1))
+	&:hover
+		color: white
+		opacity: .95

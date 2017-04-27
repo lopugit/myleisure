@@ -1,0 +1,16 @@
+html
+  body
+    .row.author-row
+      .col-lg-12.col-lg-offset-4.col-mg-16.col-md-offset-2
+        .author-bio
+          -if(typeof author !== 'undefined')
+            continue
+          -else if(typeof blog.author !== 'undefined')
+            -var author = blog.author;
+          -else
+            break
+          .author-image
+            img(data-original= author.image.url)
+          .author-info
+            .author-name= author.alias
+            .author-bio= author.bio

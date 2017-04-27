@@ -1,0 +1,353 @@
+#showcaseView
+	height: auto
+	width: 100%
+	max-width: 100%
+	overflow: hidden
+	margin-top: -$nav-height
+#productPage
+	width: 100%
+	height: auto
+	display: block
+	background: rgba(white,0)
+	justify-content: center
+	align-items: flex-start
+	margin-top: -$nav-height
+	font-family: futura-lt-medium
+	// padding-top: 30px
+	padding-bottom: 30px
+	@media(max-width: #{$nav-collapse})
+		align-items: flex-start
+		padding-bottom: 40px
+		.product-box
+			flex-wrap: wrap
+	.product-box
+		min-height: 950px / $gr
+		height: auto
+		// max-height: 80%
+		background: rgba(white, 1)
+		position: relative
+		display: flex
+		align-items: center
+		justify-content: center
+		flex-direction: column
+		// margin-top: -20px
+		padding: 0
+		.desc-column
+			display: flex
+			flex-direction: column
+			position: relative
+			justify-content: center
+			align-items: center
+			// padding: 20px
+			padding-top: 0px
+			width: 100%
+			max-width: 100%
+			height: 100%
+			@media(max-width: #{$nav-collapse})
+				width: 100% !important
+
+			.key-facts-root
+				display: flex
+				// background: darken($gc, 0)
+				background: white
+				width: 100%
+				justify-content: center
+				align-items: center
+				flex-direction: column
+				max-width: 100%
+				text-transform: capitalize
+				text-align: center
+				$form-font: 1.7rem
+				border-top: 5px solid $dgc
+				// border-bottom: 5px solid $dgc
+				padding-bottom: 50px
+				color: black
+				.product-header
+					font-family: futura-lt-heavy !important
+					font-size: 2.8rem
+					color: inherit
+					text-transform: uppercase
+					margin-bottom: 4px
+					letter-spacing: 12px
+				h2
+					text-transform: uppercase
+					font-size: 2.4rem
+					letter-spacing: 6px
+					color: inherit
+					font-family: futura-lt-light !important
+					margin-top: 45px
+					margin-bottom: 15px
+					-webkit-font-smoothing: antialiased
+				.key-facts-container
+					border-top: 1px solid rgba(white,.75)
+					width: 95%
+					max-width: 1200px
+					padding-top: 35px
+					color: inherit
+					text-align: left
+					font-family: futura-lt-light !important
+					display: flex
+					justify-content: center
+					align-items: flex-start
+					// flex-direction: column
+					ul
+						padding-left: 15px
+						color: blue
+						li
+							padding-left: 10px
+							font-size: 1.5rem
+							text-transform: none
+							margin-bottom: 20px
+							color: black
+							-webkit-font-smoothing: antialiased
+
+				.quantity
+					user-select: none
+					.title
+						font-size: inherit
+						color: inherit
+						letter-spacing: inherit
+						vertical-align: center
+						display: inline-block
+						padding-right: 8px
+					.quant-parent
+						height: auto
+						width: auto
+						font-size: 0
+						display: inline-block
+						.quant-input
+							display: inline-block
+							width: 35px
+							height: 100%
+							background: darken(white,1)
+							border: 1px solid grey
+							text-align: center
+							font-size: $form-font
+						i
+							cursor: pointer
+							font-size: $form-font - .2
+							+animate(color, 200ms, ease-out)
+							&:hover
+								color: $nav-font-colour
+						.cbox
+							height: 100%
+							width: auto
+							padding: 2px
+
+						.left-inc
+							margin-right: 2px
+							text-align: center
+							display: inline-block
+
+							// border: 1px solid grey
+							border-radius: 3px 0 0 3px
+						.right-inc
+							margin-left: 2px
+							display: inline-block
+							text-align: center
+							// border: 1px solid grey
+							border-radius: 0 3px 3px 0
+
+				div
+					display: block
+					vertical-align: center
+			.measurements-root
+				display: flex
+				// background: darken($dgc, 9)
+				// padding: 20px
+				width: 100%
+				max-width: 100%
+				overflow: hidden
+				justify-content: center
+				align-items: center
+				flex-direction: column
+				text-transform: capitalize
+				text-align: center
+				padding: 70px 10px
+				color: white
+				background: $gc
+				// padding-bottom: 50px
+				h2
+					text-transform: uppercase
+					font-size: 2.4rem
+					letter-spacing: 6px
+					color: inherit
+					font-family: futura-lt-light !important
+					margin-top: 20px
+					margin-bottom: 25px
+					-webkit-font-smoothing: antialiased
+				table
+					width: 100%
+					max-width: 740px
+					text-align: left
+					font-family: futura-lt-light
+					font-size: 1.6rem
+					tr
+						&:first-child
+							border-top: none
+							th
+								border-top: none
+						// &:nth-child(2)
+						// 	background: $gc
+						// 	color: white
+						th:first-child
+							width: 550px
+						th
+							font-family: futura-lt-medium
+							width: 200px
+							@media(max-width: 1170px)
+								padding-left: 4%
+						td
+							font-size: 1.5rem
+						.coming-soon
+							margin-left: 5px
+							margin-top: -20px
+							font-size: .75rem
+							padding: 2px 4px
+							text-transform: uppercase
+							background: red
+							color: white
+							border-radius: 8px
+			.care-root
+				display: flex
+				// background: darken($dgc, 9)
+				// padding: 20px
+				width: 100%
+				justify-content: center
+				align-items: center
+				flex-direction: column
+				background: white
+				max-width: 100%
+				text-transform: capitalize
+				text-align: center
+				padding-bottom: 50px
+				.care-title
+					text-transform: uppercase
+					font-size: 2.4rem
+					letter-spacing: 6px
+					color: black
+					font-family: futura-lt-light !important
+					margin-top: 50px
+					margin-bottom: 25px
+					padding-left: 10px
+					padding-right: 10px
+					-webkit-font-smoothing: antialiased
+				.care-container
+					// border-top: 1px solid rgba(white,.75)
+					width: 95%
+					display: flex
+					justify-content: center
+					align-items: flex-start
+					// flex-direction: column
+					max-width: 1200px
+					padding-top: 10px
+					// color: white
+					text-align: left
+					font-family: futura-lt-light !important
+					dl *
+						// padding-left: 15px
+						font-size: 1.7rem
+						text-transform: none
+						margin-bottom: 20px
+						-webkit-font-smoothing: antialiased
+					.second
+						// padding-left: 0px
+						padding-left: 8px
+						text-align: left !important
+						dl
+							text-align: inherit
+							dt
+								text-align: inherit
+								display: block
+							dd
+								text-align: inherit
+								display: block
+					.first
+						padding-left: 6px
+						padding-right: 8px
+						text-align: right !important
+						dl
+							text-align: inherit
+							dt
+								text-align: inherit
+								display: block
+							dd
+								text-align: inherit
+								display: block
+								margin-left: auto
+					dd
+						max-width: 250px
+			.buy-buttons
+				display: flex
+				justify-content: center !important
+				align-items: center !important
+				flex-wrap: wrap
+				position: relative
+				text-transform: uppercase
+				margin-bottom: 20px
+				width: 100%
+				padding: 10px
+				div
+					// margin-right: 10px
+					margin-top: 10px
+					cursor: pointer
+					+animate(all,200ms,ease)
+				.add-to-cart
+					display: flex
+					justify-content: center
+					align-items: center
+					position: relative
+					width: 100%
+					max-width: 350px
+					height: 50px
+					background: $gc
+					color: white
+					border: 2px solid lighten($gc, 7)
+					border-radius: 0
+					letter-spacing: 2px
+					// +textshadows(2, $dgc)
+					&:hover
+						background: rgba($gc,.8)
+				.buy-it-now
+					display: flex
+					justify-content: center
+					align-items: center
+					position: relative
+					width: 200px
+					height: 50px
+					background: red
+					color: white
+					border: 1px solid red
+					border-radius: 0
+					&:hover
+						background: rgba(red,.7)
+
+		.close-icon
+			position: absolute
+			top: 10px
+			right: 10px
+			display: inline-block
+			color: red
+			// color: darken(white, 20)
+			font-size: 22px
+			+animate(color, 200ms, ease)
+			@media(max-width: #{$nav-collapse})
+				top: 2px
+				right: 2px
+				color: red
+				// border-radius: 50%
+				// background: red
+				font-size: 25px
+				&::after
+					position: absolute
+					display: block
+					top: -10px
+					right: -10px
+					width: 5px
+					height: 5px
+					background: white
+			&:hover, &:active, &:focus
+				color: red
+				cursor: pointer
+.show-modal
+	display: flex

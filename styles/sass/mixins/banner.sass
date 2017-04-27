@@ -1,0 +1,291 @@
+.fs-splash-landing
+	width: 100%
+	height: auto
+	position: relative
+	display: block
+	margin-top: -$nav-height
+	// background: url("../img/splashv2/splash.jpg") no-repeat
+	// background-position: right -50px center !important
+	text-align: center
+	// max-height: 1200px
+	// z-index: 50
+	// overflow: visible
+	background: $gg
+
+	.splash-slider
+		// width: 100%
+		position: relative
+		// height: auto
+		display: block
+		// overflow: hidden
+		// top: 0
+		// left: 0
+		// display: none
+		// background: rgba(40, 40, 40, 0.66)
+		// z-index: 100
+		// height: 650px
+		.splash
+			position: relative
+			display: flex
+			justify-content: flex-start
+			align-items: flex-start
+			text-align: center
+			// min-height: 100%
+			height: 950px
+			// overflow: hidden
+			max-height: 950px
+			overflow: hidden
+			@media(max-width: #{$nav-collapse})
+				margin-top: $nav-height
+				height: 500px
+				max-height: 500px
+			@media (max-width: 500px)
+				margin-top: $nav-height
+				height: 500px
+				max-height: 500px
+			// height: 100 !important
+			// width: 100% !important
+			background-size: cover !important
+			// background-repeat: no-repeat !important
+			background-position: center center !important
+			// display: flex
+			// align-items: center
+			// justify-content: center
+			img
+				// position: absolute
+				vertical-align: top
+				display: block
+				top: 0
+				// left: 0
+				// max-width: 100%
+				width: 100%
+				// min-width: 100%
+				height: 100%
+				object-fit: cover
+				// object-position: top
+				z-index: 20
+			.cta-container
+				display: flex
+				position: absolute
+				top: 0
+				left: 5%
+				flex-direction: column
+				justify-content: center
+				align-items: flex-start
+				color: white
+				font-smoothing: antialiased
+				height: 100%
+				width: 100%
+				padding: 0px 15px 0px 15px
+				z-index: 25
+				text-align: left
+				// text-transform: capitalize
+				&.bronze
+					text-align: center
+					align-items: center
+					left: auto
+					right: auto
+				&.colours
+					text-align: right
+					align-items: flex-end
+					right: 5%
+					left: auto
+					.slider-header
+						+textshadows(4, lighten($gc, 4))
+					.sub-header
+						+textshadows(4, lighten($gc, 4))
+						font-family: futura-lt-heavy
+					.btn-container
+						justify-content: flex-end !important
+				&.sun-shield
+					.slider-header
+						+textshadows(4, lighten($gc, 4))
+					.sub-header
+						+textshadows(4, lighten($gc, 4))
+						font-family: futura-lt-heavy
+				.slider-header
+					// margin-top: -15px
+					// letter-spacing: 6px
+					font-family: futura-lt-heavy
+					// text-align: left
+					font-size: 4.6rem
+					margin-bottom: 15px
+					z-index: 25
+					// letter-spacing: 3px
+					-webkit-font-smoothing: antialiased
+					color: lighten($gc,100)
+					// +textshadows(6, lighten(rgba($dgc,1),18))
+					text-transform: capitalize
+					// +textshadows(5, lighten($gc,0))
+				.sub-header
+					// font-family: futura-lt-heavy
+					// letter-spacing: 2px
+					// +textshadows(2,$gc)
+					font-size: 5rem
+					z-index: 25
+					margin-top: 0px
+					// color: lighten($gc,100)
+					color: lighten(black, 95)
+					font-family: futura-lt-heavy
+					// +textshadows(3, lighten(rgba($dgc,1),18))
+					// font-family: futura-lt-
+				@media(max-width: 700px)
+					.slider-header
+						font-size: 3.5rem
+						display: none
+					.sub-header
+						// max-width: 60%
+						// line-height: 2rem
+						font-size: 4rem
+				.btn-container
+					max-width: 90%
+					width: auto
+					height: auto
+					display: flex
+					align-items: center
+					justify-content: flex-start
+					flex-wrap: wrap
+					flex-direction: row
+					z-index: 889
+					// margin: 0 0 0 -20px
+					margin-top: 25px
+					// margin-bottom: -15px
+					&.bronze
+						justify-content: center
+					.cta-btn
+						margin: 5px
+						margin-top: 10px
+						padding: 10px 25px
+						// background: rgba(white,1)
+						background: rgba(white,.2)
+						border: 1px solid rgba(white,1)
+						border-radius: 4px
+						// border-radius: 0px
+						display: flex
+						justify-content: center
+						align-items: center
+						cursor: pointer
+						// color: black
+						color: white
+						font-size: 1.4rem
+						overflow: hidden
+						transition: background 400ms ease-out, color 200ms ease-out
+						font-family: futura-lt-heavy
+						text-transform: uppercase
+						letter-spacing: 2px
+						text-decoration: none
+						z-index: 889
+						white-space: nowrap
+						@media(max-width: #{$nav-collapse})
+							font-size: 1.1rem
+						// box-shadow: 4px 4px 0 0 $dgc
+						&.bianco
+							align-items: flex-end
+						&.pick
+							background: rgba($gc, 1)
+							border: 2px solid lighten(rgba($gc,1),7)
+							color: white
+							// animation: rainbowBG infinite 2s linear
+
+							@media(max-width: #{$nav-collapse})
+								// margin-top: 30px
+							&.bronze
+								margin-top: 10px
+								// background: rgba(white)
+								// animation: none
+								// border: 1px solid rgba(white, .4)
+						&.order
+							background: white
+							color: black
+							border: 2px solid rgba(white,1)
+							padding: 10px 25px
+						&:hover
+							background: rgba(white, 0)
+							&.pick
+								color: $gc
+							&.order
+								color: rgba(white, 1)
+						// .word-colour
+						// 	color: rgba(white,.7)
+						// 	margin-left: 4px
+						// 	@include animation(slick-eduardo-keys 1.5s linear infinite)
+						// 	@include animation-direction(reverse)
+			&.first
+				img
+					object-position: center
+				.cta-container
+					align-items: center
+					justify-content: center
+					left: 0
+					$ldgc: lighten($dgc, 5)
+					.cta-content
+						width: auto
+						height: auto
+						padding: 2px
+						max-width: 100%
+						overflow: hidden
+						display: flex
+						justify-content: center
+						align-items: center
+						flex-direction: column
+						// margin-top: 24%
+						.slider-header
+							font-family: futura-lt-heavy
+							$fs: 7.5
+							font-size: #{$fs}rem
+							text-align: center
+							// color: lighten($gc, 100)
+							color: white
+							text-shadow: none
+							// +textshadows(4, $gc)
+							+textshadows(5, $gc)
+							.small
+								// color: white
+								color: inherit
+								letter-spacing: 4px
+								font-family: futura-lt-heavy
+								text-transform: uppercase
+								font-size: #{$fs /3}rem
+								+textshadows(4, $gc)
+						.btn-container
+							align-items: center
+							justify-content: center
+							margin-top: 10px
+							max-width: 98%
+							height: auto
+							.cta-btn
+								border-radius: 5px
+								padding: 8px 30px
+								font-size: 1.7rem
+								&.pick
+									&:hover
+										background: rgba(white, 0)
+										color: $gc
+										font-family: futura-lt-heavy
+								@media(max-width: 700px)
+									padding: 6px 20px
+									font-size: 1.5rem
+		.slick-arrow
+			display: none !important
+		.slick-dots
+			background-color: $gg
+			line-height: 30px
+			bottom: -30px
+
+@keyframes rainbowBG
+	0%
+		background-color: $red
+	15%
+		background-color: $red
+	30%
+		background-color: $orange
+	45%
+		background-color: $yellow
+	60%
+		background-color: $green
+	75%
+		background-color: $blue
+	90%
+		background-color: $purple
+	100%
+		background-color: $red

@@ -1,0 +1,120 @@
+$list: 'silver', 'wood', 'graphite', 'white', 'bronze'
+$one-n: 1
+$chair-width: 400px
+$y-offset: 600px
+$x-offset: -50px
+$space-between: 150
+#frames
+	padding: 0px 0px 0px 0px
+	background: $gc
+	height: auto
+
+	.frames-gallery
+		padding-left: 0px
+		// background: darken(white, 10)
+		background: $gc
+		position: relative
+		overflow: hidden
+		display: flex
+		align-items: center
+		height: 300px
+		.frames-img
+			position: absolute
+			max-width: 40%
+			width: 400px
+			@media(max-width: 680px)
+				max-width: 60%
+		@for $ii from 0 through 4
+			$left-offset: 0% + ($ii*18)
+			#chair-#{$ii}
+				margin-top: -130px !important
+				margin-left: $left-offset - 6
+		@media(max-width: 1020px)
+			@for $ii from 0 through 4
+				$left-offset: 0% + ($ii*18)
+				#chair-#{$ii}
+					margin-top: -130px !important
+					margin-left: $left-offset - 12
+		@media(max-width: 450px)
+			@for $ii from 0 through 4
+				$left-offset: -13% + ($ii*18)
+				#chair-#{$ii}
+					margin-top: -80px !important
+					margin-left: $left-offset - 3
+		.frame-img
+			max-width: 400px
+			height: auto
+			margin: 0
+			padding: 0
+			padding-right: 5px
+			position: relative
+			text-align: right
+
+		.frames-effects
+			z-index: -1
+			height: 100%
+			width: 100%
+			position: absolute
+			background-color: rgba(white,.25)
+			// background-image: -webkit-gradient(linear, left top, right top, color-stop(0.05, rgba(255,255,255,0)), color-stop(0.22, rgba(0,255,255,0))) !important
+
+
+		.circle-container
+			display: flex
+			justify-content: center
+			align-items: center
+			width: auto
+			padding-right: 120px
+			.circle
+				width: 250px
+				height: 250px
+				border-radius: 50%
+				// background: $gc
+				+makeboxshadows(6, rgba(0,0,0,.08))
+				// background: rgba(0,0,0,0)
+				// text-align: center
+				position: relative
+				display: flex
+				align-items: center
+				justify-content: center
+				flex-direction: column
+				&.classic
+					width: 200px
+					height: 200px
+				&.vip
+					width: 300px
+					height: 300px
+				.frame-title
+					color: white
+					font-size: 3.8rem
+					font-family: futura-lt-heavy
+					letter-spacing: 3px
+					text-transform: uppercase
+
+					+textshadows(3, $dgc)
+				.stat
+					color: white
+					// color: $gc
+					// color: $dgc
+					// display: inline-block
+					font-family: futura-lt-light
+					font-size: 2rem
+					// padding: 3px
+					// line-height: 3.5rem
+	@media(max-width: 630px)
+		#chair-0, #chair-1, #chair-2, #chair-3, #chair-4, #chair-5
+			margin-top: -120px !important
+	@media(max-width: 350px)
+		#chair-0, #chair-1, #chair-2, #chair-3, #chair-4, #chair-5
+			margin-top: -80px !important
+			// height: 150px
+	@media(max-width: 600px)
+		#chair-0, #chair-1, #chair-2, #chair-3, #chair-4, #chair-5
+			margin-top: -100px !important
+			// height: 150px
+	@media(max-width: 450px)
+		.frames-gallery
+			height: 200px
+	@media(min-width: 1020px)
+		.frames-gallery
+			height: 450px

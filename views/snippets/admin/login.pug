@@ -1,0 +1,27 @@
+include /snippets/head
+
+html 
+  body
+    #loginBlock
+      .login-container.container-fluid
+        .row
+          .col-xs-24.col-md-12.col-md-offset-6
+            h2 Login:
+            form(method="post")
+              
+              //- input(type="hidden", name="_csrf", value=csrfToken)
+
+              
+              span username*
+              input(type="text", name="username", placeholder="username", id="username")
+                
+              span password*
+              input(type="password", name="password", placeholder="password", id="password")
+              
+              input(type="submit", value="login")
+
+            -if(error)
+              h2!= error
+
+            h4 Or 
+              a(href="/Register") register

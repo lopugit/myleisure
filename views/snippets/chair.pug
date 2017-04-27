@@ -1,0 +1,53 @@
+html
+  body
+    .product-container(onclick='hideProductModal(this)')
+      | 1) {
+      | echo &apos;
+      .chair-1
+        a(href='index')
+          div
+          | &#x9;&#x9;&#x9;
+          div
+          | &#x9;&#x9;&#x9;
+          div
+          | &#x9;&#x9;&#x9;
+          div
+          | &#x9;&#x9;&#x9;
+          div
+      | &#x9;&apos;;
+      | &#x9;} else {
+      | &#x9;&#x9;echo 
+      | &#x9;&#x9;&apos;
+      .chair-1
+        .product-img-wrapper
+          .item-popup
+            | order now 
+            i.fa.fa-shopping-cart-typcn
+          | &#x9;&#x9;&#x9;&#x9;
+          img.product-img(src='img/img_load.png', data-src="./img/'.$colour[$i].'_chair.jpg")
+      | &apos;;
+      | &#x9;}
+      | &#x9;?&gt;
+      | &#x9;
+      .product-details
+        a.product-title
+          span.p-title
+          | &#x9;&#x9;&#x9;
+          span.price
+        | &#x9;&#x9;
+        .options
+          .finish-circle(style="background: url(./img/frames/icon_chair_'.$finish.'.png)")
+          span &apos;.$finish.&apos;
+        | &apos;;
+        | &#x9;&#x9;&#x9;&#x9;$mcheck = str_replace(&apos; &apos;,&apos;%20&apos;,$material);
+        | &#x9;&#x9;&#x9;&#x9;echo &apos;
+        .pattern-option
+          .pattern-circle(style="background: url(./img/patterns/'.$mcheck.'.jpg)")
+          span &apos;.$material.&apos;
+        | &apos;;
+        | &#x9;&#x9;&#x9;&#x9;// echo &apos;
+        .size-option
+          | // 
+          .size-circle(style='back')
+            | &apos;
+            | ?&gt;

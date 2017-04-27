@@ -1,0 +1,112 @@
+@function menu-animation-padding($nav-height, $a)
+	@return $nav-height - $a
+
+@function menu-collapsed($aa, $bb)
+	$val: $aa - $bb
+	@return $val
+
+$gr: 1.618
+$gc: #1574c8
+// $gc: #e62424
+// $gc: #e68624
+// $gc: #9ce624
+// $gc: #7924e6
+// $gc: #f93535
+// $gc: #1e66a4
+$dgc: darken($gc,15)
+$gw: #F5F5F5
+$gg: #f0f0f0
+$magic: #a024a4
+
+$mobile: 768px
+$nav-height: 90px
+$mobile-nav-height: 55px
+$mobile-nav-height-adj: 30px
+$mobile-nav-menu-height: 260px
+$v-size-change: 10px
+$h-size-change: 5px
+$nav-brand-padding-left-change: 10px
+
+$nav-collapse: 835px
+$nav-height-collapsed: menu-collapsed($nav-height, $v-size-change)
+$nav-bg-colour: rgba(#1c1e28,1)
+// $nav-bg-colour: rgba(#F5F5F5,0)
+$nav-menu-bg-colour: #1c1e28
+$nav-secondary-colour: #36B8C8
+$nav-ul-spacing: 24px
+$nav-ul-spacing-collapsed: menu-collapsed($nav-ul-spacing, $h-size-change)
+$nav-font-weight: 400
+$nav-font: "futura-lt-medium"
+// $nav-font-colour: #337ab7
+$nav-sub-menu-padding: 10px 0px
+$nav-sub-menu-background-colour: rgba(white, 0)
+$nav-sub-menu-font-colour: white
+
+$nav-white: white
+$nav-white-hover: darken(white,0)
+$nav-font-colour: #1e66a4
+$nav-font-colour-2: #114571
+// $nav-font-hovor-colour: #204E76
+$nav-font-hovor-colour: $dgc
+
+$nav-font-size: 1.3em
+$nav-menu-items-spacing-horizontally: 3.1rem
+$nav-font-transform: capitalize
+
+$nav-brand-padding-left: 150px
+$nav-brand-padding-left-collapsed: menu-collapsed($nav-brand-padding-left, $nav-brand-padding-left-change)
+$nav-brand-font-size: 3.8rem
+$nav-brand-font-weight: 800
+$nav-brand-font-colour: $nav-font-colour
+$nav-brand-hovor-font-colour: $nav-font-hovor-colour
+
+$a: 8
+$menu-animation-padding: menu-animation-padding($nav-height, $a) $nav-ul-spacing
+
+@function gethalf($aaa)
+	@return (100 - $aaa) / 2
+
+@function shade($color, $percentage)
+	@return mix(black, $color, $percentage)
+
+$chair-width: 80%
+$strut-width: 2%
+$strut-box-left: gethalf($chair-width)
+$strut-box-left-2: $chair-width + $strut-box-left
+
+$strut-height: 20%
+
+$canopy-line-size: 6%
+$canopy-offset: $canopy-line-size /2
+
+$strut-box-top: gethalf($strut-height) - $canopy-offset
+
+$strut-colour: linear-gradient(to top, rgba(#D2D2D2,.85), rgba(255,255,255,0.05))
+
+$canopy-width: $chair-width - $strut-width
+$canopy-box-left: $strut-box-left + $strut-width
+$canopy-width-2: $canopy-width * 0.75
+$canopy-box-left-2: $canopy-box-left + 0.5 * ($canopy-width - $canopy-width-2)
+$canopy-width-3: $canopy-width * 0.3
+$canopy-box-left-3: $canopy-box-left-2 + 0.5 * ($canopy-width-2 - $canopy-width-3)
+$canopy-height: $canopy-line-size
+$canopy-box-top: $strut-box-top
+$canopy-darken-ammount: 20%
+$canopy-colour: #23A9EE
+$canopy-colour-2: shade($canopy-colour, $canopy-darken-ammount)
+$canopy-colour-3: shade($canopy-colour-2, $canopy-darken-ammount)
+
+$active-border-size: 3px
+$active-color: #36B8C8
+
+//CART BUTTON
+$line-height-cb: 25px
+
+$splash-border-color: lighten($nav-font-colour,10)
+
+$colour-array: #23A9EE, #F6F6F6, #40D2B1, #2F84D4
+
+.hidden
+	display: none
+.active
+	display: block

@@ -1,0 +1,173 @@
+.nav-menu
+	width: 100%
+	height: 100%
+	max-width: 350px
+	position: fixed
+	right: 0
+	top: 0
+	display: none
+	z-index: 1005
+	background: $nav-menu-bg-colour
+	animation-name: navMenuSlideOut
+	animation-duration: 280ms
+	animation-fill-mode: forwards
+	overflow-y: scroll
+	.nav-menu-close
+		position: relative
+		display: block
+		width: 100%
+		height: 70px
+		border-bottom: 1px dotted rgba(white,.1)
+		.close-icon
+			position: absolute
+			color: white
+			font-size: 35px
+			top: 26%
+			right: 5%
+			+animate(all, 250ms, ease-out)
+			&:hover
+				+textshadows(4,darken($nav-menu-bg-colour, 10))
+				cursor: pointer
+				color: darken(white,2)
+				transform: translateY(-3px)
+	.menu-menu
+		height: auto
+		// overflow-y: scroll
+		.dd
+			color: white
+			padding: 20px
+			font-size: 1.5rem
+			text-transform: uppercase
+			border-bottom: 1px dotted rgba(white,.1)
+			display: block
+			position: relative
+			cursor: pointer
+			text-decoration: none
+			z-index: 10
+			+animate(all, 200ms, ease-out)
+			span
+				z-index: 8
+				color: white
+				text-decoration: none
+			&:hover
+				background: darken($nav-menu-bg-colour, 2)
+				span
+					+textshadows(4,darken($nav-menu-bg-colour,20))
+
+			.design-btn
+				border: white solid 1px
+				border-radius: 3px
+				font-size: 1.8rem
+				padding: 6px 15px
+				margin: 2rem
+				background: white
+				color: black
+				-webkit-font-smoother: anti-aliased
+				letter-spacing: 3px
+				font-family: futura-lt-heavy
+				+animate(all, 280ms, ease-out)
+				text-shadow: none !important
+
+				&:hover
+
+					background: rgba(white,.8)
+					// color: lighten(black, 15)
+					text-shadow: none
+			@media(max-width: 700px):
+				font-size: 1.5rem
+		.dropdown-dd
+			// animation: dropdownDDin 200ms 1 forwards
+			display: block
+			max-height: 0px
+			overflow: hidden
+			// max-height: 100%
+			z-index: 8
+			+animate(max-height, 300ms, ease-out)
+			&:hover
+				max-height: 500px
+			>a
+				span
+					padding-left: 25px
+					font-size: 1.4rem
+					color: rgba(white,.85)
+				&:nth-last-child(1)
+
+		.dropdown-toggle
+			color: white
+			&:hover
+				& + .dropdown-dd
+					max-height: 500px
+					// animation: dropdownDDin 300ms 1 forwards
+			&:after
+				display: inline-block
+				margin-top: -0.1667em
+				position: absolute
+				right: .8em
+				top: 50%
+				margin-left: .25rem
+				border-top: 0.35em solid
+				border-right: 0.35em solid transparent
+				border-left: 0.35em solid transparent
+				border-bottom: 0
+				display: inline-block
+				color: inherit
+				width: 0
+				height: 0
+				margin-right: .25rem
+				margin-left: .25rem
+				vertical-align: middle
+				border-top: .3em solid
+				border-right: .3em solid transparent
+				border-left: .3em solid transparent
+				content: ""
+		.btn-dd
+			border: none
+			text-align: center
+			padding-top: 30px
+			padding-left: 10px
+			&:hover
+				background: $nav-menu-bg-colour
+				cursor: normal
+
+	&.active
+		display: block
+		animation-name: navMenuSlide
+		animation-duration: 280ms
+		animation-fill-mode: forwards
+	&.closed
+		display: block
+		animation-name: navMenuSlideOut
+		animation-duration: 280ms
+		animation-fill-mode: forwards
+@keyframes navMenuSlide
+	0%
+		transform: translateX(100%)
+	100%
+		transform: translateX(0%)
+@keyframes navMenuSlideOut
+	0%
+		display: block
+		transform: translateX(0%)
+	99%
+		display: none
+	100%
+		transform: translateX(100%)
+
+@keyframes dropdownDDin
+	0%
+		height: 0px
+		display: block
+	99%
+		height: 200px
+	100%
+		display: block
+		height: auto
+
+@keyframes dropdownDDout
+	0%
+		display: block
+		height: auto
+	99%
+		display: none
+	100%
+		height: 0px

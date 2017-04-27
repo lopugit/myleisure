@@ -1,0 +1,73 @@
+.side-nav-float-menu
+	position: fixed
+	top: 40%
+	right: 0
+	padding-right: 40px
+	width: auto
+	height: auto
+	z-index: 120
+	display: block
+	@media(max-width: 780px)
+		display: none
+	@media(max-width: 720px)
+		top: 30%
+		padding-right: 20px !important
+		.item
+			.title
+				opacity: 1 !important
+				display: inline-block !important
+			.dot
+				&:active
+					background: lighten($nav-font-colour,5) !important
+	.item
+		display: block
+		height: 1.8em
+		text-align: right
+		vertical-align: center
+		cursor: pointer
+
+		&:hover
+			.dot
+				background: lighten($nav-font-colour,5)
+			.title
+				display: inline-block
+				opacity: 1
+		.title
+			color: rgba(lighten($nav-font-colour,5),1)
+			mix-blend-mode: difference
+			line-height: 1em
+			font-size: .9em
+			letter-spacing: 1px
+			text-transform: uppercase
+			font-family: futura-lt-light
+			text-align: right
+			display: inline-block
+			opacity: 0
+			+animate(all, 200ms, ease-out)
+
+		.dot
+			display: inline-block
+			border-radius: 50%
+			line-height: 1em
+			// margin-top: 30px
+			margin-left: 12px
+			width: 12px
+			height: 12px
+			mix-blend-mode: difference
+			color: lighten($nav-font-colour,5)
+			border: 2px solid lighten($nav-font-colour,5)
+			background: rgba(255,255,255,.0)
+			+animate(all, 300ms, ease-out)
+		.side-nav-cart-button
+			display: inline-block
+			font-size: 1.3em
+			margin-left: 12px
+			color: lighten($nav-font-colour,5)
+			
+	.active
+		.dot
+			background: lighten($nav-font-colour,5)
+		
+		.title
+			display: inline-block
+			opacity: 1

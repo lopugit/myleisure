@@ -1,0 +1,169 @@
+#contact
+	margin-top: -1px
+	// font-family: 'Lato', sans-serif
+	font-family: futura-lt-light
+	font-size: 15px
+	padding-top: 30px
+	padding-bottom: 30px
+	background: darken($gc,0)
+	height: 100%
+	.form-size
+		padding: 0px
+	.contact-title
+		font-family: futura-lt-medium
+		text-transform: uppercase
+		font-size: 2.4em
+		font-weight: 700
+		color: white
+		letter-spacing: 8px
+		margin-bottom: 0px
+		padding-bottom: 30px
+	.details
+		letter-spacing: 1px
+		font-size: 1em
+		padding-top: 10px
+		font-family: futura-lt-light
+		display: block
+		color: white
+		&:hover
+			color: darken(white, 5)
+		.details-email
+			color: white
+			cursor: pointer
+	.details-space
+		padding-bottom: 60px
+	p
+		font-size: 18px
+		margin-top: 2px
+		margin-bottom: 7px
+		ul
+			margin-bottom: 0px
+	.contact-form-parent
+		padding-left: 10px
+		padding-right: 10px
+	.btn
+		max-width: 200px
+		border-radius: 0px
+		border: 2px solid
+		border-color: darken($nav-font-colour, 2)
+		background: white
+		color: $nav-font-colour
+		+animate(all, 150ms, ease-in-out)
+		// +makeboxshadows(1,darken($nav-font-colour,5))
+		&:hover, &:focus, &:visited
+			outline: none
+			color: darken(white, 4)
+			border-color: darken($nav-font-colour, 12)
+			background: darken($nav-font-colour, 10)
+	$dis-font-size: 1.9rem
+	.form-control
+		padding-top: 0px
+		padding-bottom: 0px
+		color: black
+		outline: none
+		height: 40px
+		font-size: $dis-font-size
+		&::-webkit-input-placeholder
+			color:    darken(white,30)
+			opacity: .6
+			font-size: $dis-font-size
+		&#message
+			rows: 6 !important
+			height: auto !important
+			padding-top: 5px
+	.control-group
+		.controls
+			// padding: 0px
+			margin-bottom: 5px
+		.form-group
+			label
+				font-size: $dis-font-size
+				display: none
+			input, textarea
+				padding-left: 5px
+				font-size: $dis-font-size
+				margin-bottom: 0px
+				background: white
+				color: $nav-font-colour-2
+	.alert-success
+		background: $dgc
+		border: 1px lighten($dgc, 5)
+		color: white
+		button
+			color: white
+			opacity: .97
+			text-shadow: 0 2px 0 $gc
+	.text-danger
+		color: #DC524F
+		font-size: 18px
+		margin: 0px
+		position: relative
+		display: block
+		ul
+			margin: 0px
+	.btn-outline
+		margin-top: 15px
+		border: solid 2px #fff
+		font-size: 20px
+		color: #fff
+		background: 0 0
+		transition: all .3s ease-in-out
+	#success
+		.alert
+
+	.btn-outline:hover,
+	.btn-outline:focus,
+	.btn-outline:active,
+	.btn-outline.active
+		border: solid 2px #fff
+		color: #80bc18
+		background: #fff
+
+	.floating-label-form-group
+		position: relative
+		margin-bottom: 0
+		padding-bottom: .5em
+		border-bottom: 0px solid #eee
+
+	.floating-label-form-group input,
+	.floating-label-form-group textarea
+		z-index: 1
+		position: relative
+		padding-right: 0
+		padding-left: 0
+		border: 0
+		border-radius: 0
+		font-size: 1.5em
+		resize: none
+
+	.floating-label-form-group label
+		display: block
+		z-index: 0
+		position: relative
+		top: 2em
+		margin: 0
+		font-size: .9em
+		// letter-spacing: 1px
+		line-height: 1.764705882em
+		vertical-align: middle
+		vertical-align: baseline
+		opacity: 0
+		color: darken($nav-font-colour, 20)
+		-webkit-transition: top .3s ease,opacity .3s ease
+		-moz-transition: top .3s ease,opacity .3s ease
+		-ms-transition: top .3s ease,opacity .3s ease
+		transition: top .3s ease,opacity .3s ease
+
+	.floating-label-form-group:not(:first-child)
+		padding-left: 14px
+		border-left: 0px solid #eee
+
+	.floating-label-form-group-with-value label
+		top: .5em
+		opacity: 1
+
+	.floating-label-form-group-with-focus label
+		color: white
+
+	form .row:first-child .floating-label-form-group
+		border-top: 0px solid #eee

@@ -1,0 +1,736 @@
+#canopy
+	padding: 70px 0px 0px 0px
+	overflow: hidden
+	background: linear-gradient(to top, lighten($gc, 16) 85%, $gc 100%)
+	@media(min-width: 727)
+		background: linear-gradient(to top, lighten($gc, 16) 75%, $gc 100%)
+	.row
+		// margin-top: -100px
+	.sun-blocking-example
+		width: 100%
+		margin
+		display: flex
+		position: relative
+		justify-content: center
+		align-items: center
+		.sun
+			width: 100%
+			height: 200px
+			display: flex
+			position: absolute
+			top: 0
+			align-items: center
+			justify-content: center
+			.btn-wave
+				display: block
+				opacity: .4
+				position: absolute
+				top: 5px
+				// background: rgb(255, 219, 28)
+				$sun-size: 300px
+				width: $sun-size
+				height: $sun-size
+				z-index: 200
+				transform-origin: 50% 49%
+				border-radius: 47%
+				// animation: drift 3000ms infinite linear
+				&.-one
+					opacity: .1
+					// display: block
+				&.-two
+					// display: block
+					background: rgb(255, 187, 34)
+					opacity: .1
+					animation: drift 2500ms infinite linear
+
+				&.-three
+					// display: block
+					animation: drift 4400ms infinite linear
+					opacity: .4
+					background: rgb(246, 206, 33)
+				&.-four
+					// display: block
+					animation: drift 2500ms infinite linear
+					opacity: .5
+					background: rgb(241, 29, 112)
+				&.-five
+					// display: block
+					animation: drift 3800ms infinite linear
+					opacity: .5
+					background: rgb(255, 245, 10)
+				&.-six
+					// display: block
+					animation: drift 3000ms infinite linear
+					opacity: .15
+					background: rgb(237, 138, 149)
+				&.-seven
+					// display: block
+					animation: drift 3400ms infinite linear
+					opacity: .4
+					background: rgb(255, 191, 0)
+				&.-eight
+					// display: block
+					animation: drift 2800ms infinite linear
+					opacity: .4
+					background: rgb(254, 212, 36)
+				&.-nine
+					position: absolute
+					top: 5px
+					display: block
+					// display: block
+					z-index: 210
+					transform-origin: 50% 49%
+					border-radius: 47%
+					transform: rotate(25deg)
+					animation: wobble 2800ms infinite linear
+					opacity: 1
+					background: linear-gradient(to bottom, rgba(red,.8), rgba(yellow,.4))
+				&.-ten
+					position: absolute
+					top: 5px
+					display: block
+					// display: block
+					z-index: 211
+					transform-origin: 50% 49%
+					border-radius: 47%
+					transform: rotate(25deg)
+					animation: wobble 2800ms infinite linear
+					opacity: 1
+					background: linear-gradient(to bottom, rgba(red,0) 98%, rgba(rgb(222, 233, 0),1) 100%)
+				&.-eleven
+					background: linear-gradient(to bottom, rgba(red,0) 97%, rgba(rgb(254, 237, 80),1) 100%)
+				&.-twelve
+					transform: rotate(28deg)
+					background: linear-gradient(to bottom, rgba(red,0) 97%, rgba(rgb(254, 237, 80),1) 100%)
+				&.-thirteen
+					transform: rotate(2deg)
+					background: linear-gradient(to bottom, rgba(red,0) 98%, rgba(rgb(254, 237, 80),1) 100%)
+				&.-fourteen
+					transform: rotate(19deg)
+					background: linear-gradient(to bottom, rgba(red,0) 96%, rgba(rgb(254, 237, 80),1) 100%)
+				&.-fifteen
+					transform: rotate(15deg)
+					background: linear-gradient(to bottom, rgba(red,0) 95%, rgba(rgb(254, 237, 80),1) 100%)
+				&.-sixteen
+					transform: rotate(9deg)
+					background: linear-gradient(to bottom, rgba(red,0) 96%, rgba(rgb(254, 237, 80),1) 100%)
+				&.-seventeen
+					transform: rotate(2deg)
+					background: linear-gradient(to bottom, rgba(red,0) 97%, rgba(rgb(254, 237, 80),1) 100%)
+				&.-eighteen
+					transform: rotate(2deg)
+					background: linear-gradient(to bottom, rgba(red,0) 97%, rgba(rgb(254, 237, 80),1) 100%)
+				&.-nineteen
+					transform: rotate(2deg)
+					background: linear-gradient(to bottom, rgba(red,0) 97%, rgba(rgb(254, 237, 80),1) 100%)
+				&.-twenty
+					transform: rotate(2deg)
+					background: linear-gradient(to bottom, rgba(red,0) 97%, rgba(rgb(254, 237, 80),1) 100%)
+				&.-t1
+					transform: rotate(2deg)
+					background: linear-gradient(to bottom, rgba(red,0) 98%, rgba(rgb(254, 237, 80),1) 100%)
+			+sunflare()
+			.sun-wave
+				display: block
+				opacity: .4
+				position: absolute
+				top: 150%
+				background: rgb(255, 219, 28)
+				width: 5px
+				height: 300px
+				transform: rotate(60deg)
+				z-index: 200
+				border-radius: 50%
+				animation: sunray 1.2s infinite linear
+				&.-one
+					// display: block
+					opacity: .4
+					background: rgb(254, 212, 36)
+		@keyframes drift
+			from
+				transform: rotate(0deg)
+			from
+				transform: rotate(360deg)
+
+		@keyframes wobble
+			0%
+				border-radius: 48%
+				transform-origin: 50% 51%
+				// transform: rotate()
+				// transform:scale(1)
+			30%
+				border-radius: 46%
+				transform-origin: 51% 49%
+				// transform:scale(1)
+
+			60%
+				border-radius: 50%
+				transform-origin: 51% 51%
+				// transform:scale(1.2)
+			100%
+				border-radius: 48%
+				transform-origin: 50% 51%
+				// transform:scale(1)
+		@keyframes sunray
+			0%
+				height: 5px
+				transform: translate(0px, 0px)
+			100%
+				height: 5px
+				transform: translate(250px, 250px)
+		.title-sun
+			width: 100%
+			display: flex
+			position: absolute
+			top: 330px
+			align-items: center
+			justify-content: center
+			color: white
+			font-family: futura-lt-heavy
+			letter-spacing: 2px
+			font-size: 4rem
+			line-height: 4.2rem
+			+textshadows(3, $gc)
+			text-transform: uppercase
+			text-align: center
+			@media(max-width: 360px)
+				h2
+					font-size: 2.5rem !important
+	.sand
+		width: 100%
+		display: flex
+		justify-content: center
+		align-items: center
+		position: relative
+		height: 100px
+		margin-top: -380px
+		z-index: 1
+		background: rgb(255, 212, 28)
+	.canopy-front
+		$chair-width: 95%
+		$strut-width: 2%
+		$strut-box-left: gethalf($chair-width)
+		$strut-box-left-2: $chair-width + $strut-box-left - 2
+
+		$strut-height: 40%
+		$strut-box-top: 5%
+
+		$strut-colour: #e8e8e8
+
+		$canopy-line-size: 4%
+		$canopy-width: $chair-width - $strut-width
+		$canopy-box-left: $strut-box-left + $strut-width - 1
+		$canopy-width-2: $canopy-width * 0.75
+		$canopy-box-left-2: $canopy-box-left + 0.5 * ($canopy-width - $canopy-width-2)
+		$canopy-width-3: $canopy-width * 0.3
+		$canopy-box-left-3: $canopy-box-left-2 + 0.5 * ($canopy-width-2 - $canopy-width-3)
+		$canopy-height: $canopy-line-size
+		$canopy-offset: 1%
+		$canopy-box-top: $strut-box-top - $canopy-offset
+		$canopy-darken-ammount: 20%
+		$canopy-colour: #23A9EE
+		$canopy-colour-2: shade($canopy-colour, $canopy-darken-ammount)
+		$canopy-colour-3: shade($canopy-colour-2, $canopy-darken-ammount)
+		width: 100%
+		display: flex
+		align-items: center
+		justify-content: center
+		margin-top: 500px
+		@media(max-width: 550px)
+			margin-top: 580px
+		z-index: 5
+		.chair
+			$colour: #23A9EE
+			background: rgba($nav-bg-colour,.0)
+			border-radius: 4px
+			text-align: center
+			$size: 600px
+			width: $size
+			max-width: 100%
+			height: $size
+			position: relative
+			+animate(all,150ms,ease-out)
+			>a
+				div
+					&:nth-child(1)
+						position: absolute
+						left: $strut-box-left
+						top: $strut-box-top
+						width: $strut-width
+						height: $strut-height
+						background: linear-gradient(to bottom, darken($strut-colour, 0) 85%, rgba(darken($strut-colour, 8),.0))
+						content: ""
+						display: inline-block
+						border-radius: 8px 0px 0px 0px
+
+					&:nth-child(2)
+						position: absolute
+						left: $strut-box-left-2
+						top: $strut-box-top
+						width: $strut-width
+						height: $strut-height
+						background: linear-gradient(to bottom, darken($strut-colour, 0) 85%, rgba(darken($strut-colour, 8),.0))
+						content: ""
+						display: inline-block
+						border-radius: 0px 8px 0px 0px
+
+					&:nth-child(3)
+						position: absolute
+						left: $canopy-box-left
+						top: $canopy-box-top
+						width: $canopy-width
+						height: $canopy-height
+						background: linear-gradient(to right,darken($colour,0) 0%,darken($colour,0) 12%,darken($colour, 10) 12%, darken($colour, 10) 35%,darken($colour, 20) 35%, darken($colour, 24) 50%,darken($colour, 20) 65%,darken($colour, 10) 65%, darken($colour, 10) 88%,darken($colour, 0) 88%,darken($colour, 0) 100%)
+						content: ""
+						display: inline-block
+
+						$canopy-border-radius-tops: 5px
+						$canopy-border-radius-bots: 5px
+
+						border-radius: $canopy-border-radius-tops $canopy-border-radius-tops $canopy-border-radius-bots $canopy-border-radius-bots
+					&:nth-child(4)
+						position: absolute
+						left: $canopy-box-left - $strut-width
+						top: $canopy-box-top - 4
+						width: $chair-width + $strut-width
+						height: 2px
+						background: rgba(black,.35)
+						content: ""
+						display: none
+
+					&:hover
+						opacity: 1
+	svg
+		position: absolute
+		top: 1100px
+		zoom: .5
+		height: 100%
+		width: 1100px
+		max-width: 98%
+		z-index: 5
+		@media(max-width: 550px)
+			top: 1280px !important
+	.canopy-top
+		$chair-width: 95%
+		$strut-width: 3%
+		$strut-box-left: gethalf($chair-width)
+		$strut-box-left-2: $chair-width + $strut-box-left
+		$strut-height: 8%
+		$strut-colour: #D2D2D2
+		$canopy-line-size: 52%
+		$strut-box-top: 50 - ($strut-height / 2)
+		$canopy-width: $chair-width - $strut-width
+		$canopy-box-left: $strut-box-left + $strut-width
+		$canopy-width-2: $canopy-width * 0.75
+		$canopy-box-left-2: $canopy-box-left + 0.5 * ($canopy-width - $canopy-width-2)
+		$canopy-width-3: $canopy-width * 0.3
+		$canopy-box-left-3: $canopy-box-left-2 + 0.5 * ($canopy-width-2 - $canopy-width-3)
+		$canopy-height: $canopy-line-size
+		$canopy-offset: 0%
+		$canopy-box-top: gethalf($canopy-line-size)
+		$canopy-darken-ammount: 20%
+		$canopy-colour: #23A9EE
+		$canopy-colour-2: shade($canopy-colour, $canopy-darken-ammount)
+		$canopy-colour-3: shade($canopy-colour-2, $canopy-darken-ammount)
+		.chair
+			$colour: #23A9EE
+			background: rgba($nav-bg-colour,.0)
+			border-radius: 4px
+			text-align: center
+			$size: 450px
+			width: $size
+			max-width: 100%
+			height: $size
+			position: relative
+			margin-right: auto
+			margin-left: 10%
+			+animate(all,150ms,ease-out)
+			>a
+				div
+					&:nth-child(1)
+						position: absolute
+						left: $strut-box-left
+						top: $strut-box-top
+						width: $strut-width
+						height: $strut-height
+						background: $strut-colour
+						content: ""
+						display: inline-block
+						border-radius: 8px 0px 0px 8px
+
+					&:nth-child(2)
+						position: absolute
+						left: $strut-box-left-2
+						top: $strut-box-top
+						width: $strut-width
+						height: $strut-height
+						background: $strut-colour
+						content: ""
+						display: inline-block
+						border-radius: 0px 8px 8px 0px
+
+					&:nth-child(3)
+						position: absolute
+						left: $canopy-box-left
+						top: $canopy-box-top
+						width: $canopy-width
+						height: $canopy-height
+						background: linear-gradient(to right,darken($colour,0) 0%,darken($colour,0) 12%,darken($colour, 10) 12%, darken($colour, 10) 35%,darken($colour, 20) 35%, darken($colour, 24) 50%,darken($colour, 20) 65%,darken($colour, 10) 65%, darken($colour, 10) 88%,darken($colour, 0) 88%,darken($colour, 0) 100%)
+						content: ""
+						border-radius: 4px
+						display: inline-block
+
+						$canopy-border-radius-tops: 0px
+						$canopy-border-radius-bots: 0px
+
+						// border-radius: $canopy-border-radius-tops $canopy-border-radius-tops $canopy-border-radius-bots $canopy-border-radius-bots
+
+
+					&:hover
+						opacity: 1
+	.canopy-side
+		$size: 450px
+		$chair-width: 85%
+		$strut-width: 3%
+		$strut-box-left: gethalf($chair-width)
+		$strut-box-left-2: $chair-width + $strut-box-left
+		$strut-height: 40%
+		$strut-box-top: gethalf($strut-height)
+		$strut-colour: #D2D2D2
+		$canopy-line-size: 2%
+		$canopy-width: $chair-width - $strut-width
+		$canopy-box-left: $strut-box-left + $strut-width
+		$canopy-width-2: $canopy-width * 0.75
+		$canopy-box-left-2: $canopy-box-left + 0.5 * ($canopy-width - $canopy-width-2)
+		$canopy-width-3: $canopy-width * 0.3
+		$canopy-box-left-3: $canopy-box-left-2 + 0.5 * ($canopy-width-2 - $canopy-width-3)
+		$canopy-height: $canopy-line-size
+		$canopy-offset: 0%
+		$canopy-box-top: $strut-box-top - $canopy-offset
+		$canopy-darken-ammount: 20%
+		$canopy-colour: #23A9EE
+		$canopy-colour-2: shade($canopy-colour, $canopy-darken-ammount)
+		$canopy-colour-3: shade($canopy-colour-2, $canopy-darken-ammount)
+		$strut-translate-Z: $size / ((($strut-width / 1%) / 2) * 100)
+		$canopy-translate-Z: ((($canopy-width / 1%) / 2) / 100) * $size
+		$small-ratio: .75
+		$canopy-translate-Z-depth: $canopy-translate-Z * $small-ratio
+		$canopy-depth-pc: $canopy-width * $small-ratio
+		$canopy-depth: ($canopy-width / 1%) * $small-ratio
+		$canopy-depth-left-offset: $canopy-box-left + ((($canopy-width / 1%) - $canopy-depth) /2)
+		width: $size
+		height: $size
+		position: relative
+		perspective: 6000px
+		.chair
+			transform: translateY(100px)
+			animation: circleChair 19000ms infinite forwards linear
+			$colour: #23A9EE
+			background: rgba($nav-bg-colour,.0)
+			border-radius: 4px
+			text-align: center
+			width: $size
+			max-width: 100%
+			height: $size
+			position: absolute
+			margin-right: auto
+			margin-left: 10%
+			transform-style: preserve-3d
+			+animate(all,150ms,ease-out)
+			>a
+				// position: relative
+				div
+					//LEFT STRUT
+					&:nth-child(1)
+						position: absolute
+						left: $strut-box-left
+						top: $strut-box-top
+						width: $strut-width
+						height: $strut-height
+						background: linear-gradient(to bottom, darken($strut-colour, 0) 70%, rgba(darken($strut-colour, 8),.0))
+						// background: $strut-colour
+						content: ""
+						display: inline-block
+						// border-radius: 8px 0px 0px 8px
+						transform: rotateY(0deg)
+					&:nth-child(2)
+						position: absolute
+						left: $strut-box-left
+						top: $strut-box-top
+						width: $strut-width
+						height: $strut-height
+						background: linear-gradient(to bottom, darken($strut-colour, 0) 70%, rgba(darken($strut-colour, 8),.0))
+						// background: $strut-colour
+						content: ""
+						display: inline-block
+						// border-radius: 8px 0px 0px 8px
+						transform: rotateY(90deg) translateZ($strut-translate-Z)
+					&:nth-child(3)
+						position: absolute
+						left: $strut-box-left
+						top: $strut-box-top
+						width: $strut-width
+						height: $strut-height
+						background: linear-gradient(to bottom, darken($strut-colour, 0) 70%, rgba(darken($strut-colour, 8),.0))
+						// background: $strut-colour
+						content: ""
+						display: inline-block
+						// border-radius: 8px 0px 0px 8px
+						transform: rotateY(180deg) translateZ($strut-translate-Z)
+					&:nth-child(4)
+						position: absolute
+						left: $strut-box-left
+						top: $strut-box-top
+						width: $strut-width
+						height: $strut-height
+						background: linear-gradient(to bottom, darken($strut-colour, 0) 70%, rgba(darken($strut-colour, 8),.0))
+						// background: $strut-colour
+						content: ""
+						display: inline-block
+						// border-radius: 8px 0px 0px 8px
+						transform: rotateY(-90deg) translateZ($strut-translate-Z)
+
+					//RIGHT STRUT
+					&:nth-child(5)
+						position: absolute
+						left: $strut-box-left-2
+						top: $strut-box-top
+						width: $strut-width
+						height: $strut-height
+						background: linear-gradient(to bottom, darken($strut-colour, 0) 70%, rgba(darken($strut-colour, 8),.0))
+						// background: $strut-colour
+						content: ""
+						display: inline-block
+						// border-radius: 0px 8px 8px 0px
+						transform: rotateY(0deg)
+					&:nth-child(6)
+						position: absolute
+						left: $strut-box-left-2
+						top: $strut-box-top
+						width: $strut-width
+						height: $strut-height
+						background: linear-gradient(to bottom, darken($strut-colour, 0) 70%, rgba(darken($strut-colour, 8),.0))
+						// background: $strut-colour
+						content: ""
+						display: inline-block
+						// border-radius: 0px 8px 8px 0px
+						transform: rotateY(90deg) translateZ($strut-translate-Z)
+					&:nth-child(7)
+						position: absolute
+						left: $strut-box-left-2
+						top: $strut-box-top
+						width: $strut-width
+						height: $strut-height
+						background: linear-gradient(to bottom, darken($strut-colour, 0) 70%, rgba(darken($strut-colour, 8),.0))
+						// background: $strut-colour
+						content: ""
+						display: inline-block
+						// border-radius: 0px 8px 8px 0px
+						transform: rotateY(180deg) translateZ($strut-translate-Z)
+					&:nth-child(8)
+						position: absolute
+						left: $strut-box-left-2
+						top: $strut-box-top
+						width: $strut-width
+						height: $strut-height
+						background: linear-gradient(to bottom, darken($strut-colour, 0) 70%, rgba(darken($strut-colour, 8),.0))
+						// background: $strut-colour
+						content: ""
+						display: inline-block
+						// border-radius: 0px 8px 8px 0px
+						transform: rotateY(-90deg) translateZ($strut-translate-Z)
+
+					//FULL COLOUR CANOPY PIECE
+					&:nth-child(9)
+						z-index: 4
+						position: absolute
+						left: $canopy-box-left
+						top: $canopy-box-top
+						width: $canopy-width
+						height: calc(#{$canopy-height} + 4px)
+						background: linear-gradient(to right,darken($colour,0) 0%,darken($colour,0) 12%,darken($colour, 10) 12%, darken($colour, 10) 35%,darken($colour, 20) 35%, darken($colour, 24) 50%,darken($colour, 20) 65%,darken($colour, 10) 65%, darken($colour, 10) 88%,darken($colour, 0) 88%,darken($colour, 0) 100%)
+						content: ""
+						// border-radius: 4px
+						display: inline-block
+						transform: rotateY(0deg) translateZ($canopy-translate-Z-depth)
+					&:nth-child(10)
+						z-index: 4
+						position: absolute
+						left: $canopy-depth-left-offset
+						top: $canopy-box-top
+						width: $canopy-depth-pc
+						height: $canopy-height
+						background: $strut-colour
+						// background: darken($colour, 0)
+						content: ""
+						// border-radius: 4px
+						display: inline-block
+						transform: rotateY(90deg) translateZ($canopy-translate-Z)
+					&:nth-child(11)
+						z-index: 4
+						position: absolute
+						left: $canopy-box-left
+						top: $canopy-box-top
+						width: $canopy-width
+						height: calc(#{$canopy-height} + 4px)
+						background: linear-gradient(to right,darken($colour,0) 0%,darken($colour,0) 12%,darken($colour, 10) 12%, darken($colour, 10) 35%,darken($colour, 20) 35%, darken($colour, 24) 50%,darken($colour, 20) 65%,darken($colour, 10) 65%, darken($colour, 10) 88%,darken($colour, 0) 88%,darken($colour, 0) 100%)
+						content: ""
+						// border-radius: 4px
+						display: inline-block
+						transform: rotateY(180deg) translateZ($canopy-translate-Z-depth)
+					&:nth-child(12)
+						z-index: 4
+						position: absolute
+						left: $canopy-depth-left-offset
+						top: $canopy-box-top
+						width: $canopy-depth-pc
+						height: $canopy-height
+						background: $strut-colour
+						// background: darken($colour, 0)
+						content: ""
+						// border-radius: 4px
+						display: inline-block
+						transform: rotateY(-90deg)  translateZ($canopy-translate-Z)
+					&:nth-child(13)
+						z-index: 4
+						position: absolute
+						left: $canopy-box-left
+						top: $canopy-box-top
+						width: $canopy-width
+						height: $canopy-depth-pc
+						background: linear-gradient(to right,darken($colour,0) 0%,darken($colour,0) 12%,darken($colour, 10) 12%, darken($colour, 10) 35%,darken($colour, 20) 35%, darken($colour, 24) 50%,darken($colour, 20) 65%,darken($colour, 10) 65%, darken($colour, 10) 88%,darken($colour, 0) 88%,darken($colour, 0) 100%)
+						content: ""
+						// border-radius: 4px
+						display: inline-block
+						transform: rotateY(180deg) rotateX(90deg) translateZ($canopy-translate-Z-depth)
+					&:nth-child(14)
+						z-index: 4
+						position: absolute
+						left: calc(#{$canopy-box-left} + 0px)
+						top: calc(#{($canopy-box-top + $canopy-height)} + 1px)
+						margin-top: -1px
+						width: calc(#{$canopy-width})
+						height: calc(#{$canopy-depth-pc} - 1px)
+						background: darken($strut-colour, 0)
+						content: ""
+						display: none
+						// border-radius: 4px
+						// display: inline-block
+						transform: rotateY(180deg) rotateX(90deg)  translateZ($canopy-translate-Z-depth)
+					&:nth-child(15)
+						z-index: 4
+						position: absolute
+						left: calc(#{$canopy-box-left} + 1px)
+						top: calc(#{($canopy-box-top + $canopy-height)} - 1px)
+						margin-top: -1px
+						width: calc(#{$canopy-width} - 1px)
+						height: calc(#{$canopy-depth-pc} - 1px)
+						background: linear-gradient(to right,darken($colour,0) 0%,darken($colour,0) 12%,darken($colour, 10) 12%, darken($colour, 10) 35%,darken($colour, 20) 35%, darken($colour, 24) 50%,darken($colour, 20) 65%,darken($colour, 10) 65%, darken($colour, 10) 88%,darken($colour, 0) 88%,darken($colour, 0) 100%)
+						// background: $colour
+						content: ""
+						// border-radius: 4px
+						display: inline-block
+						transform: rotateY(180deg) rotateX(90deg)  translateZ($canopy-translate-Z-depth)
+
+					// //MIDDLE COLOUR CANOPY PIECE
+					// &:nth-child(15)
+					// 	z-index: 6
+					// 	position: absolute
+					// 	left: $canopy-box-left-2
+					// 	top: $canopy-box-top
+					// 	width: $canopy-width-2
+					// 	height: $canopy-height
+					// 	background: darken($colour, 10)
+					// 	content: ""
+					// 	display: inline-block
+					// 	transform: rotateY(0deg) translateZ($canopy-translate-Z-depth)
+					//
+					// &:nth-child(16)
+					// 	z-index: 6
+					// 	position: absolute
+					// 	left: $canopy-box-left-2
+					// 	top: $canopy-box-top
+					// 	width: $canopy-width-2
+					// 	height: $canopy-height
+					// 	background: darken($colour, 10)
+					// 	content: ""
+					// 	display: inline-block
+					// 	transform: rotateY(180deg) translateZ($canopy-translate-Z-depth)
+					// &:nth-child(17)
+					// 	z-index: 6
+					// 	position: absolute
+					// 	left: $canopy-box-left-2
+					// 	top: $canopy-box-top
+					// 	width: $canopy-width-2
+					// 	height: $canopy-depth-pc
+					// 	background: darken($colour, 10)
+					// 	content: ""
+					// 	display: inline-block
+					// 	transform: rotateY(180deg) rotateX(90deg) translateZ($canopy-translate-Z-depth)
+					// &:nth-child(18)
+					// 	z-index: 6
+					// 	position: absolute
+					// 	left: $canopy-box-left-2
+					// 	top: $canopy-box-top + $canopy-height
+					// 	width: $canopy-width-2
+					// 	height: $canopy-depth-pc
+					// 	background: darken($colour, 10)
+					// 	content: ""
+					// 	display: inline-block
+					// 	transform: rotateY(180deg) rotateX(90deg) translateZ($canopy-translate-Z-depth)
+					// 	opacity: 0
+					//
+					// //CENTER COLOUR CANOPY PIECE
+					// &:nth-child(19)
+					// 	z-index: 8
+					// 	position: absolute
+					// 	left: $canopy-box-left-3
+					// 	top: $canopy-box-top
+					// 	width: $canopy-width-3
+					// 	height: $canopy-height
+					// 	background: darken($colour, 20)
+					// 	content: ""
+					// 	display: inline-block
+					// 	transform: rotateY(0deg) translateZ($canopy-translate-Z-depth)
+					// &:nth-child(20)
+					// 	z-index: 8
+					// 	position: absolute
+					// 	left: $canopy-box-left-3
+					// 	top: $canopy-box-top
+					// 	width: $canopy-width-3
+					// 	height: $canopy-height
+					// 	background: darken($colour, 20)
+					// 	content: ""
+					// 	display: inline-block
+					// 	transform: rotateY(180deg) translateZ($canopy-translate-Z-depth)
+					// &:nth-child(21)
+					// 	z-index: 8
+					// 	position: absolute
+					// 	left: $canopy-box-left-3
+					// 	top: $canopy-box-top
+					// 	width: $canopy-width-3
+					// 	height: $canopy-depth-pc
+					// 	background: darken($colour, 20)
+					// 	content: ""
+					// 	display: inline-block
+					// 	transform: rotateY(180deg) rotateX(90deg) translateZ($canopy-translate-Z-depth)
+					// &:nth-child(22)
+					// 	z-index: 8
+					// 	position: absolute
+					// 	left: $canopy-box-left-3
+					// 	top: $canopy-box-top + $canopy-height
+					// 	width: $canopy-width-3
+					// 	height: $canopy-depth-pc
+					// 	background: darken($colour, 20)
+					// 	content: ""
+					// 	display: inline-block
+					// 	transform: rotateY(180deg) rotateX(90deg) translateZ($canopy-translate-Z-depth)
+					// 	opacity: 0
+					// &:hover
+					// 	opacity: 1
+
+@keyframes circleChair
+	0%
+		transform: rotateY(0deg) translateY(0px) rotateX(20deg)
+	100%
+		transform: rotateY(360deg) translateY(0px) rotateX(-20deg)

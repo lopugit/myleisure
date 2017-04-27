@@ -1,0 +1,39 @@
+html
+  body
+    // Begin MailChimp Signup Form
+    section#subscribe
+      .img-container
+        img.cushion-pic(src='./img/shop/accessories/cushions/testmask.png')
+      | &#x9;
+      #mc_embed_signup
+        form#mc-embedded-subscribe-form.validate(action='//myleisure.us14.list-manage.com/subscribe/post?u=126468cb0cbac4cf41800f8c1&id=30b38d3f8a', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate='')
+          #mc_embed_signup_scroll.subscribe-container
+            h1.cta-header subscribe for updates
+            // <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+            .mc-field-group
+              input#mce-EMAIL.required.email(type='email', value='', placeholder='enter your email', name='EMAIL')
+            | &#x9;&#x9;&#x9;&#x9;
+            div(style='position: absolute; left: -5000px;', aria-hidden='true')
+              input(type='text', name='b_126468cb0cbac4cf41800f8c1_30b38d3f8a', tabindex='-1', value='')
+            | &#x9;&#x9;&#x9;&#x9;
+            .clear.submit-btn
+              input#mc-embedded-subscribe.button(type='submit', value='Subscribe', name='subscribe')
+            //
+              <div class="mc-field-group">
+              <label for="mce-FNAME">First Name </label>
+              <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+              </div>
+              <div class="mc-field-group">
+              <label for="mce-LNAME">Last Name </label>
+              <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+              </div>
+            // real people should not fill this in and expect good things - do not remove this or risk form bot signups
+            #mce-responses.clear
+              #mce-error-response.response(style='display:none')
+              | &#x9;    &#x9;&#x9;&#x9;
+              #mce-success-response.response(style='display:none')
+      | &#x9;
+      script(type='text/javascript', src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js')
+      script(type='text/javascript').
+        (function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);
+      // End mc_embed_signup

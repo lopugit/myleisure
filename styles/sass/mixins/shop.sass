@@ -1,0 +1,716 @@
+#Shop
+	background-color: $gw
+	// background-color: $gc
+	position: relative
+	// background-color: darken($nav-bg-colour, 2)
+	padding: 15px 0px 100px 0px
+	display: flex
+	align-items: flex-start
+	justify-content: center
+	flex-direction: column
+	text-align: center
+	flex: 1 1 1
+	@media(max-width: 520px)
+		padding-top: 30px
+		padding-bottom: 100px
+	.container-fluid
+		text-align: center
+		width: 100%
+		display: flex
+		flex-wrap: wrap
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		.title-row
+			width: 100%
+			margin-bottom: 10px
+			.title-col
+				padding-left: 0px
+			.title-container
+				display: flex
+				flex-direction: column
+				align-items: flex-start
+				justify-content: flex-start
+				width: 100%
+				.shop-title
+					// color: white
+					color: rgba(black, .75)
+					// color: lighten($gc, 0)
+					font-size: 5rem
+					letter-spacing: 0.2rem
+					// letter-spacing: 1.3rem
+					font-family: futura-lt-heavy
+					text-align: left
+					display: block
+					text-transform: capitalize
+					align-items: center
+					width: 100%
+					padding-bottom: 15px
+					// +textshadows(4,lighten($gc, 16))
+					// +textshadows(4,lighten(rgba(black, .7), 16))
+					h2
+						width: auto
+						display: block
+						position: relative
+						font-family: inherit
+						text-align: center
+					h4
+						width: auto
+						display: block
+						position: relative
+						font-family: inherit
+						text-align: center
+						a
+							color: white
+							text-decoration: underline
+							cursor: pointer
+					@media(max-width: 600px)
+						padding-top: 15px
+						// letter-spacing: 5px
+				.tags
+					display: flex
+					align-items: flex-start
+					justify-content: flex-start
+					flex-direction: row
+					flex-wrap: wrap
+					width: 100%
+					max-width: 400px
+					.tag
+						// border-radius: 0px 0px 0px 0px
+						border-radius: 15px
+						background-color: $gc
+						color: $gw
+						padding: 8px 20px
+						padding-bottom: 5px
+						border: 2px solid $gc
+						margin: 5px
+						font-family: futura-lt-heavy
+						text-transform: uppercase
+						font-size: 1.2rem
+						+animate(all, 200ms, ease)
+						display: flex
+						align-items: center
+						justify-content: center
+						white-space: nowrap
+						width: auto
+						text
+							margin-top: -3px
+							color: inherit
+						&.activeTag
+							background: rgba(white, 0)
+							color: $gc
+						&:hover,
+						&:visited,
+						&:active
+							background: rgba(white, 0)
+							border-color: $gc
+							color: $gc
+							text
+								color: inherit
+						&.active
+							background: rgba(white, 0)
+							border-color: $gc
+							color: $gc
+							text
+								color: inherit
+						// &:first-child
+						// 	border-radius: 8px 0px 0px 8px
+						// &:last-child
+						// 	border-radius: 0px 8px 8px 0px
+	.shop-products
+		display: flex
+		justify-content: flex-start
+		align-items: flex-start
+		width: 100%
+		max-width: 100%
+
+		.shop-products-column
+			display: flex
+			justify-content: flex-start
+			align-items: flex-start
+			flex-wrap: wrap
+			flex-direction: row
+			// flex-grow: 1
+			padding: 20px
+			padding-left: 0px
+			padding-right: 0px
+			.product-container
+				width: auto
+				width: 29%
+				min-height: 300px
+				max-width: 420px
+				position: relative
+				background: rgba(white, 0)
+				height: auto
+				overflow: hidden
+				margin-right: 4%
+				margin-bottom: 100px
+				text-align: center
+				flex-grow: 1
+				align-self: flex-start
+				z-index: 450
+				border-radius: 0px 0px 10px 10px
+				box-shadow: 4px 0px 6px 0px rgba(black, .12), -4px 0px 6px 0px rgba(black, .12), 0px -3px 7px 0px rgba(black, .08)
+				+animate(all, 250ms, ease-out)
+				&:hover,
+				&:focus
+					box-shadow: 7px 0px 9px -3px rgba(black, .2), -7px 0px 9px -3px rgba(black, .2), 0px -4px 7px -1px rgba(black, .12), 0px 4px 7px -1px rgba(black, .12)
+				@media(max-width: 600px)
+					margin-top: 3%
+
+				.product-img-container
+					background: rgba(lighten(black, 93),0)
+					// border-radius: 3px
+					// padding: 3px
+					text-align: center
+					width: 100%
+					position: relative
+					line-height: 0px
+					// display: block
+					// height:
+					+animate(all,150ms,ease-out)
+					&:hover
+						background: rgba(darken($nav-bg-colour, 10),.2)
+						cursor: pointer
+						// .fake-chair
+						// 	div
+						// 		&:nth-child(3)
+						// 			height: 400% !important
+					.product-img-wrapper
+						width: 100%
+						height: 100%
+						position: relative
+						overflow: hidden
+						.product-img
+							background-size: cover !important
+							background-position: center !important
+							background-repeat: no-repeat !important
+							width: 100%
+							height: 100%
+						$item-height: 40px
+						$border-size: 2px
+						$sac: #FFF
+						$height: 35px
+						$button-ratio: 70%
+						.two-view-buttons
+							position: absolute
+							top: 38%
+							left: 39%
+							font-size: 10rem
+							color: rgba(white, .95)
+							opacity: 0
+							+animate(opacity, 300ms, ease)
+							.order-button
+								width: ($button-ratio - 0)
+								height: $height
+								line-height: $height
+								text-transform: uppercase
+								font-size: 1.3rem
+								font: futura-lt-heavy
+								letter-spacing: 2px
+								word-spacing: 0
+								text-align: center
+								color: $sac
+								background-color: $gc
+								border-radius: 3px
+								+animate(all, 100ms, ease-in)
+								// display: flex
+								// order: 1
+								// justify-content: center
+								// align-items: center
+								// flex-wrap: nowrap
+								display: block
+								float: left
+								-webkit-font-smoothing: antialiased
+								vertical-align: middle
+								cursor: pointer
+								border-radius: 0px
+								// +textshadows(3, $dgc)
+
+								&:hover
+									background-color: darken($gc, 5)
+									// border: solid $border-size $gc
+									color: darken($sac, 1.5)
+									cursor: pointer
+
+							.shop-cart-button
+								color: $gc
+								width: (100 - $button-ratio)
+								height: $height
+								line-height: $height
+								// display: flex
+								// order: 2
+								// justify-content: center
+								// align-items: center
+								// flex-wrap: nowrap
+								display: block
+								float: right
+								font: futura-lt-medium
+								letter-spacing: 2px
+								// top: 0
+								// right: 0
+								$dgc: #121F2A
+								background: $dgc
+								text-align: center
+								cursor: pointer
+								white-space: nowrap
+								border-radius: 0px 7px 7px 0px
+								-webkit-user-select: none
+								+animate(all, 100ms, ease-in-out)
+
+								.fa
+									+animate(all, 200ms, ease-in-out)
+
+								&:hover
+									background: darken($dgc, 1.5)
+									color: white
+
+
+									.fa
+										text-shadow: -1px 0px $gc, -2px 0px $gc, -3px 0px $gc, -4px 0px darken($gc,5), -5px 0px darken($gc,10), -6px 0px darken($gc,20), -7px 0px darken($gc, 30)
+										transform: translate(4px)
+
+						.item-popup
+							position: absolute
+							vertical-align: center
+							line-height: $item-height + 2
+							left: 5px
+							bottom: 5px
+							font-size: 14px
+							letter-spacing: 1px
+							text-transform: uppercase
+							font-family: futura-lt-light
+							color: $gc
+							width: 80%
+							height: $item-height
+							text-align: center
+							display: block
+							z-index: 5
+							background: rgba(#F7FCFD, .85)
+							animation: slideupout 300ms ease-out 1 forwards
+							display: block
+							&:hover
+								+animate(all, .5s, ease)
+								background: white
+							i
+								font-size: 18px
+						&:hover
+							.two-view-buttons
+								// opacity: 1
+						@media(max-width: #{$nav-collapse})
+							.two-buttons
+								.order-button
+									height: $height - 5px
+									line-height: $height - 5px
+									font-size: 1rem
+								.shop-cart-button
+									height: $height - 5px
+									line-height: $height - 5px
+
+
+					&.fake-chair-border
+						border-radius: 0px
+						border-bottom: 1px solid rgba(grey,.3)
+
+					.fake-chair
+						// display: block
+						// position: relative
+						div
+							&:nth-child(1)
+								position: absolute
+								left: $strut-box-left
+								top: $strut-box-top
+								width: $strut-width
+								height: $strut-height
+								background: $strut-colour
+								content: ""
+								// display: none
+								display: inline-block
+								border-radius: 8px 0px 8px 8px
+								// box-shadow: 3px 3px 0 0 rgba(black,.2)
+							&:nth-child(2)
+								position: absolute
+								left: $strut-box-left-2
+								top: $strut-box-top
+								height: $strut-height
+								width: $strut-width
+								background: $strut-colour
+								content: ""
+								// display: none
+								display: inline-block
+								border-radius: 0px 8px 8px 8px
+								// box-shadow: 3px 3px 0 0 rgba(black,.2)
+
+							&:nth-child(3)
+								position: absolute
+								left: $canopy-box-left - 1
+								top: $canopy-box-top
+								width: $canopy-width + 2
+								height: $canopy-height
+								background: rgba(0,0,0,0)
+								background-size: 100% auto !important
+								background-position: center !important
+								background-repeat: repeat-y !important
+								content: ""
+								display: inline-block
+								z-index: 200
+								$canopy-border-radius-tops: 3px
+								$canopy-border-radius-bots: 3px
+
+								// border-radius: 50%
+								border-radius: $canopy-border-radius-tops $canopy-border-radius-tops $canopy-border-radius-bots $canopy-border-radius-bots
+								// border: 3px solid darken(white, 50)
+								// &:hover
+								// 	height: 2000% !important
+							&:hover
+								opacity: 1
+
+				.product-details
+					display: block
+					position: relative
+					text-align: left
+					padding: 6px
+					padding-left: 8px
+					background: $gc
+					// margin-top: -4px
+					// border-radius: 0px 0px 10px 10px
+					// border-radius: 0px 0px 10px 10px
+					.product-header
+						// height: auto
+						width: 100%
+						display: flex
+						justify-content: space-between
+						padding-bottom: 5px
+						&:hover
+							text-decoration: none
+							cursor: pointer
+						.p-title
+							display: inline-block
+							font-family: futura-lt-heavy
+							font-size: 2.8rem
+							padding-left: 4px
+							// line-height: 1.2em
+							width: auto
+							color: white
+							margin-right: auto
+							// color: darken($gc,0)
+							text-shadow: 0px 3px 3px rgba(black, .17)
+							text-align: left
+							letter-spacing: 1px
+							text-transform: capitalize
+							// vertical-align: top
+						.soldout
+							position: absolute
+							top: 0
+							right: 0
+							display: block
+							border-radius: 8px
+							background: darken(red,5)
+							color: white
+							padding: 2px 7px
+							margin: 4px 4px 0px 0px
+							text-transform: uppercase
+							font-size: 1.1rem
+							font-family: futura-lt-heavy
+							letter-spacing: 1px
+							text-shadow: 0px 3px 3px rgba(black, .1)
+						.price
+							font-size: 3rem
+							// line-height: 2.5rem
+							letter-spacing: 0px
+							// display: inline-block
+							display: none
+							text-align: right
+							font-family: futura-lt-heavy
+							color: rgba(white,1)
+							+textshadows(3, $dgc)
+							// color: lighten(black,30)
+							vertical-align: bottom
+							// margin-left: -2px
+							.space
+								padding-left: 5px
+							.fa
+								color: lighten(black, 88)
+							.fa-plus-fa
+								font-size: .85rem
+								// padding-bottom: 2px
+								padding-left: 5px
+							.fa-local-shipping
+								font-size: 1.5rem
+								padding-left: 1px
+							//WTF
+							// @media (max-width: 800px)
+							// 	.fa-local-shipping
+							// 		font-size: .8rem !important
+							// 	.fa-plus-fa
+							// 		font-size: .5rem !important
+						@media(max-width: #{$nav-collapse})
+							.p-title
+								font-size: 2.5rem
+							.price
+								font-size: 2.5rem
+					.options
+						$bgsize: 45px
+						$shopfont: 8px
+						display: block
+						margin-top: 7px
+						// padding-bottom: 12px
+						font-size: $shopfont
+						color: white
+						font-family: futura-lt-medium
+						letter-spacing: 1px
+						// color: darken($gc,10)
+						padding: 0 3px 12px 3px
+						text-align: left
+						text-transform: uppercase
+
+						&>div
+							cursor: pointer
+							margin-right: 18px
+						&>*>div
+							// border: 2px solid rgba($dgc, .3)
+							border-radius: 50%
+							box-shadow: 0px 6px 5px -2px rgba(black, .12)
+						&>*>span
+							color: lighten($gc, 50)
+							text-transform: capitalize
+							font-family: futura-lt-heavy
+							font-size: 1.3rem
+							margin-top: 5px
+							padding-left: 2px
+							text-shadow: 0px 3px 4px rgba(black, .1)
+						.cart-root
+							text-align: center
+							display: inline-block
+							vertical-align: middle
+							max-width: 98%
+							// &:hover
+							// 	>.cart-circle
+							// 		width: 200px
+							// 		border-radius: 1px
+							// 		border: none
+							// 		background-size: 120% !important
+							// 		background-position: 90% 33% !important
+							// 		// border-radius: 2px 50% 2px 2px
+							>.cart-circle
+								width: $bgsize
+								height: $bgsize
+								// background-size: 150% !important
+								// background-position: center center !important
+								// background-repeat: no-repeat !important
+								display: flex
+								justify-content: center
+								align-items: center
+								overflow: hidden
+								margin: auto
+								max-width: 100%
+								+animate(all, 200ms, ease)
+								i
+									font-size: 2rem
+									+textshadows(3, $dgc)
+									color: rgba(white,.98)
+							span
+								display: block
+						.finish
+							text-align: center
+							display: inline-block
+							vertical-align: middle
+							max-width: 50%
+							&:hover, &:focus, &:visited, &:active
+								.finish-circle
+									// width: 150px
+									// max-width: 50%
+									// border-radius: 1px
+									// border: 0px solid rgba($dgc, 0)
+									// width: $bgsize + 20
+									// height: $bgsize + 20
+									// background-size: 130% !important
+									// background-position: 60% 40% !important
+									// margin: 0
+									// border-radius: 2px 50% 2px 2px
+							.finish-circle
+								width: $bgsize
+								height: $bgsize
+								// background-size: 150% !important
+								// background-position: center center !important
+								background-size: 600% !important
+								background-position: 50% 55% !important
+								background-repeat: no-repeat !important
+								display: block
+								overflow: hidden
+								margin: auto
+								max-width: 100%
+								+animate(all, 200ms, ease)
+
+							span
+								display: block
+						.pattern-option
+							display: inline-block
+							text-align: center
+							@media(max-width: 500px)
+								margin-left: 1px
+							vertical-align: middle
+							height:    100%
+							max-width: 45%
+							width: 45%
+							// &:hover, &:focus, &:visited, &:active
+							// 	>.pattern-circle
+									// // width: 150px
+									// margin: 0
+									// border: 0px solid rgba($dgc, 0)
+									// border-radius: 5px
+							>.pattern-circle
+								margin: auto
+								display: block
+								// width: $bgsize
+								// height: $bgsize
+								width: 100%
+								height: $bgsize
+								vertical-align: top
+								background-size: 110% !important
+								background-position: center center !important
+								background-repeat: repeat !important
+								border-radius: 5px
+								max-width: 100%
+								+animate(all, 200ms, ease)
+							span
+								display: block
+						// @media(max-width: #{$nav-collapse})
+						// 	.pattern-circle
+						// 		width: 250px !important
+						// 		border-radius: 0
+						// 	.finish-circle
+						// 		width: 250px !important
+						// 		border-radius: 0
+						// 		background-size: 120% !important
+						// 		background-position: 90% 10% !important
+
+
+					$item-height:35px
+					$border-size: 2px
+					$sac: #FFF
+					$height: 30px
+					$button-ratio: 70%
+					.two-buttons
+						position: relative
+						line-height: $item-height + 2
+						margin: 5px
+						margin-top: 15px
+						font-size: 14px
+						letter-spacing: 1px
+						text-transform: uppercase
+						font-family: futura-lt-light
+						color: $gc
+						width: 80%
+						max-width: 220px
+						height: $item-height
+						text-align: center
+						display: block
+						z-index: 200
+						display: block
+
+						.order-button
+							width: ($button-ratio - 0)
+							height: $height
+							line-height: $height
+							text-transform: uppercase
+							font-size: 1.3rem
+							font-family: futura-lt-heavy
+							// letter-spacing: 2px
+							word-spacing: 0
+							text-align: center
+							color: rgba(black, .8)
+							background-color: white
+							+animate(all, 250ms, ease-in)
+							border-radius: 4px
+							display: block
+							float: left
+							-webkit-font-smoothing: antialiased
+							vertical-align: middle
+							cursor: pointer
+							margin-top: 10px
+							box-shadow: 0px 5px 4px -2px rgba(black, .15)
+							// border-radius: 0px
+							// +textshadows(2, $dgc)
+
+							&:hover
+								// background-color: darken($gc, 5)
+								// border: solid $border-size $gc
+								// color: darken($sac, 1.5)
+
+								box-shadow: 0px 5px 5px -3px rgba(black, .12)
+								color: lighten(black, 30)
+								cursor: pointer
+
+							&.soldout
+								color: lighten(rgba(red, .9), 11)
+								&:hover
+									background: $gw
+									color: lighten(rgba(red, .9), 11)
+								// font-family: futura-lt-medium
+						.shop-cart-button
+							color: $gc
+							width: (100 - $button-ratio)
+							height: $height
+							line-height: $height
+							// display: flex
+							// order: 2
+							// justify-content: center
+							// align-items: center
+							// flex-wrap: nowrap
+							display: block
+							float: right
+							font: futura-lt-medium
+							letter-spacing: 2px
+							// top: 0
+							// right: 0
+							$dgc: #121F2A
+							background: $dgc
+							text-align: center
+							cursor: pointer
+							white-space: nowrap
+							border-radius: 0px 7px 7px 0px
+							-webkit-user-select: none
+							+animate(all, 100ms, ease-in-out)
+
+							.fa
+								+animate(all, 200ms, ease-in-out)
+
+							&:hover
+								// background: darken($dgc, 1.5)
+								color: white
+
+
+								.fa
+									text-shadow: -1px 0px $gc, -2px 0px $gc, -3px 0px $gc, -4px 0px darken($gc,5), -5px 0px darken($gc,10), -6px 0px darken($gc,20), -7px 0px darken($gc, 30)
+									transform: translate(4px)
+
+
+					@keyframes slideup
+						0%
+							margin-bottom: - $item-height
+						100%
+							margin-bottom: 45%
+
+					@keyframes slideupout
+						0%
+							margin-bottom: 45%
+
+						100%
+							margin-bottom: - $item-height - 5px
+			@media(max-width: 910px)
+				.product-container
+					width: 44%
+					max-width: 44%
+
+			@media(max-width: 560px)
+				width: 100%
+				.product-container
+					margin: 2px
+					margin-bottom: 20px
+					width: 100%
+					max-width: 100%
+	.no-products
+		color: rgba(black, .7)
+		// @for $i from 1 through 15
+		// 	+canopy(100%, $i, nth($colour-array, random(length($colour-array))))

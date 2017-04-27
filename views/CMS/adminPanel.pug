@@ -1,0 +1,94 @@
+html
+  body
+    #adminPanel.active
+      .close-button
+        | x
+      .tag.inactive
+        i.fa.fa-chevron-right-oi
+      .title-sec
+        -if(user)
+          h4 Hello 
+            span(style="text-transform: capitalize") #{user.username} :)
+          h6 It appears you're an administrator of 
+            a(href=siteurl, style="color: white") #{site}
+        
+        a(href="/Logout", style="color: white") logout
+        .hide-nav(onclick="hideNav()") toggle nav
+      .controls
+        
+        .sub-menu#blogs
+          .button-container
+            .button(onclick="showAllChildren(this)")
+              .title-cont
+                .title blogs
+                .detail-cont
+                  .detail 
+                    span= blogCount
+            .actions-cont
+              .action.add(onclick="addBlog(this)")
+                span add
+              .action.view(onclick="showAllChildren(this)")
+                span view
+          .content
+            each blog, key in blogs
+              .button-container
+                .button(onclick="editThisBlog(this)", data-id=blog.id)
+                  .thumbnail-cont
+                    .thumbnail
+                      img(data-original= blog.image.url)
+                  .title-cont
+                    .title= blog.title.text
+                    .date-created= blog.dateCreated.formatted
+                    .author= blog.author.firstName + ' ' + blog.author.lastName
+                .actions-cont
+                  .action.edit(onclick="editThisBlog(this)", data-id=blog.id)
+                    span edit
+                  .action.view(onclick="editThisBlog(this)", data-id=blog.id)
+                    span view
+                  .action.scrap(onclick="scrapThisBlog(this)", data-id=blog.id) 
+                    span scrap
+                  
+        .sub-menu#products
+          .button-container
+            .button(onclick="showAllChildren(this)")
+              .title-cont
+                .title products
+                .detail-cont
+                  .detail 
+                    span= productCount
+            .actions-cont
+              .action.add
+                span(onclick="addProduct(this)") add
+              .action.view
+                span(onclick="showAllChildren(this)") view
+          .content
+            each product, key in products
+              .button-container
+                .button(onclick="editThisProduct(this)")
+                  .title-cont
+                    .title= product.title
+                    //- .date-created= product.dateCreated.formatted
+                .actions-cont
+                  .action.edit
+                    span(onclick="editThisProduct(this)") edit
+                  .action.view
+                    span(onclick="editThisProduct(this)") view
+                  .action.scrap
+                    span(onclick="scrapThisProduct(this)") scrap
+        .sub-menu
+          .button-container
+            .button 
+              .title-cont
+                .title accounts
+        
+        .sub-menu
+          .button-container
+            .button 
+              .title-cont
+                .title pages
+        .sub-menu
+          .button-container
+            .button 
+              .title-cont
+                .title scrapped
+  

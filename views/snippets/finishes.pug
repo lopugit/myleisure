@@ -1,0 +1,21 @@
+html
+	body
+		section#finishes.clearfix.available-finishes
+
+			.container-fluid.finishes-gallery
+				.row.finishes-row
+					//- .col-xs-24
+					//-   .col-md-5.col-md-offset-2.finish-title-container
+					//-     .h1.title Finishes
+							//- a(href='/Possibilities#Finishes').subtitle Commercial Options
+					.col-xs-24.col-md-12.col-md-offset-6.finishes-slider
+						each finish in finishes
+							each tag in finish.tags
+								-if(tag === finishesTag)
+
+									.each-finish-container.clearfix
+										img(data-original= finish.url, data-original-set= finish.url , sizes='100vw, 100vw', alt='Lettini Sun Lounger with frame finish option ' + finish.url).finishes-img.finish-img
+										.each-finish-label
+											.each-finish-title= finish.finish
+											//- a(href="/Shop" + finish.finish).each-finish-more-btn options
+											a(href="/Shop?frame="+finish.finish+"?utm=finishoptionshomelink").each-finish-more-btn options

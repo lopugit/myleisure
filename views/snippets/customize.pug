@@ -1,0 +1,122 @@
+html
+  body
+    section#LettiniBuilder
+      .container-fluid
+        .row.shop-title
+          h2 customize your own
+          |             
+          h4
+            | or visit the 
+            a(href='/shop', style="font-size: 2rem; padding-top: 2px") store
+      |     
+      #LettiniBuilder.container-fluid.lettini-builder
+        .row.builder-row
+          .product-col
+            .product-thumb-slider
+              div
+                img#productImage1.product-image(sizes='100vw')
+              |                     
+              div
+                img#productImage2.product-image(sizes='100vw')
+                img#productImage2.product-image(sizes='100vw')
+              |                     
+              div
+                img#productImage3.product-image(sizes='100vw')
+              |                     
+              div
+                img#productImage4.product-image(sizes='100vw')
+              |                     
+              div
+                img#productImage5.product-image(sizes='100vw')
+            //
+              <div>
+              <div>
+              <img id="productImageThumb1" class="product-for-image" />
+              </div>
+              <div>
+              <img id="productImageThumb2" class="product-for-image" />
+              </div>
+              <div>
+              <img id="productImageThumb3" class="product-for-image" />
+              </div>
+              <div>
+              <img id="productImageThumb4" class="product-for-image" />
+              </div>
+              <div>
+              <img id="productImageThumb5" class="product-for-image" />
+              </div>
+              </div>
+          |             
+          #configurator.configurator.clearfix
+            h1.product-title Lettini
+            |                 
+            .product-rating
+              i.fa.fa-star
+              |                     
+              i.fa.fa-star
+              |                     
+              i.fa.fa-star
+              |                     
+              i.fa.fa-star
+              |                     
+              i.fa.fa-star
+            |                 
+            h1.product-subtitle
+              span#sizeConf Classic
+              |  / 
+              span#patternConf S B B
+              |  / 
+              span#frameConf Silver
+            |                 
+            h1.product-price
+              // <span id="markdown">$349</span>
+              span#price $349.99
+            |                 
+            h1.product-description Description
+            |                 
+            p#product-description.product-description-content
+              | This portable aluminium sun lounge for beach and swimming pool with adjustable sun glare blocking canopy. Protects from the strong Australian sun, blocking 99% of UV rays. Let&apos;s you enjoy your phone, tablet or magazine without sun glare. Lightweight ( 7kg ) but stable. Frame made entirely in 16 micron primary anodised aluminium, guaranteed 10 summer seasons. PVC-covered blue polyester cloth and sunshade that can be changed but can last for up to 25 years.
+            |                 
+            .product-options
+              .pattern-container
+                h1.config-title pattern
+                |                         
+                #patternsConfigList.patterns
+              |                     
+              .frame-container
+                h1.config-title frames
+                |                         
+                #framesConfigList.frames
+              //
+                <div class="qty-container">
+                <h1 class="config-title">qty</h1>
+                <div class="qty">
+                <select id="qtyConfig">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                </select>
+                </div>
+                <h1 class="shipping-title config-title">shipping</h1>
+                <div class="shipping">
+                <select id="shippingConfig">
+                <option value="$0">Pickup (Free)</option>
+                <option value="$20">Victoria (Calculated)</option>
+                <option value="$50">Interstate (Calculated)</option>
+                </select>
+                </div>
+                </div>
+            |                 
+            #buyButtons.clearfix
+              #replaceWithId.two-buttons
+                #mg-240.order-button 
+                  span.order-button-text add to cart                   
+                .shop-cart-button
+                  i.fa.fa-shopping-cart
+            // <h4 class="your-lettini">Your Lettini:</h4>

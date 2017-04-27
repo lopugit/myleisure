@@ -1,0 +1,44 @@
+#show-case-gallery
+	position: relative
+	display: block
+	height: 65vh
+	padding-bottom: 1px
+	.parallax-sci
+		height: 100%
+		background: transparent
+		background-repeat: no-repeat
+		background-size: cover
+	.buttons-container
+		display: flex
+		position: absolute
+		top: 0
+		height: 100%
+		width: 100%
+		align-items: flex-end
+		justify-content: flex-end
+		div
+			position: relative
+			display: block
+			width: auto
+			height: auto
+			background: rgba($gc,.5)
+			cursor: pointer
+			margin-bottom: 1px
+			+animate(all, 200ms, ease)
+			&:hover
+				background: rgba(white,.78)
+				.fa
+					color: $gc
+			.fa
+				font-size: 3.5rem
+				color: white
+				// padding-bottom: 10px
+		
+		.left-button
+			// margin-left: 20px
+			padding: 8px 15px 8px 10px
+			// margin-bottom: 10px
+		.right-button
+			// margin-left: auto
+			padding: 8px 10px 8px 15px			
+			margin-right: 100px

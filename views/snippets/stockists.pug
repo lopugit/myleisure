@@ -1,0 +1,18 @@
+html
+  body
+    #stockists
+      .splash-image
+        img(data-original="/img/splash/hq/noosa.jpeg")
+      .stockists-container
+        //- h2.title stockists
+        iframe(src="https://www.google.com/maps/d/u/0/embed?mid=1HqThuqhNCHb6lzFwIqip7JXwa_E")
+          
+        .get-in-touch.container-fluid#applyhere
+          .row
+            .col-lg-18.col-lg-offset-3
+              .title Want to stock Lettinis?
+              form(action="/stockists", method="post", id="stockistApplication", name="stockistApplication", novalidate="")
+                #inputs
+                  input(type="email", id="email", name="email", placeholder="Leave your email and we'll be in touch shortly")
+                  input(type="submit", id="submit", value="send") 
+                #success

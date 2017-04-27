@@ -1,0 +1,748 @@
+#gallery
+	position: relative
+	display: block
+	background: darken($gw, 2)
+	padding-top: 50px
+	padding-bottom: 70px
+	// padding: 20px 100px 70px 100px
+	max-height: 800px
+	overflow: hidden
+	z-index: 20
+	opacity: .999
+	&.no-max
+		max-height: none !important
+		.gallery-extend
+			opacity: .3 !important
+		.more-imgs
+			display: none !important
+		.less-imgs
+			display: block !important
+	.fade
+		position: absolute
+		bottom: 0
+		left: 0
+		display: block
+		width: 100%
+		height: 100px
+		z-index: 200
+		opacity: 1
+		cursor: pointer
+		.fade-fill
+			display: flex
+			justify-content: center
+			align-items: center
+			position: relative
+			z-index: 250
+			opacity: 1
+			background: linear-gradient(180deg, rgba(0,0,0,0) 25%, rgba(white, 1))
+			width: 100%
+			height: 100%
+			cursor: pointer
+			transition: opacity 500ms ease-out
+			&:hover
+				transition: opacity 500ms ease-out
+				opacity: .8
+				background: linear-gradient(180deg, rgba(0,0,0,0) 25%, rgba(white, .8))
+				.gallery-extend
+					transition: opacity 200ms ease-out
+					opacity: 1
+			.gallery-extend
+				opacity: .2
+				font-size: 2rem
+				text-transform: uppercase
+				color: rgba(black,.8)
+				letter-spacing: 4px
+				margin-bottom: -15px
+				font-family: futura-lt-heavy
+				transition: opacity 200ms ease-out
+				.more-imgs
+					display: block
+				.less-imgs
+					display: none
+	@media(max-width: 800px)
+		padding: 20px 0px 70px 0px
+	// max-height: 2500px
+	overflow: hidden
+	.button-container
+		padding: 15px 0px
+		display: flex
+		position: relative
+		justify-content: center
+		align-items: center
+		flex-wrap: wrap
+		$bc: rgb(250, 215, 67)
+		$bac: rgb(240, 206, 62)
+		$br: 18px
+		.btn
+			padding: 6px 32px
+			margin: 12px
+			width: auto
+			height: auto
+			background: darken(white,1)
+			border: 2px solid darken(white, 12)
+			border-radius: $br
+			text-transform: capitalize
+			text-align: center
+			font-size: 1.5rem
+			display: block
+			position: relative
+			@media(max-width: 610px)
+				font-size: 1.3rem
+				margin: 4px 4px
+				padding: 3px 15px
+			font-family: futura-lt-light
+			color: lighten(black, 0)
+			+animate(all, 300ms, ease-out)
+			overflow: hidden
+			box-sizing: border-box
+			span
+				position: relative
+				z-index: 25 !important
+			&:hover, &:focus, &:active, &:visited
+				// background: rgba(darken($gc, 0), 1)
+				// color: darken(white, 0)
+				// border: 2px solid darken($gc, 6)
+				background: $bc
+				border: 2px solid $bac
+				color: darken(white, 0)
+				&.red
+					background: rgb(244, 15, 76)
+					border: 2px solid rgb(222, 13, 69)
+				&.blue
+					background: rgb(15, 182, 244)
+					border: 2px solid rgb(14, 173, 232)
+				&.beach
+					border: 2px solid rgb(42, 181, 232)
+					background: rgb(11, 164, 250)
+					border-radius: $br 0px 12px $br
+					.btn-wave
+						display: block
+			// .btn-wave
+			// 	+animate(all, 300ms, ease)
+			&.beach
+				border: 2px solid rgb(42, 181, 232)
+				background: rgb(11, 164, 250)
+				border-radius: $br 0px 12px $br
+				color: darken(white, 0)
+				.btn-wave
+					display: block
+					opacity: .4
+					position: absolute
+					top: 5px
+					right: 5px
+					background: rgb(176, 255, 28)
+					width: 50px
+					height: 50px
+					@media(max-width: 610px)
+						width: 40px
+						height: 40px
+					margin-right: -15%
+					margin-top: -22%
+					z-index: 15
+					transform-origin: 50% 46%
+					border-radius: 46%
+					animation: drift 3000ms infinite linear
+					&.-one
+						opacity: .1
+						// display: block
+					&.-two
+						// display: block
+						opacity: .1
+						animation: drift 2500ms infinite linear
+
+					&.-three
+						// display: block
+						animation: drift 4400ms infinite linear
+						opacity: .4
+						background: rgb(246, 206, 33)
+					&.-four
+						// display: block
+						animation: drift 2500ms infinite linear
+						opacity: .7
+						background: rgb(224, 241, 29)
+					&.-five
+						// display: block
+						animation: drift 3800ms infinite linear
+						opacity: .8
+						background: rgb(255, 245, 10)
+					&.-six
+						// display: block
+						animation: drift 3000ms infinite linear
+						opacity: .15
+						background: rgb(237, 138, 149)
+					&.-seven
+						// display: block
+						animation: drift 3400ms infinite linear
+						opacity: .6
+						background: rgb(255, 144, 29)
+					&.-eight
+						// display: block
+						animation: drift 2800ms infinite linear
+						opacity: .55
+						background: rgb(254, 173, 36)
+
+
+			&.blue
+				border-radius: $br $br 0px $br
+				background: rgb(15, 182, 244)
+				border: 2px solid rgb(14, 173, 232)
+				color: darken(white, 0)
+				.btn-wave
+					opacity: .4
+					position: absolute
+					top: 0
+					left: 15px
+					background: #0af
+					width: 250px
+					height: 250px
+					margin-left: -55%
+					margin-top: 22%
+					z-index: 15
+					transform-origin: 50% 49%
+					border-radius: 49%
+					display: none
+					animation: drift 3000ms infinite linear
+					&.-one
+						display: block
+						animation: drift 3000ms infinite linear
+						background: rgb(14, 159, 205)
+					&.-two
+						display: block
+						animation: drift 2500ms infinite linear
+
+					&.-three
+						display: block
+						animation: drift 2900ms infinite linear
+						opacity: .2
+						background: rgb(141, 245, 210)
+					&.-four
+						display: block
+						animation: drift 3500ms infinite linear
+						opacity: .2
+						background: rgb(33, 35, 255)
+					&.-five
+						display: block
+						animation: drift 2500ms infinite linear
+						opacity: .3
+						background: rgb(59, 212, 129)
+						z-index: 14
+
+		.active
+			background: $bc
+			border: 2px solid $bac
+			color: darken(white, 0)
+			// border: 2px solid darken($gc, 6)
+			// background: rgba(darken($gc, 0), 1)
+			&.red
+				background: rgb(244, 15, 76)
+				border: 2px solid rgb(222, 13, 69)
+			&.blue
+				background: rgb(15, 182, 244)
+				border: 2px solid rgb(14, 173, 232)
+			&.beach
+				border-radius: $br 0px 12px $br
+				border: 2px solid rgb(42, 181, 232)
+				background: rgb(11, 164, 250)
+				.btn-wave
+					display: block
+
+
+
+	.gallery
+		background: rgba(darken(white,2),0)
+		z-index: 10
+		&:after
+			content: ''
+			display: block
+			clear: both
+		$grid-size: 20%
+		@media(max-width: 1200px)
+			.grid-sizer, .img-holder
+				width: 33% !important
+			.img-holder
+				padding: .6rem !important
+		@media(max-width: 610px)
+			.grid-sizer, .img-holder
+				width: 50% !important
+		@media(max-width: 380px)
+			.grid-sizer, .img-holder
+				width: 100% !important
+		.grid-sizer
+			width: $grid-size
+		.img-holder
+			padding: .5rem
+			float: left
+			width: $grid-size
+			cursor: pointer
+			display: block
+			// overflow: hidden
+			&.hidden
+				display: none
+			&:hover
+				.gallery-img-holder
+					+animate(opacity, 200ms, ease)
+					opacity: .86
+					&::before
+						opacity: .35
+						// transform: translate(-3px, -3px)
+						animation: opacityBackground 300ms 1 forwards !important
+
+					.fa
+						animation: opacityFull 350ms 1 forwards !important
+					.caption
+						// padding-bottom: 8px !important
+				img
+					// transform: translate(-2px, -2px)
+					// box-shadow: 6px 6px 0 0 rgba($gc,.85)
+			.gallery-img-holder
+				position: relative
+				display: block
+				&::before
+					animation: opacityBackgroundLeave 300ms 1 forwards
+					opacity: 0
+					content: ""
+					display: none
+					position: absolute
+					left: 0
+					top: 0
+					width: 100%
+					height: 100%
+					border-radius: 3px
+					background: linear-gradient(to left,#736c40,#415c5e) !important
+				.icon-holder
+					display: flex
+					justify-content: center
+					align-items: center
+					position: absolute
+					top: 0
+					left: 0
+					width: 100%
+					height: 100%
+					overflow: hidden
+					.fa
+						animation: opacityFullLeave 350ms 1 forwards
+						opacity: 0
+						font-size: 70px
+						color: rgba(lighten(black,25),.9)
+						z-index: 45
+				.caption
+					+animate(all, 200ms, ease-out)
+					position: absolute
+					bottom: 0
+					left: 0
+					// display: block
+					display: none
+					width: 100%
+					$height: auto
+					height: $height
+					// background: linear-gradient(to left,#734b40,#414f5e) !important
+					// background: linear-gradient(to left,#f9bc20,#734b40) !important
+					background: rgba(30, 92, 173, 0) !important
+					opacity: 1
+					padding: 3px 10px
+					text-align: right
+					font-family: futura-lt-medium
+					font-size: 10px
+					color: rgb(255, 222, 0)
+					// color: white
+					// text-transform: capitalize
+					text-transform: uppercase
+					line-height: $height
+					vertical-align: middle
+					-webkit-font-smoothing: antialiased
+					@media(max-width: 610px)
+						font-size: 12px
+						padding: 4px 10px
+					a
+						color: inherit
+						opacity: 1 !important
+						&:hover
+							color: darken(white, 2)
+			img
+				display: block
+				max-width: 100%
+				width: 100%
+				height: 100%
+				max-height: 100%
+				z-index: 35
+				// border: 2px solid rgba(rgb(56, 105, 237),0)
+				border-radius: 3px
+				// box-shadow: 3px 3px 0 0 rgba($gc, 1)
+				+animate(all, 200ms, ease)
+	.wave
+		opacity: .4
+		position: absolute
+		top: 0
+		left: 0
+		background: #0af
+		width: 3000px
+		height: 3000px
+		margin-left: -25%
+		margin-top: 20%
+		z-index: 9
+		transform-origin: 50% 48%
+		border-radius: 49%
+		animation: drift 3000ms infinite linear
+
+		&.-two
+			animation: drift 2500ms infinite linear
+
+		&.-three
+			animation: drift 3800ms infinite linear
+			opacity: .1
+			background: green
+		&.-four
+			animation: drift 4500ms infinite linear
+			opacity: .1
+			background: rgb(53, 195, 152)
+		&.-five
+			animation: drift 5000ms infinite linear
+			opacity: .1
+			background: #26a4f5
+		&.-six
+			animation: drift 4100ms infinite linear
+			opacity: .1
+			background: rgb(246, 207, 90)green
+
+@keyframes drift
+	from
+		transform: rotate(0deg)
+	from
+		transform: rotate(360deg)
+
+.gallery-modal
+	width: 100%
+	height: 100vh
+	position: fixed
+	top: 0
+	left: 0
+	display: none
+	background: rgba(40, 40, 40, 0.66)
+	z-index: 10000
+	&.active
+		display: block
+	.imgs-container
+		width: 100%
+		height: 100%
+		padding: 10px
+		display: flex
+		position: relative
+		justify-content: center
+		align-items: center
+		.inside-img-container
+			width: 100%
+			height: 100%
+			display: flex
+			position: relative
+			align-items: center
+			justify-content: center
+			text-align: center
+			img
+				// position: absolute
+				// top: 0
+				// left: 0
+				box-shadow: 0 0 0 1px black
+				// border: 1px solid rgba(7,17,31,.7)
+				object-fit: contain
+				max-width: 100%
+				max-height: 100%
+				height: auto
+				width: auto
+				z-index: 9999 !important
+				display: none
+				opacity: 1
+				// transform: translateY(500%)
+				&.hidden
+					display: none
+				&.vh
+					animation: fadeBack 300ms 1 forwards ease-out
+				// &.vh-left
+				// 	animation: galImgLeftExit 700ms 1 forwards ease
+				// &.vh-right
+				// 	animation: galImgRightExit 700ms 1 forwards ease
+
+				// padding: 1px
+				// background: black
+				&.left
+					// display: block
+					animation: galImgLeftEnter 500ms 1 forwards ease !important
+				&.right
+					// display: block
+					animation: galImgRightEnter 500ms 1 forwards ease !important
+				&.active
+					// opacity: 1 !important
+					display: block
+					z-index: 10000
+					animation: galImgLeftEnter 500ms 1 forwards ease
+					// animation: none !important
+	.buttons-container
+		position: absolute
+		display: flex
+		justify-content: center
+		align-items: center
+		top: 0
+		left: 0
+		height: 100%
+		width: 100%
+		.arrow-container
+			display: flex
+			align-items: center
+			justify-content: center
+			height: 100%
+			width: 90px
+			cursor: pointer
+			z-index: 10001
+			+animate(all, 300ms, ease-out)
+			&:hover
+				&.left
+					&::after
+						background: linear-gradient(to right, rgba(51, 87, 135, .5), rgba(0,0,0,0)) !important
+						opacity: 1 !important
+					transform: translateX(-10px)
+				&.right
+					&::after
+						background: linear-gradient(to left, rgba(51, 87, 135, .5), rgba(0,0,0,0)) !important
+						opacity: 1 !important
+					transform: translateX(10px)
+				.arrow-button
+					opacity: 1
+			&.left
+				margin-right: auto
+				&::after
+					content: ""
+					display: block
+					position: absolute
+					top: 0
+					left: 0
+					background: linear-gradient(to right, rgba(51, 87, 135, .5), rgba(0,0,0,0)) !important
+					+animate(all, 300ms, ease-out)
+					width: 90px
+					height: 100%
+					opacity: 0
+
+			&.right
+				&::after
+					content: ""
+					display: block
+					position: absolute
+					top: 0
+					right: 0
+					background: linear-gradient(to left, rgba(51, 87, 135, .5), rgba(0,0,0,0)) !important
+					+animate(all, 300ms, ease-out)
+					width: 90px
+					height: 100%
+					opacity: 0
+				margin-left: auto
+			.arrow-button
+				z-index: 10002
+				display: flex
+				align-items: center
+				justify-content: center
+				position: relative
+				border-radius: 50%
+				background: rgba(41, 53, 88, 0.94)
+				width: 50px
+				height: 50px
+				opacity: .85
+				@media(max-width: 600px)
+					width: 35px
+					height: 35px
+					opacity: .5
+				+animate(all, 200ms, ease-out)
+				// opacity: .7 !important
+				.fa
+					color: white
+					font-size: 20px
+				&.left
+					margin-left: 10px
+					@media(max-width: 610px)
+						margin-left: -30px
+				&.right
+					margin-right: 10px
+					@media(max-width: 610px)
+						margin-right: -30px
+
+	.close-container
+		z-index: 10003
+		width: 350px
+		height: 125px
+		position: absolute
+		top: 0
+		right: 0
+		.close-button
+			z-index: 10003
+			display: flex
+			align-items: center
+			justify-content: center
+			align-self: flex-start
+			// justify-self: flex-end
+			position: absolute
+			top: 70px
+			right: 20px
+			border-radius: 50%
+			background: rgba(41, 53, 88, 0.94)
+			width: 30px
+			height: 30px
+			cursor: pointer
+			+animate(background, 500ms, ease-out)
+			&:hover
+				.fa
+					transform: rotate(180deg)
+					color: red !important
+				&.close-button
+					background: white
+			.fa
+				+animate(all, 400ms, ease-out)
+				color: white
+				font-size: 20px
+	.dots-container
+		width: 100%
+		height: 40px
+		position: absolute
+		bottom: 25px
+		display: flex
+		justify-content: center
+		align-items: center
+		.dots
+			padding: 5px
+			display: flex
+			align-items: center
+			justify-content: center
+			z-index: 10003
+			.dot
+				$dot-size: 16px
+				$small-offset: 8px
+				border-radius: 50%
+				height: $dot-size
+				width: $dot-size
+				@media(max-width: 610px)
+					height: $dot-size - 6
+					width: $dot-size - 6
+					margin: 2px
+				background: rgba(30, 43, 78, 0.9)
+				display: flex
+				align-items: center
+				justify-content: center
+				margin: 3px
+				cursor: pointer
+				&:hover
+					.fill
+						display: block
+						height: $dot-size - $small-offset
+						width: $dot-size - $small-offset
+						@media(max-width: 610px)
+							height: ($dot-size - $small-offset) - 2px !important
+							width: ($dot-size - $small-offset) - 2px !important
+						border-radius: 50%
+						background: rgba(246, 246, 246, 0.92)
+						opacity: 1
+				.fill
+					height: 0px
+					width: 0px
+					opacity: 0
+					+animate(all, 300ms, ease-out)
+				&.active
+					.fill
+						display: block
+						height: $dot-size - $small-offset
+						width: $dot-size - $small-offset
+						@media(max-width: 610px)
+							height: ($dot-size - $small-offset) - 2px !important
+							width: ($dot-size - $small-offset) - 2px !important
+						border-radius: 50%
+						background: rgba(246, 246, 246, 0.92)
+						opacity: 1
+
+@keyframes opacityBackground
+	0%
+		opacity: 0
+	100%
+		opacity: .5
+@keyframes opacityBackgroundLeave
+	0%
+		opacity: .5
+	100%
+		opacity: 0
+@keyframes opacityFull
+	0%
+		opacity: 0
+		margin-bottom: -100px
+	100%
+		opacity: 1
+		margin-bottom: 0px
+@keyframes opacityFullLeave
+	0%
+		opacity: 1
+		margin-bottom: 0px
+	100%
+		opacity: 0
+		margin-bottom: -100px
+
+@keyframes dotsRight
+	0%
+		transform: translateX(-100%)
+	100%
+		transform: translateX(0%)
+@keyframes dotsLeft
+	0%
+		transform: translateX(100%)
+	100%
+		transform: translateX(0%)
+
+@keyframes galImgRightEnter
+	0%
+		display: block
+		transform: translateX(120%)
+		opacity: 0
+	// 20%
+	// 	opacity: 0
+	90%
+		opacity: 1
+	100%
+		opacity: 1
+		display: block
+		transform: translateX(0%)
+@keyframes galImgLeftEnter
+	0%
+		display: block
+		transform: translateX(-120%)
+		opacity: 0
+	// 20%
+	// 	opacity: 0
+	90%
+		opacity: 1
+	100%
+		opacity: 1
+		display: block
+		transform: translateX(0%)
+@keyframes fadeBack
+	0%
+		opacity: 1
+		display: block !important
+	99%
+		display: block !important
+	100%
+		opacity: 0
+		display: none
+
+
+
+@keyframes galImgRightExit
+	0%
+		transform: translateX(0%)
+		opacity: 1
+	65%
+		opacity: 0
+	100%
+		opacity: 0
+		transform: translateX(-200%)
+
+@keyframes galImgLeftExit
+	0%
+		transform: translateX(0%)
+		opacity: 1
+	65%
+		opacity: 0
+	100%
+		opacity: 0
+		transform: translateX(200%)

@@ -1,0 +1,718 @@
+nav
+	position: relative
+	display: block
+	font-size: 1.1em
+	text-transform: capitalize
+	font-family: futura-lt-light !important
+	letter-spacing: 0px
+	width: 100%
+	// height: $nav-height
+	height: $nav-height
+	background: rgba(white, 0)
+	// background: $nav-bg-colour
+	z-index: 999
+	transition: height 350ms ease-out, background-color 500ms ease-out
+	// border-bottom: 2px  solid darken($gc, 15)
+	// overflow: hidden
+	@media(max-width: #{$nav-collapse})
+		height: $mobile-nav-height !important
+		background: $gc !important
+		position: fixed
+	// &.nav-collapsed
+	// 	height: auto
+	// 	// height: $nav-height * .65
+	// 	background-color: $nav-bg-colour
+	// 	.nav-brand
+	// 		padding-bottom: 12px
+	// 		margin-top: 15px
+	// 	@media(max-width: #{$nav-collapse})
+	// 		height: auto
+	// 		background-color: $nav-bg-colour
+	&.opaque
+		background-color: rgba(white,0)
+	#nav-buttons
+		display: none
+		position: absolute
+		top: 0
+		left: 0
+		justify-content: center
+		align-items: flex-end
+		height: auto
+		width: 100%
+		flex-wrap: wrap
+		z-index: 99
+		-webkit-font-smoothing: antialiased
+		@media(max-width: #{$nav-collapse})
+			align-items: center !important
+			height: 100% !important
+		.nav-hamburger-button
+			display: flex
+			align-items: center
+			justify-content: flex-end
+			width: 30px
+			height: 100%
+			order: 3
+			margin-left: auto
+			margin-right: 20px
+			padding-left: 10px
+			z-index: 101
+			.fa-shopping-cart
+				font-size: 2.4rem
+				color: white
+			.close-icon
+				display: block
+				text-align: left
+				margin-right: -3px
+				color: white
+				font-size: 2.8rem
+				cursor: pointer
+				animation-name: closeshadows
+				animation-duration: 500ms
+				animation-fill-mode: forwards
+			@keyframes closeshadows
+				0%
+					+textshadows(0,darken($gc, 18))
+				100%
+					+textshadows(4,darken($gc, 18))
+			.hidden
+				display: none
+			.nav-main-menu-button
+				display: block
+				text-align: center
+				letter-spacing: normal
+				word-spacing: normal
+				text-indent: 0px
+				text-shadow: none
+				background: none
+				border: none
+				+animate(all, 250ms, ease-out)
+				cursor: pointer
+				&:hover, &:visited, &:active, &:focus
+					outline: 0
+					.icon-bar + .icon-bar
+						animation-name: burgeranimation
+						animation-duration: 800ms
+
+				&.active-menu-button
+					.icon-bar
+						transform: translate(0px, 0px)
+						background-color: darken(white, 5)
+						+makeboxshadows(2, darken($nav-font-colour, 0))
+
+				.fa-navicon
+					font-size: 2em
+					color: white
+					-webkit-font-smoothing: antialiased
+					text-shadow: 1px 1px 0px darken($nav-font-colour, 25), 2px 2px 0px darken($nav-font-colour, 25), 3px 3px 0px darken($nav-font-colour, 25)
+				.icon-bar
+					display: block
+					width: 20px
+					height: 2px
+					border-radius: 8px
+					border: 0px solid $nav-font-colour
+					margin-top: 0px
+					background-color: rgba(lighten($nav-font-colour, 100),1)
+					+makeboxshadows(2, darken($nav-font-colour, 10))
+					// +animate(all,200ms,ease)
+
+				.icon-bar + .icon-bar
+					margin-top: 4px
+
+	#nav-brand-container
+		display: flex
+		justify-content: center
+		align-items: flex-start
+		height: auto
+		width: 100%
+		z-index: 99
+		position: relative
+		// background: $nav-bg-colour
+		background: $gc
+		// border-bottom: 1px solid $dgc
+		top: 0
+		left: 0
+		.nav-brand
+			margin-top: 20px
+			padding-bottom: 14px
+			// margin-left: 13%
+			display: flex
+			width: auto
+			height: auto
+			order: 1
+			align-items: center
+			justify-content: center
+			z-index: 200
+			.a-logo
+				img
+					height: 40px
+					width: 40px
+					margin-top: 0px
+			.brand-title
+				cursor: pointer
+				color: white
+				font-family: futura-lt-heavy
+				text-decoration: none
+				font-size: 2.3rem
+				text-transform: uppercase
+				margin-left: 5px
+				// margin-top: -8px
+				line-height: 1.8rem
+				// display: block
+				+animate(text-shadow, 200ms, ease-out)
+				+textshadows(4, darken($gc,6))
+				span
+					display: block
+					font-size: 1.4rem
+					line-height: 1.5rem
+				&:hover
+					color: $nav-white-hover
+					+textshadows(14, darken($gc,10))
+			@media(max-width: #{$nav-collapse})
+				.brand-title
+					font-family: futura-lt-heavy
+					font-size: 1.85rem
+					span
+						font-family: futura-lt-heavy
+						font-size: 1.2rem
+		@media(max-width: #{$nav-collapse})
+			background: rgba(0,0,0,0)
+			border: none
+			justify-content: flex-start
+			align-items: center
+			position: absolute
+			height: 100%
+			top: 0
+			bottom: 0
+			.nav-brand
+				margin: -2px 0 0 0
+				padding: 0 0 0 3%
+	#nav-bar
+		display: flex
+		position: relative
+		align-items: center
+		justify-content: center
+		height: $nav-height
+		max-height: $nav-height
+		width: 100%
+		@media(max-width: #{$nav-collapse})
+			position: absolute
+			top: 0
+			right: 0
+			height: 100%
+		.nav-hamburger-button
+			display: none
+			align-items: center
+			justify-content: flex-end
+			@media(max-width: #{$nav-collapse})
+				display: flex
+			width: auto
+			height: 100%
+			order: 4
+			margin-left: auto
+			margin-right: 20px
+			padding-left: 10px
+			z-index: 101
+			position: absolute
+			top: 0
+			right: 0
+			.menu-subheading, .cart-subheading
+				display: block
+				position: relative
+				color: white
+				// font-size: 1.2rem
+				font-size: 1rem
+				margin-top: -1px
+				padding-right: 4px
+				cursor: pointer
+				text-transform: uppercase
+				@media(max-width: 1140px)
+					display: none
+			.fa
+				font-size: 2rem
+				color: rgba(white,1)
+				padding-right: 25px
+				cursor: pointer
+				+textshadows(2, $dgc)
+				+animate(all, 100ms, ease)
+				&:hover
+					transform: translate(-1px, -1px)
+					+textshadows(3, $dgc)
+				@media(max-width: 970px)
+					display: none
+			.close-icon
+				display: block
+				text-align: left
+				margin-right: -3px
+				color: white
+				font-size: 2.8rem
+				cursor: pointer
+				animation-name: closeshadows
+				animation-duration: 500ms
+				animation-fill-mode: forwards
+			@keyframes closeshadows
+				0%
+					+textshadows(0,darken($gc, 18))
+				100%
+					+textshadows(4,darken($gc, 18))
+			.hidden
+				display: none
+			.nav-main-menu-button
+				display: block
+				text-align: center
+				letter-spacing: normal
+				word-spacing: normal
+				text-indent: 0px
+				text-shadow: none
+				background: none
+				border: none
+				+animate(all, 250ms, ease-out)
+				cursor: pointer
+				&:hover, &:visited, &:active, &:focus
+					outline: 0
+					.icon-bar + .icon-bar
+						animation-name: burgeranimation
+						animation-duration: 800ms
+
+				&.active-menu-button
+					.icon-bar
+						transform: translate(0px, 0px)
+						background-color: darken(white, 5)
+						+makeboxshadows(2, darken($nav-font-colour, 0))
+
+				.fa-navicon
+					font-size: 2em
+					color: white
+					-webkit-font-smoothing: antialiased
+					text-shadow: 1px 1px 0px darken($nav-font-colour, 25), 2px 2px 0px darken($nav-font-colour, 25), 3px 3px 0px darken($nav-font-colour, 25)
+				.icon-bar
+					display: block
+					width: 20px
+					height: 2px
+					border-radius: 8px
+					border: 0px solid $nav-font-colour
+					margin-top: 0px
+					background-color: rgba(lighten($nav-font-colour, 100),1)
+					+makeboxshadows(2, darken($nav-font-colour, 10))
+					// +animate(all,200ms,ease)
+
+				.icon-bar + .icon-bar
+					margin-top: 4px
+		#navBrand
+			width: auto
+			height: 100%
+			max-height: 100%
+			margin-left: 0px
+			margin-right: auto
+			overflow: hidden
+			display: flex
+			align-items: center
+			justify-content: center
+			.brand-logo-container
+				display: flex
+				align-items: center
+				justify-content: center
+				height: 100%
+				width: auto
+				margin-left: 20px
+				overflow: hidden
+				max-width: 200px
+				@media(max-width: #{$nav-collapse})
+					max-width: 150px
+					margin-left: -10px
+				.brand-logo
+					height: 100%
+					margin-top: -2px
+					width: 100%
+					object-fit: cover
+					object-position: center
+		#nav-main-menu-positioner
+			position: relative
+			// top: 0
+			// left: 0
+			width: auto
+			height: auto
+			display: flex
+			justify-content: center
+			align-items: center
+			// background: $nav-bg-colour
+			background: rgba(white,0)
+			margin-left: auto
+			margin-right: 25px
+			//Sets the UL height
+			.nav-main-menu
+				width: auto
+				height: auto
+				order: 2
+				display: flex
+				align-self: flex-end
+				justify-content: center
+				align-items: center
+				// margin-left: auto
+				// margin-right: -30%
+				// margin-bottom: 10%
+				// margin-top: 10%
+				font-size: $nav-font-size
+				letter-spacing: 1px
+				font-family: futura-lt-heavy
+				>ul
+					margin: 0
+					padding: 0
+					height: $nav-height
+					display: flex
+					justify-content: center
+					align-items: flex-end
+					z-index: 999
+					list-style-type: none
+					-webkit-margin-before: 0px
+					-webkit-margin-after: 0px
+
+					// .li-cart
+					// 	flex: .65 0 auto
+					>li
+						display: flex
+						justify-content: center
+						align-items: center
+						position: relative
+						text-align: center
+						width: auto
+						height: 100%
+						.design-btn
+							text-decoration: none
+							text-transform: uppercase
+							z-index: 9999
+							color: white !important
+							// height: 100%
+							font-family: futura-lt-heavy
+							// padding: 1.3rem 2.5rem
+							background: rgba(white, 0)
+							font-size: inherit
+							display: block
+							&:hover
+								// color: $nav-white-hover !important
+								background: white
+								color: lighten(black, 15) !important
+								+animate(all, 200ms, ease-out)
+							border: white solid 1px
+							+animate(all, 280ms, ease-out)
+							border-radius: 3px
+							padding: 0.25rem 1.1rem
+							// margin: 1.3rem 2rem
+							// transition: background 350ms ease-out
+						>a,
+						.nav-link-box
+							padding: 1.3rem $nav-menu-items-spacing-horizontally
+							text-decoration: none
+							text-transform: $nav-font-transform
+							z-index: 9999
+							color: white
+							height: 100%
+							width: 100%
+							display: flex
+							justify-content: center
+							align-items: center
+							position: relative
+
+
+							// vertical-align: middle
+							// height: 100%
+							// padding: 1.3rem 2.5rem
+
+							letter-spacing: 0px
+							font-size: inherit
+							// display: block
+							+animate(color, 280ms, ease-out)
+							+animate(background, 200ms, ease-out)
+							@media(max-width: 880px)
+								padding: 1.3rem 1.9rem
+							>div
+								position: relative
+
+							// .nav-link-box
+							// 	height: 100%
+							// 	width: 100%
+							// 	display: flex
+							// 	justify-content: center
+							// 	align-items: center
+							// 	position: relative
+							.dropdown-toggle
+								padding-right: .7rem
+								&:after
+									display: inline-block
+									margin-top: -0.1667em
+									position: absolute
+									right: -14px
+									top: 53%
+									margin-left: .25rem
+									border-top: 0.25em solid
+									border-right: 0.25em solid transparent
+									border-left: 0.25em solid transparent
+									border-bottom: 0
+									display: inline-block
+									color: inherit
+									width: 0
+									height: 0
+									margin-right: .25rem
+									margin-left: .25rem
+									vertical-align: middle
+									content: ""
+						.nav-link-box + div
+							display: block
+							position: absolute
+							left: 0
+							top: 100%
+							width: 185px
+							// max-width: 100%
+							z-index: 998
+							// overflow: hidden
+							max-height: 0px
+							// animation: submenuslide 400ms 1 forwards ease
+							overflow: hidden
+							color: darken(white, 5)
+							margin-top: 4px
+							font-size: 1.2rem
+							+animate(all, 1000ms, ease)
+							// border: 1px solid rgba(darken($gc, 10),.3)
+							// border-top: 1px solid rgba(darken($gc, 10),1)
+
+							>ul
+								z-index: 998
+								list-style-type: none
+								padding-left: 0px //NEED THIS HERE
+								background: $nav-sub-menu-background-colour
+								color: $nav-sub-menu-font-colour
+								+animate(background, 200ms, ease-out)
+								>li
+									z-index: 998
+									text-align: left
+									height: auto
+									display: block
+									+animate(all, 150ms, ease-out)
+									a
+										color: inherit
+										font-size: inherit
+										padding: 1rem 2rem
+										background: $dgc
+										// border: 2px solid $gc
+										border-radius: 4px
+										margin-bottom: 7px
+										display: block
+										&:hover,
+										cursor: pointer
+									&:hover, &:active
+										transform: translate(3px, 0px)
+										cursor: pointer
+						&:hover, &:active, &:focus, &:visited,
+							z-index: 9999
+							cursor: pointer
+							a
+								text-decoration: none
+								// color: $nav-white-hover
+								color: $nav-font-hovor-colour
+								+animate(color, 200ms, ease-out)
+							.nav-link-box + div
+								max-height: 600px
+								cursor: pointer
+								// overflow: visible
+							&.dropdown-toggle-bg
+								// background: $gc
+							// .dropdown-toggle
+							// 	background: $gc
+
+					.li-cart
+						margin-left: 15px
+						margin-right: 10px
+						// .btn
+							// background: #000
+							// text-align: center
+							// div
+							// 	padding-top: 5px
+							// 	margin-left: auto
+							// 	margin-right: auto
+				//.nav-main-menu MEDIA QUERY
+				@media(max-width: #{$nav-collapse})
+					overflow: hidden
+					width: 100%
+					max-width: 100%
+					order: 3
+					background-color: $nav-font-colour
+					margin-left: auto !important
+					text-align: left !important
+					display: block
+					height: 0px
+					position: relative
+					z-index: 500
+					margin: 0px
+					+animate(all, 200ms, ease)
+					&.active-menu
+						height: $mobile-nav-menu-height
+					>ul
+						display: block
+						position: absolute
+						z-index: 500
+						width: 100%
+						height: $mobile-nav-menu-height !important
+						text-align: inherit
+						>li
+							width: auto
+							display: block
+							text-align: inherit
+							&.active
+								box-shadow: none !important
+								a
+									text-decoration: none !important
+									color: white !important
+
+							&:hover, &:focus, &:active
+								box-shadow: none !important
+								background: darken($nav-font-colour, 5)
+							>a
+								width: 100%
+								font-size: 1.2em
+								padding-left: 15px
+								color: white !important
+								text-shadow: 2px 2px 0px $nav-font-colour-2
+							a+div
+								position: relative
+						.li-cart
+							display: none !important
+
+			@media(max-width: #{$nav-collapse})
+				display: none
+		#social
+			position: absolute
+			top: 0
+			right: 0
+			height: 90px
+			max-width: 37%
+			display: none
+			justify-content: flex-start
+			align-items: center
+			z-index: 120
+			padding-left: 6%
+			@media(max-width: #{$nav-collapse})
+				height: $mobile-nav-height !important
+				justify-content: flex-end !important
+				display: flex
+				// width: 100%
+				// margin-left: auto
+				right: 45px
+				// margin-right: auto
+				// padding-right: 3%
+			.social-icons-box
+				width: auto
+				height: 100%
+				display: flex
+				position: relative
+				align-items: center
+				justify-content: center
+				@media(max-width: 943px)
+					padding-right: 5px
+				@media(max-width: #{$nav-collapse})
+					display: flex
+					// margin-right: 20%
+					a
+						color: white
+						margin-right: 10px
+						i
+							color: white !important
+				@media(max-width: #{$nav-collapse})
+					position: relative
+					order: 2
+
+				a
+					padding: 10px
+					margin-right: 10px
+					color: white
+					font-family: futura-lt-medium
+					font-size: 1.3rem
+					+textshadows(2, $dgc)
+					+animate(all, 200ms, ease)
+
+					@media(max-width: 943px)
+						padding-right: 5px
+					i
+						+textshadows(2, $dgc)
+						+animate(all, 200ms, ease)
+						font-size: 1.5rem
+						color: white
+						padding-right: 2px
+					&:hover
+						color: $nav-white-hover
+						text-decoration: none
+						+textshadows(3, $dgc)
+						i
+							+textshadows(3, $dgc)
+							color: $nav-white-hover
+							cursor: pointer
+				.phone-numbers
+					margin-right: 8px
+					width: auto
+					white-space: nowrap
+					@media(max-width: 1040px)
+						margin-right: 3%
+					@media(max-width: #{$nav-collapse})
+						display: none
+					a
+
+						white-space: nowrap
+						display: inline-block
+						padding: 0
+						// i
+						// 	display: inline-block
+	#phone
+		position: absolute
+		top: 0
+		left: 0
+		width: 40%
+		height: auto
+		display: none
+		// display: flex
+		justify-content: center
+		align-items: center
+		z-index: 115
+		@media(max-width: #{$nav-collapse})
+			display: none
+		.phone-box
+			width: auto
+			height: 100%
+			// background: $dgc
+			display: flex
+			align-items: center
+			justify-content: center
+			color: white
+			.fa
+				margin: 5px
+				font-size: 1.4rem
+			.phone-title
+				font-size: 1.3rem
+				padding-right: 10px
+.nav-mobile-spacer
+	height: 0px
+	width: 0px
+	position: fixed
+	display: none
+	@media(max-width: #{$nav-collapse})
+		display: block !important
+		height: $mobile-nav-height !important
+		width: 100% !important
+		position: relative !important
+@keyframes navheight
+	0%
+		height: 0px
+	100%
+		height: 230px
+
+@keyframes burgeranimation
+	0%
+		margin-top: 4px
+	20%
+		margin-top: 8px
+	100%
+		margin-top: 4px
+@keyframes submenuslide
+	0%
+		max-height: 0
+		display: block
+	100%
+		display: block
+		max-height: 400px

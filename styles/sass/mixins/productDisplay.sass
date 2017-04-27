@@ -1,0 +1,485 @@
+#productDisplay
+  width: 100%
+  max-width: 100%
+  height: auto
+  // max-height: 80vh
+  display: block
+  // flex-direction: column
+  // justify-content: center
+  align-items: center
+  overflow: hidden
+  position: relative
+  // padding: 15px
+  // padding-bottom: 0px
+  // background: $gc
+  @media(max-width: #{$nav-collapse})
+    // padding-top: 30px
+    width: 100%
+  .img-text-container
+    // width: 100%
+    // height: auto
+    // position: relative
+    // display: flex
+    // justify-content: center
+    // align-items: flex-start
+    overflow: hidden
+    position: relative
+    display: block
+    max-height: 85vh
+    height: 85vh
+    .product-slider,
+    .product-showcase-slider
+      height: 100%
+      max-height: 100%
+      overflow: hidden
+      display: block
+      position: relative
+      // display: flex
+      // justify-content: center
+      // align-items: center
+      .slick-list
+        max-height: 100%
+        height: 100%
+        overflow: hidden
+        .slick-track
+          height: 100%
+          max-height: 100%
+          overflow: hidden
+          .slick-slide
+            display: flex
+            align-items: center
+            justify-content: center
+            height: 100%
+            max-height: 100%
+            overflow: hidden
+            text-align: center
+            vertical-align: middle
+            position: relative
+      .product-img
+        width: auto
+        min-width: 100%
+        height: 900px
+        max-height: 100%
+        display: flex
+        align-items: center
+        justify-content: center
+        max-width: 100%
+        width: 100%
+        height: 100%
+        img
+          object-fit: cover
+          object-position: center
+          width: 100%
+          height: 100%
+          min-height: 100%
+    .product-img-text
+      position: absolute
+      // display: block
+      height: auto
+      display: flex
+      justify-content: center
+      align-items: flex-start
+      flex-direction: column
+      width: auto
+      bottom: 0px
+      left: 0
+      z-index: 3
+      padding-left: 50px
+      margin-bottom: 40px
+      // background: rgba(white, .4)
+      .product-title, .product-name
+        font-size: 4rem
+        font-family: futura-lt-heavy
+        letter-spacing: 3px
+        color: white
+        +textshadows(3, lighten(rgba($gc,1),10))
+        position: relative
+        padding-bottom: 0px
+        margin-bottom: -5px
+      .product-price
+        font-size: 4.5rem
+        font-family: futura-lt-heavy
+        letter-spacing: 1px
+        color: white
+        +textshadows(4, lighten(rgba($gc, 1), 10))
+        position: relative
+      .product-details
+        $bgsize: 50px
+        $shopfont: 1rem
+        display: flex
+        align-items: flex-start
+        justify-content: flex-start
+        flex-direction: row
+        margin-top: 20px
+        // padding-bottom: 12px
+        font-size: $shopfont
+        font-family: futura-lt-heavy
+        letter-spacing: 3px
+        color: white
+        // color: darken($gc,10)
+        padding: 0 3px 12px 3px
+        text-align: left
+        text-transform: uppercase
+        width: auto
+        &>div
+          cursor: pointer
+          margin-right: 15px
+        &>*>span
+          margin-top: 5px
+          padding-left: 2px
+        .cart-root
+          text-align: center
+          display: inline-block
+          vertical-align: middle
+          max-width: 98%
+          // &:hover
+          // 	>.cart-circle
+          // 		width: 200px
+          // 		border-radius: 1px
+          // 		border: none
+          // 		background-size: 120% !important
+          // 		background-position: 90% 33% !important
+          // 		// border-radius: 2px 50% 2px 2px
+          >.cart-circle
+            width: $bgsize
+            height: $bgsize
+            // background-size: 150% !important
+            // background-position: center center !important
+            // background-repeat: no-repeat !important
+            display: flex
+            justify-content: center
+            align-items: center
+            overflow: hidden
+            margin: auto
+            max-width: 100%
+            +animate(all, 200ms, ease)
+            i
+              font-size: 2rem
+              +textshadows(3, $dgc)
+              color: rgba(white,.98)
+          span
+            display: block
+        .finish
+          text-align: center
+          display: inline-block
+          vertical-align: top
+          max-width: 50%
+          &:hover, &:focus, &:visited, &:active
+            .finish-circle
+              width: $bgsize
+              // max-width: 50%
+              height: $bgsize
+              border-radius: 50%
+              // transform: translate(0px, 120px)
+              // max-height: 60%
+              // border-radius: 1px
+              // border: 2px solid rgba($dgc, 0)
+              background-size: 200% !important
+              // background-position: 90% 33% !important
+              margin: 0
+              // border-radius: 2px 50% 2px 2px
+          .finish-circle
+            width: $bgsize
+            height: $bgsize
+            background-size: 600% !important
+            background-position: 50% 55% !important
+            background-repeat: no-repeat !important
+            background-color: white
+            display: block
+            overflow: visible
+            border-radius: 50%
+            margin: auto
+            max-width: 100%
+            +animate(all, 200ms, ease)
+          span
+            display: block
+            letter-spacing: 1px
+            font-family: futura-lt-medium
+            font-size: 1rem
+        .pattern-option
+          display: inline-block
+          text-align: center
+          @media(max-width: 500px)
+            margin-left: 1px
+          vertical-align: top
+          height:    100%
+          max-width: 50%
+          &:hover, &:focus, &:visited, &:active
+            .pattern-circle
+              width: 150px
+              margin: 0
+              // max-width: 50%
+              border: 2px solid rgba($dgc, 0)
+              border-radius: 0
+          .pattern-circle
+            margin: auto
+            display: block
+            width: $bgsize
+            height: $bgsize
+            vertical-align: top
+            background-size: 110% !important
+            background-position: center center !important
+            background-repeat: repeat !important
+            max-width: 100%
+            +animate(all, 200ms, ease)
+          span
+            display: block
+
+        .small-container
+          width: auto
+          max-width: 50%
+          position: relative
+          display: flex
+          align-items: flex-start
+          justify-content: flex-start
+          flex-direction: column
+          vertical-align: top
+          padding-top: 4px
+          padding-left: 10px
+          $mg: 15px
+          // padding-top: $mg
+          padding-right: $mg
+          @media(max-width: 600px)
+            max-width: 100%
+            width: 50%
+          &.designer
+            width: 250px
+          .main-pattern
+            margin: 0px
+            min-width: 145px
+          img
+            // border: 2
+            max-width: 100%
+            max-height: 50px
+            display: block
+            // box-shadow: 3px 3px 0px 0px $gc
+            +animate(all,150ms,ease-out)
+            &:hover
+              // box-shadow: 6px 6px 0px 0px lighten($gc, 5)
+              cursor: pointer
+            &.designer
+              // width: 300px
+              max-width: 100%
+              max-height: 140px
+
+          .nd-img
+            margin-top: 4px
+            display: inline-block
+            max-width: 40%
+            width: 25px
+            @media (max-width: 500px)
+              display: block
+
+          .material-name
+            margin-left: 4px
+            top: 4px
+            // padding-left: 4px
+            // padding-top: 6px
+            font-size: 1rem
+            text-transform: uppercase
+            letter-spacing: 1px
+            display: inline-block
+            position: relative
+            color: white
+            font-family: futura-lt-medium
+            text-align: left
+            max-width: 150px
+            &.designer
+              top: 7px
+              margin-left: 5px
+
+          @media(max-width: 600px)
+            .material-name
+              font-size: 8px
+              letter-spacing: 1px
+        @media(max-width: 468px)
+          .small-container
+            $mgg: 8px
+            padding-top: $mgg !important
+            padding-right: $mgg + 12px !important
+      .buttons
+        margin-top: 20px
+        font-size: 1rem
+        letter-spacing: 3px
+        color: white
+        text-align: left
+        text-transform: uppercase
+        font-family: futura-lt-heavy
+        .add-to-cart
+          vertical-align: top
+          padding: 7px 20px
+          background: $gc
+          display: inline-block
+          border: 1px solid lighten($gc, 0)
+          border-radius: 5px
+          cursor: pointer
+          width: auto
+          text-align: center
+          max-width: 160px
+          font-size: 1.3rem
+          +animate(all, 200ms, ease)
+          &:hover
+            $translate: 4
+
+        .shipping
+          color: black
+          vertical-align: top
+          padding: 5px 10px
+          margin-left: 10px
+          padding-top: 6px
+          background: rgba(white,1)
+          display: inline-block
+          border: 2px solid rgba(lighten($gc, 75),1)
+          border-radius: 3px
+          cursor: pointer
+          width: auto
+          font-family: futura-lt-heavy
+          text-align: center
+          max-width: 160px
+          font-size: 1.1rem
+          letter-spacing: 1px
+          +animate(all, 200ms, ease)
+          &:hover
+            text-decoration: none
+            $translate: 4
+            // +makeboxshadows(4, $dgc)
+            // transform: translate(-#{$translate}px, -#{$translate}px)
+  @media(max-width: #{$nav-collapse})
+    &:first-child
+      .img-text-container
+        margin-top: $nav-height
+  @media(max-width: 942px)
+    max-height: none
+    .img-text-container
+      height: 80vh !important
+      .product-slider,
+      .product-showcase-slider
+        .product-img
+          object-fit: cover
+          vertical-align: middle
+          // height: 500px
+          img
+            height: 100%
+            min-height: 100%
+      .product-img-text
+        padding-left: 20px
+        // padding-top: 40%
+        justify-content: flex-end
+        margin-bottom: 10px
+        width: auto
+        .product-title, .product-name
+          font-size: 4rem
+          text-shadow: 0px 0px 0px rgba(white, 0)
+        .product-price
+          font-size: 4rem
+          text-shadow: 0px 0px 0px rgba(white, 0)
+        .product-details
+          margin-top: 10px
+          .small-container
+            // display: none
+          .finish
+            // display: none
+            .finish-circle
+              width: 40px
+              height: 40px
+        .buttons
+          margin-top: 5px
+  @media(max-width: 690px)
+    max-height: none
+    .img-text-container
+      height: 70vh
+      // max-height: 110vh
+      .product-slider,
+      .product-showcase-slider
+        .product-img
+          object-fit: cover
+          vertical-align: middle
+          height: 100%
+          img
+            height: 100%
+            min-height: 100%
+      .product-img-text
+        padding-left: 20px
+        // padding-top: 40%
+        justify-content: flex-end
+        width: auto
+        .product-title, .product-name
+          font-size: 4rem
+        .product-price
+          font-size: 4rem
+        .product-details
+          margin-top: 10px
+          .small-container
+            padding-top: 0px !important
+            .main-pattern
+              border-radius: 50%
+              min-width: 40px !important
+              width: 40px !important
+              max-width: 40px !important
+              height: 40px !important
+              max-height: 40px !important
+              margin: 0px
+            .nd-img
+              display: none
+  @media(max-width: 500px)
+    max-height: none
+    .img-text-container
+
+      height: 60vh !important
+      .product-slider,
+      .product-showcase-slider
+        .product-img
+          object-fit: cover
+          vertical-align: middle
+          height: 100%
+          img
+            height: 100%
+            min-height: 100%
+          // height: 400px !important
+      .product-img-text
+        padding-left: 20px
+        // padding-top: 40%
+        justify-content: flex-end
+        margin-bottom: 10px
+        width: auto
+        .product-title, .product-name
+          font-size: 3rem
+        .product-price
+          font-size: 3rem
+        .product-details
+          margin-top: 5px
+
+  .img-text-container-nav
+    max-height: 100%
+    height: auto
+    width: 100%
+    max-width: 100%
+    overflow: hidden
+    .product-slider-nav
+      height: 100%
+      max-height: 250px
+      overflow: none
+      .slick-list
+        // height: 100%
+        .slick-track
+          // height: 100%
+          .slick-slide
+            display: flex
+            align-items: center
+            justify-content: center
+            height: 100%
+            text-align: center
+            object-fit: cover
+      .product-img-nav
+        width: 100%
+        // height: 100%
+        max-height: 100%
+        // max-width: 100%
+        // height: auto
+        // max-height: 100%
+        display: block
+
+        // width: 100%
+        // position: relative
+        object-fit: cover
+        vertical-align: middle

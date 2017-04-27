@@ -1,0 +1,14 @@
+include /snippets/head
+
+html
+  body
+    //- #showcaseViewInfo(style="padding: 10px 0px 25px 0px; width: 100%; background-color: #1574c8; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center")
+    //-   h3.title(style="color: white") Showcase view
+    //-   a.subtitle(style="color: black; text-decoration: none; padding: 3px 8px; background-color: white; text-shadow: none !important", href="/Shop") or visit the shop
+    #showcaseView
+      each product, key in products
+        -if(key == 5)
+          include /snippets/contact_form
+        include /snippets/productDisplay
+
+include /snippets/footer

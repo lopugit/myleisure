@@ -1,0 +1,123 @@
+html
+  body
+    section#LettiniBuilder
+      .container-fluid
+        .row.shop-title
+          span Choose a Lettini
+      | &#x9;
+      .container-fluid
+        .row.shop-products
+          .col-xs-24
+            | query(&quot;SELECT * FROM lettinis&quot;);
+            | // $desc = &quot;
+            | // This portable aluminium sun lounge for beach and swimming pool with adjustable sun glare blocking canopy.
+            | // Protects from the strong Australian sun, blocking 99% of UV rays.
+            | // Let&rsquo;s you enjoy your phone, tablet or magazine without sun glare.
+            | // Lightweight ( 7kg ) but stable. Frame made entirely in 16 micron primary anodised aluminium, guaranteed 10 summer seasons.
+            | // PVC-covered (CCCCC) polyester cloth and sunshade that can be changed but lasts for up to 25 years.
+            | //
+            | // &quot;;
+            | while ($row = $result-&gt;fetch_assoc() ) {
+            | $name = $row[&quot;name&quot;];
+            | $frame = $row[&quot;frame&quot;];
+            | $colour = $row[&quot;colour&quot;];
+            | $pattern = $row[&quot;pattern&quot;];
+            | $size = $row[&quot;size&quot;];
+            | $price = $row[&quot;price&quot;];
+            | $shipping = $row[&quot;shipping&quot;];
+            | $sku = $row[&apos;sku&apos;];
+            | $shopifyLINK = $row[&quot;shopifyLINK&quot;];
+            | $order = $row[&quot;stocky&quot;];
+            | $prodId = $row[&quot;prodId&quot;];
+            | $variant = $row[&quot;variant&quot;];
+            | $desc = str_replace(&quot;CCCCC&quot;,$colour,$row[&quot;descc&quot;]);
+            | productSquare($prodId, $variant, $order, $desc, $conn, $sku, $name, $frame, $colour, $pattern, $size, $price, $shipping, $shopifyLINK);
+            | };
+            | function productSquare($prodId, $variant, $order, $desc, $conn, $sku, $name, $frame, $colour, $pattern, $size, $price, $shipping, $shopifyLINK) {
+            | $patternfilename = str_replace(&apos; &apos;,&apos;%20&apos;,$pattern);
+            | if (!is_null($sku)) {
+            | $skuresult = $conn-&gt;query(&quot;SELECT * FROM productimages WHERE sku = &apos;&quot;.$sku.&quot;&apos;&quot;);
+            | $imgurls = $skuresult-&gt;fetch_assoc();
+            | echo &apos;
+            .product-container(if='', ($order='=', 0)='', {='', echo='')
+              | &apos;;
+              | } else {
+              | echo &apos;style=&quot;order: 1&quot;&gt;&apos;;
+              | }
+              | echo &apos;
+              .chair-1(id="'.$sku.'", onclick='hideProductModal(this)', foreach='', ($imgurls='', as='', $k='')
+                | $v) {
+                | if ((strpos($k,&apos;url&apos;) !== false) &amp;&amp; (!is_null($v))) {
+                | echo &apos;data-&apos;.$k.&apos;=&quot;&apos;.$v.&apos;&quot; &apos;;
+                | }
+                | };
+                | echo &apos;data-desc=&quot;&apos;.$desc.&apos;&quot;&apos;;
+                | echo &apos;data-price=&quot;&apos;.$price.&apos;&quot;&apos;;
+                | echo &apos;data-pattern=&quot;&apos;.$pattern.&apos;&quot;&apos;;
+                | echo &apos;data-name=&quot;&apos;.$name.&apos;&quot;&apos;;
+                | echo &apos;data-prodIdVariantCombo=&quot;&apos;.$prodId.&apos; &apos;.$variant.&apos;&quot;&apos;;
+                | // console_log($variant);
+                | echo &apos;&gt;
+                .product-img-wrapper
+                  .two-buttons(id="'.$prodId.'-'.$variant.'")
+                    #mg-240.order-button order now
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    .shop-cart-button
+                      i.fa.fa-shopping-cart
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  img.product-img(src="./img/shop/lettinis/400x/'.$sku.'/'.$imgurls['thumb'].'")
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&apos;;
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;} else {
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;echo &apos;
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .product-container(style='order: 2')
+                .chair-1.fake-chair-border(onclick='hideProductModal(this)')
+                  a.fake-chair
+                    div
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    div
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    div(style="background: url(./img/patterns/'.$patternfilename.'.jpg); background-size: cover; background-repeat: none")
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&apos;;
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;echo &apos;
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                .product-details
+                  a.product-header
+                    span.p-title &apos;.$name.&apos;
+                    | &apos;;
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if ($order == 0) {
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;echo &apos;
+                    span.soldout sold out
+                    | &apos;;
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;echo &apos;
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    span.price
+                      | $&apos;.$price.&apos; 
+                      i.space
+                      | +
+                      i.fa.fa-local-shipping
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                  .options
+                    .finish
+                      .finish-circle(style="background: url(./img/frames/thumb/'.$frame.'.png)")
+                      | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                      span &apos;.$frame.&apos;
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    .pattern-option
+                      .pattern-circle(style="background: url(./img/patterns/150x/'.$patternfilename.'.jpg)")
+                      | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                      span &apos;.$pattern.&apos;
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                    .cart-root
+                      .cart-circle(id="'.$prodId.' '.$variant.'")
+                        i.fa.fa-cart-arrow-down
+                      | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                      span cart
+                | &#x9;&#x9;&#x9;&#x9;&#x9;
+                span(style='display: none')
+                  | Beach Lounge, Sun Lounge, Canopy, lettini, my leisure, beach lounge, beach umbrella
+              | &#x9;&#x9;&apos;;
+              | &#x9;}
+              | &#x9;&#x9;&#x9;&#x9;?&gt;

@@ -1,0 +1,37 @@
+html
+	font-family: futura-lt-light
+body
+	position: relative
+	background-color: $gc
+	// font-size: 16px
+	.hidden
+		display: none
+		overflow: hidden
+		max-height: 0px
+		max-width: 0px
+		+animate(all, 250ms, ease)
+.title
+	text-transform: uppercase
+	letter-spacing: 11px
+	font-family: futura-lt-medium
+	+textshadows(5,$dgc)
+	color: white
+	text-align: center
+	white-space: pre-wrap
+.subtitle
+	color: white
+	display: block
+	font-family: futura-lt-light
+	+textshadows(3,$dgc)
+	white-space: pre-wrap
+
+.centered-div
+	margin-left: auto
+	margin-right: auto
+	float: none
+
+img:not([src]):not([srcset])
+	visibility: hidden
+
+
+@import "bourbon/_bourbon.scss"

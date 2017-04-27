@@ -1,0 +1,110 @@
+html
+  body
+    .container-fluid#productPage
+      .row
+        .col-xs-24.product-box
+          //- i.fa.fa-close-circle.close-icon(onclick='hideProductModal(this)')
+          include /snippets/productDisplay
+            //- .img-text-container-nav
+              .product-slider-nav
+                each image, key in product.images
+                  -if(image !== "thumb.jpg")
+                    .product-img-container-nav
+                      img.product-img-nav(data-lazy='/img/shop/lettinis/400x/' + product.sku + '/' + image)
+                    
+          .desc-column
+            //- h5.product-price
+            //-   span.subtitle
+            //-     | Model:
+            //-     span#name.name Lettini
+            //-     span#pattern.pattern Colour
+            //-     | Price:
+            //-     | $
+            //-     span#price.price 299
+            //- #desc.product-desc
+            .key-facts-root
+              h2.product-header
+                | Lettini
+              h2.key-facts the tech
+              .key-facts-container
+                .col-xs-12
+                  ul
+                    li
+                      | Available in over 975, that's right, 975 different colour, frame, and size combinations to complement any decor or personal taste
+                    li
+                      | 99% UV Protection rated Sun Glare blocking Canopy which allows for the most relaxing beach experience yet
+                    li
+                      | 16 micron primary anodised extra thick rustproof aluminium frame fully welded for superior strength, guaranteed against any kind of growth, bending or loose welding for 10 summer seasons
+                    li
+                      | EEC regulatory patented system for opening legs without compass
+                .col-xs-12
+                  ul
+                    li
+                      | Waterproof, sunproof, coloured-to-the-core individually woven PVC strands for ultimate strength and comfort
+                    li
+                      | EEC regulatory patented system for opening legs without compass
+                    li
+                      | 7kg extraordinarily lightweight design allows for a wind safe beach experience
+                    li
+                      | 10 year structural warranty for your peace of mind
+              
+            .measurements-root
+              h2.measurements-title the size
+              .measurements-container
+                table.table
+                  tr
+                    th
+                    th Width
+                    th Length
+                    th Height
+                  tr
+                    th Classic
+                    td 73cm
+                    td 182cm
+                    td 40cm
+                  //- tr
+                  //-   th
+                  //-     | Maxi
+                  //-     span.coming-soon coming soon
+                  //-   td 73cm
+                  //-   td 194cm
+                  //-   td 40cm
+                  //- tr
+                  //-   th
+                  //-     | VIP
+                  //-     span.coming-soon coming soon
+                  //-   td 100cm
+                  //-   td 210cm
+                  //-   td 40cm
+            .care-root
+              h2.care-title the care
+              .care-container
+                .col-xs-24.col-md-10.first
+                  dl
+                    dt.question
+                      | How can I clean the Lettini sun lounge fabric?
+                    dd.answer
+                      | To clean the fabric you should use common cleaning products such as detergent or any non-bleach cleaners plus a sponge or brush
+                    dt.question
+                      | How long does the fabric last?
+                    dd.answer
+                      | The fabric lasts for more than ten years. The frame is rust proof. At the end of each season the sun lounge should be cleaned as per instructions above and stored in a secure place
+                .col-xs-24.col-md-10.second
+                  dl
+                    dt.question
+                      | Is it possible to change the fabric?
+                    dd.answer
+                      | Yes, we can change the fabric. The fabric can be replaced only with our special machine. We will be able to do this long-term at My Leisure head quarters
+                    dt.question
+                      | Does the fabric fade?
+                    dd.answer
+                      | No, the fabric is made with coloured to the core PVC technology which ensures for minimal loss in original colour
+            .buy-buttons
+              .add-to-cart(id= product.id + '-' + product.variantId)
+                | add to cart
+
+            include /snippets/shipping
+
+            //- .buy-buttons
+            //-   .add-to-cart(id= product.id + '-' + product.variantId)
+            //-     | add to cart

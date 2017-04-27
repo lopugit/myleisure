@@ -1,0 +1,85 @@
+html
+  body
+    .fs-splash-landing
+      .splash-slider
+        .imgs-container
+          .inside-img-container
+            .call-to-action.active(data-tag="'.$imgUrl.'")
+              h2.slider-header &apos;.substr($imgURL, 0, -4).&apos;
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .btn-container
+                a.cta-btn.pick(href='#LettiniBuilder')
+                  | PICK YOUR
+                  span.word-colour COLOUR
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                a.cta-btn.order(href='#LettiniBuilder') ORDER NOW
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&apos;;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;} else {
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if ($imgURL != &quot;orig&quot;) {
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;echo &apos;
+            img.img(src="./img/splashslider/'.$imgURLspaced.'")
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            .call-to-action.hidden(data-tag="'.$imgUrl.'")
+              h2.slider-header &apos;.substr($imgURL, 0, -4).&apos;
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .btn-container
+                a.cta-btn.pick(href='#LettiniBuilder')
+                  | PICK YOUR
+                  span.word-colour COLOUR
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                a.cta-btn.order(href='#LettiniBuilder') ORDER NOW
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&apos;;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;$count ++;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;unset($count);
+            | &#x9;&#x9;&#x9;&#x9;&#x9;}
+            | &#x9;&#x9;&#x9;&#x9;&#x9;createSliderImages($directory,$images);
+            | &#x9;&#x9;&#x9;&#x9;?&gt;
+        | &#x9;&#x9;
+        .buttons-container
+          .arrow-container.left
+            .arrow-button.left
+              i.fa.fa-angle-left-btl
+          | &#x9;&#x9;&#x9;
+          .arrow-container.right
+            .arrow-button.right
+              i.fa.fa-angle-right-btl
+          //
+            <div id="countdown" class="countdown">
+            <div class="time">
+            </div>
+            <div class="seconds">
+            </div>
+            </div>
+        //
+          <div class="close-container">
+          <div class="close-button">
+          <i class="fa fa-close"></i>
+          </div>
+          </div>
+        .dots-container
+          .dots
+            .fill
+          | &apos;;
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;} else {
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;echo &apos;
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+          .dot(onclick='dotChangeImage(this)', data-tag="'.$value.'")
+            .fill
+          | &apos;;
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;}
+          | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;$count++;
+          | &#x9;&#x9;&#x9;&#x9;&#x9;}
+          | &#x9;&#x9;&#x9;&#x9;&#x9;unset($count);
+          | &#x9;&#x9;&#x9;&#x9;}
+          | &#x9;&#x9;&#x9;&#x9;createSliderDots($images[0]);
+          | &#x9;&#x9;&#x9;&#x9;?&gt;
+    //
+      <div class="bg-overlay container-fluid">
+      </div>
+      <a class="square-down-icon" href="#LettiniBuilder">
+      <i class="fa fa-chevron-small-down"></i>
+      </a>

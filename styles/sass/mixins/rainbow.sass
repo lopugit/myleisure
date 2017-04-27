@@ -1,0 +1,56 @@
+$purple: #572D8C
+$blue: #0E3D59
+$green: #88A61B
+$yellow: #F29F05
+$orange: #F25C05
+$red: #D92525
+$color-list: $red $orange $yellow $green $blue $purple
+$c: 0
+$i: 0
+// FUNCTIONS
+
+@function multiply-list($colors, $multiplier)
+	$l: ()
+
+	@each $c in $colors
+		@for $j from 1 through $multiplier
+			$l: append($l, $c)
+
+	@return $l
+
+// MIXINS
+
+=smooth-seg-rainbow($colors, $color-height: 1, $offset-percent: 0)
+	@if $color-height < 1
+		@warn "$color-height (" + $color-height + ") out of bounds."
+
+	@if $offset-percent < 0 or $offset-percent > 100
+		@warn "$offset-percent (" + $offset-percent + ") out of bounds"
+
+	$ts: ()
+	$num-colors: length($colors)
+	$num-shadows: $num-colors * $color-height
+	$offset: floor($num-shadows * $offset-percent / 100)
+	$colors: multiply-list($colors, $color-height)
+
+	@for $i from 0 through $num-shadows - 1
+		$offset_i: ($i + $offset) % $num-shadows
+		$pos: ($i + 1) * 1px
+		$ts: $ts, $pos $pos 0 nth($colors, $offset_i + 1)
+
+	text-shadow: $ts, 0 0 0
+
+$color-height: 4
+
++keyframes(slick-eduardo-keys)
+	$num-frames: 50
+	$multiplier: 100 / $num-frames
+
+	0%
+		+smooth-seg-rainbow($color-list, $color-height)
+
+	@for $i from 1 through $num-frames
+		$percent-base: $i * $multiplier
+
+		#{$percent-base * 1%}
+			+smooth-seg-rainbow($color-list, $color-height, $percent-base)

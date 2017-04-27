@@ -1,0 +1,85 @@
+#builder
+  background-color: white
+  padding: 50px 0 70px 0
+  .current-option-container
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    .title
+      font-size: 5rem
+      color: $dgc
+      // padding-left: 20px
+      padding-bottom: 20px
+      font-family: futura-lt-light
+      +textshadows(0, white)
+    .choices-container
+      position: relative
+      display: flex
+      align-items: center
+      justify-content: center
+      flex-wrap: wrap
+      flex-direction: row
+
+      .choice-box
+        width: auto
+        height: auto
+        max-width: 100%
+        max-height: 100%
+        position: relative
+        display: flex
+        justify-content: center
+        align-items: center
+        margin: 30px
+        +animate(all, 500ms, ease)
+        opacity: 1
+        // &:first-child
+        //   margin-left: 0px
+        .frame-choice-circle
+          border-radius: 50%
+          width: 250px
+          height: 250px
+          max-width: 100%
+          overflow: hidden
+          display: flex
+          align-items: center
+          justify-content: center
+          background-color: $gc
+          img
+            object-fit: cover
+            object-position: center
+            max-width: 160%
+            +animate(all, 500ms, ease-in-out)
+          &:hover
+            img
+              // max-width: 230%
+              cursor: pointer
+        &.selected
+          margin-left: 0px
+          margin-right: 0px
+        &.unselected
+          opacity: 0
+          display: none
+          overflow: hidden
+          margin: 0
+        .next-link
+          font-size: 4.5rem
+          color: $dgc
+          position: relative
+          padding-left: 15px
+          opacity: 0
+          max-width: 0px
+          height: auto
+          +animate(all, 250ms, ease)
+          font-family: futura-lt-light
+          white-space: nowrap
+          a
+            display: none
+            +animate(all, 250ms, ease)
+            &:hover
+              text-decoration: none
+          &.show
+            opacity: 1
+            max-width: 200px
+            a
+              display: inline-block

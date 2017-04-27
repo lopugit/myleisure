@@ -1,0 +1,12 @@
+phantomjs.load("melbourne.craiglist.com").then(function(page){
+
+	page.find("#field.name").value("420 mom");
+	page.find("#field.name").value("420 mom");
+	page.find("#field.name").value("420 mom");
+	page.find("#field.name").value("420 mom");
+	page.find("#field.checkbox").checked(true);
+	
+
+	page.submit("").then(return
+
+	

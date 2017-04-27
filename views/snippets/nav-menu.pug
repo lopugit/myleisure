@@ -1,0 +1,26 @@
+html
+  body
+    .nav-menu(id='#nav-menu')
+      .nav-menu-close
+        i.fa.fa-window-close.close-icon
+      dl.menu-menu
+        a(href='/home').dd
+          span home
+        each navItems, key in nav.indexes
+          -if (navItems.type == 'url')
+            a(href=navItems.url).dd
+              span= navItems.name
+                //- a(href=navItems.url)= navItems.name
+          -else if (navItems.type == 'dropdown')
+            a.dd.dropdown-toggle
+              span= navItems.name
+                //- a.dropdown-toggle= navItems.name
+            div.dropdown-dd
+              each navItems1, key1 in navItems.dropdowns
+                -if (navItems1.type == 'url')
+                  a(href=navItems1.url).dd
+                    span= navItems1.name
+          -else if (navItems.type == 'button')
+            a(href=navItems.url).dd.btn-dd
+              span.design-btn= navItems.name
+          

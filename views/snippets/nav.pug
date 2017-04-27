@@ -1,0 +1,93 @@
+html
+  body
+    nav#navbar.clearfix(style="background-color: "+page.navBackgroundColour)
+      //- #nav-buttons
+      //- #nav-brand-container
+        .nav-brand
+          a.a-logo(href='/Index')
+            img(src='/img/logo/lone_blue_chair_dropshadow.png')
+          a.brand-title(href='/Index')
+            span my
+            |  leisure
+            
+      // /////NAV MENU
+      #nav-bar.clearfix
+        #navBrand
+          .brand-logo-container
+            a(href="/home")
+              img(src="/img/logo/myleisuredark.png").brand-logo
+        #nav-main-menu-positioner
+          .nav-main-menu
+            ul
+              each navItems, key in nav.indexes
+                -if (navItems.type == 'url')
+                  li
+                    a(href=navItems.url).nav-link-box
+                      div.clearfix= navItems.name
+                      //- span= navItems.name
+                -else if (navItems.type == 'dropdown')
+                  li.dropdown-toggle-bg
+                    a.nav-link-box
+                      div
+                        .dropdown-toggle= navItems.name
+                    div
+                      ul
+                        each navItems1, key1 in navItems.dropdowns
+                          -if (navItems1.type == 'url')
+                            li
+                              a(href=navItems1.url)
+                                span= navItems1.name
+                          -else if (navItems1.type == 'dropdown')
+                            li.dropdown-toggle-bg
+                              a.nav-link-box
+                                div.clearfix
+                                  .dropdown-toggle= navItems1.name
+                              div
+                                ul
+                                  each navItems2, key2 in navItems1.dropdowns
+                                    li
+                                      a(href=navItems1.url)
+                                        span= navItems1.name
+                -else if (navItems.type == 'button')
+                  li
+                    a(href=navItems.url).design-btn= navItems.name
+                -else if (navItems.type == 'cart')
+                  li.li-cart
+                    button.btn.btn--cart-tab.js-prevent-cart-listener
+                      div.cart-holder
+                        i.fa(class= navItems.icon)
+                        text.btn__counter 0
+        .nav-hamburger-button
+          //
+            <div class="cart-subheading">
+            your cart
+            </div>
+            <i class="fa fa-shopping-cart cart-icon"></i>
+          //- .menu-subheading
+          //-   | menu
+          .nav-main-menu-button
+            .icon-bar
+            .icon-bar
+            .icon-bar
+            // <i class="fa fa-navicon" ari-hidden="true"></i>
+        #social
+          .social-icons-box
+            .phone-numbers
+              a(target='_blank')
+                i.fa.fa-cellphone-iphone(aria-hidden='true')
+                | 0406 421 708
+              // <a target="_blank"><i class="fa fa-cellphone-iphone" aria-hidden="true"></i>0412 998 936</a>
+            a(target='_blank', href='http://www.facebook.com/myleisure')
+              i.fa.fa-facebook(aria-hidden='true')
+            // <a target="_blank" href="http://www.youtube.com/myleisure"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+            a(target='_blank', href='http://www.instagram.com/myleisurelettinis')
+              i.fa.fa-instagram(aria-hidden='true')
+      //- #phone
+        .phone-box
+          i.fa.fa-phone
+          .phone-title
+            | Call now 0406 421 708
+    .nav-mobile-spacer
+    //
+      <div id="nav-float-button" class="nav-float-button">
+      </div>

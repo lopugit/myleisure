@@ -1,0 +1,252 @@
+#adminPanel
+  position: relative
+  // top: 0
+  // left: 0
+  width: 20%
+  height: auto
+  background: $gc
+  // padding: 10px
+  display: flex
+  justify-content: flex-start
+  align-items: flex-start
+  flex-direction: column
+  color: white
+  font-family: futura-lt-heavy
+  +animate(all, 200ms, ease-out)
+  $z: 9999
+  z-index: $z
+  &.active
+    transform: translateX(0%)
+  &.inactive
+    transform: translateX(-100%)
+
+
+  .close-button
+    font-size: 2.5rem
+    color: inherit
+    position: absolute
+    top: 0px
+    right: 20px
+    +animate(all, 200ms, ease-out)
+    z-index: $z
+    &:hover
+      transform: translate(-2px, -2px)
+      +textshadows(2, $dgc)
+      cursor: pointer
+
+  .tag
+    position: absolute
+    top: 0px
+    right: -25px
+    height: 100vh
+    min-height: 100%
+    width: 25px
+    // padding: 12px 5px
+    border-radius: 0px 5px 5px 0px
+    background: rgba(black, .1)
+    font-size: 1.3rem
+    display: flex
+    justify-content: center
+    align-items: center
+    cursor: pointer
+    &.active
+      display: flex
+    &.inactive
+      display: none
+
+  .title-sec
+    position: relative
+    display: block
+    padding: 10px
+    width: 100%
+    max-width: 100%
+    .hide-nav
+      margin-left: 10px
+      display: inline-block
+      cursor: pointer
+      +animate(all, 250ms, ease)
+      &:hover
+        color: rgba(white, .8)
+  .controls
+    width: 100%
+    max-width: 100%
+    position: relative
+    display: block
+
+    .sub-menu
+      width: 100%
+      display: flex
+      justify-content: flex-start
+      align-items: flex-start
+      flex-direction: column
+      height: auto
+      .button-container
+        width: 100%
+        padding-right: 0px
+        position: relative
+        display: flex
+        align-items: flex-start
+        justify-content: flex-start
+        flex-direction: column
+        text-overflow: ellipsis
+        white-space: nowrap
+        text-transform: uppercase
+        font-size: 1.5rem
+        cursor: pointer
+        border-bottom: dotted 1px rgba($gc, 5)
+        z-index: 10
+        +animate(all, 250ms, ease)
+        .button
+          width: 100%
+          padding: 15px 10px
+          position: relative
+          display: flex
+          align-items: center
+          justify-content: center
+          flex-direction: row
+          text-overflow: ellipsis
+          white-space: nowrap
+          background: lighten($dgc, 10)
+          text-transform: uppercase
+          font-size: 1.5rem
+          cursor: pointer
+          // border-bottom: dotted 1px rgba($gc, 5)
+          z-index: 10
+          +animate(all, 250ms, ease)
+          .title-cont
+            padding: 10px 10px
+            position: relative
+            display: flex
+            justify-content: center
+            align-items: center
+            flex-direction: column
+            .title
+              letter-spacing: 2px
+              font-size: 2rem
+              text-shadow: 0px 3px 3px rgba(black, .2)
+            .detail-cont
+              display: flex
+              justify-content: center
+              align-items: center
+              flex-direction: row
+              .detail
+                border-radius: 50%
+                width: 20px
+                height: 20px
+                background: orange
+                display: flex
+                align-items: center
+                justify-content: center
+
+                span
+                  font-size: 1rem
+                  text-shadow: 0px 2px 3px rgba(black, .3)
+            .author
+              font-size: 1.2rem
+              color: $dgc
+              text-transform: capitalize
+              font-family: futura-lt-medium
+        .actions-cont
+          display: flex
+          justify-content: center
+          align-items: center
+          flex-direction: row
+          flex-grow: 1
+          position: relative
+          width: 100%
+          height: auto
+          max-height: 0px
+          z-index: 11
+          +animate(all, 300ms, ease-out)
+          overflow: hidden
+          .action
+            display: flex
+            flex: 1 1 auto
+            justify-content: center
+            align-items: center
+            height: auto
+            padding: 10px 10px
+            width: auto
+            // min-width: 50px
+            font-size: 1.2rem
+            +animate(all, 200ms, ease-out)
+            background: rgba(white, .15)
+            color: white
+            // border-left: 1px solid rgba(white, .1)
+            &:hover
+              background: rgba(white, .1)
+              color: orange
+              text-shadow: 0px 2px 3px rgba(black, .25)
+            &:first-child
+              // border-left: 0px solid rgba(black, 0)
+        &:hover
+          background: lighten($dgc, 12)
+          .actions-cont
+            max-height: 50px
+      .content
+        height: auto
+        max-height: 0px
+        display: flex
+        justify-content: flex-start
+        align-items: flex-start
+        flex-direction: column
+        position: relative
+        width: 100%
+        overflow: hidden
+        .button-container
+          .button
+            +animate(max-height, 600ms, ease-out)
+            max-height: 0px
+            padding: 15px 20px
+            background: rgba(white, .2)
+            justify-content: flex-start
+            // flex-direction: row
+            flex-wrap: wrap
+            @extend .button
+            .title-cont
+              justify-content: flex-start
+              align-items: flex-start
+              text-align: left
+              padding-left: 2px
+              .title
+                text-align: left
+                text-transform: none
+                letter-spacing: 1px
+              .date-created
+                font-size: 1.2rem
+            .thumbnail-cont
+              min-width: 80px
+              max-width: 70%
+              width: auto
+              height: 100%
+              display: flex
+              justify-content: center
+              align-items: center
+              .thumbnail
+                width: 100%
+                height: 90%
+                display: flex
+                justify-content: center
+                align-items: center
+                border: 0px solid rgba(white, 0)
+                border-radius: 6px
+                padding: 0px
+                box-shadow: 0px 8px 6px -2px rgba(black, .15)
+                overflow: hidden
+                margin: 0px
+                img
+                  object-position: center
+                  object-fit: cover
+                  width: 100%
+                  min-height: 100%
+                  min-width: 100%
+                  height: auto
+
+        &.active
+          max-height: 100%
+          .button-container
+            .button
+              +animate(max-height, 600ms, ease-out)
+              max-height: 400px
+        &.inactive
+          max-height: 0px

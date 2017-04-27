@@ -1,0 +1,63 @@
+doctype html
+html(lang='en')
+  block head
+
+    meta(charset='UTF-8')
+
+    title My Leisure Lettinis, the most beautiful sun lounges around || #{title}
+
+    meta(name='description', content= "A description" | description)
+
+    meta(name='keywords', content='beach shade, beach shelter, canopy, sun tent, beach umbrella, beach tent, shade tent, sun lounger, beach canopy, pop up beach tent, lettini, beach canopy tent, pop up beach shelter, beach shade tent, sun lounge, beach sun shade, sun shade tent, lettini, italian, canopy, colour')
+    link(rel='icon', type='image/png', href='/img/icon.png')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='author', content='Nikolaj Frey')
+    meta(name='ROBOTS', content='INDEX, FOLLOW, ARCHIVE')
+
+    // CSS
+    link(rel='stylesheet', type='text/css', href='/styles/css/bootstrap.css')
+    link(rel='stylesheet', type='text/css', href='/styles/css/slick/slick.css')
+    link(rel='stylesheet', type='text/css', href='/styles/css/slick/slick-theme.css')
+    link(rel='stylesheet', type='text/css', href='/styles/css/postcss.css')
+    //- link(rel='stylesheet', type='text/css', href='/styles/css/css.css')
+
+    // JAVASCRIPT
+    script(type='text/javascript', src='/js/jquery-2.2.4.min.js' )
+    script(type='text/javascript', src='/js/masonry.pkgd.min.js' )
+    script(type='text/javascript', src='/js/slick.min.js' )
+    script(type='text/javascript', src='/js/jquery.mousewheel.min.js' )
+    script(type='text/javascript', src='/js/shop/shopify-sdk.js' )
+
+    script(type='text/javascript', src='/js/bootstrap.min.js' )
+    script(type='text/javascript', src='/js/jqBootstrapValidation.js' )
+    script(type='text/javascript', src='/js/parallax.min.js' )
+    script(type='text/javascript', src='/js/jquery.stellar.min.js' )
+    script(type='text/javascript', src='/js/menu-scroll.js' )
+    script(type='text/javascript', src='/js/jquery.zoom.min.js' )
+    script(type='text/javascript', src='/js/imagesloaded.pkgd.min.js' )
+    script(type='text/javascript', src='/js/velocity.min.js' )
+    script(type='text/javascript', src='/js/socket.io.min.js' )
+
+    // CONTAINS ALL LETTINI BUILDER, AND ECOMMERCE RELATED JAVASCRIPT (aka, CART, LETTINI GALLERYS, SHOP BUTTONS)
+    script(type='text/javascript', src='/js/shop/shop.js' )
+
+    script(type='text/javascript', src='/js/functions.js' )
+    script(type='text/javascript', src='/js/contact_me.js' )
+    script(type='text/javascript', src='/js/nik.js' )
+    script(type='text/javascript', src='/js/nav.js' )
+    script(type='text/javascript', src='/js/gallery.js' )
+    script(type='text/javascript', src='/js/slickinits.js')
+    script(type='text/javascript', src='/js/builder.js')
+    script(type='text/javascript', src="/js/dragdealer.min.js")
+    script(type='text/javascript', src="/js/CMS/adminPanel.js")
+
+    <!////////////////////FONTS-->
+    script(src="https://use.fortawesome.com/2b0a3f32.js" async)
+
+  body#page-top.index
+    //- include tracking
+    -if(nav)
+      include nav
+      include nav-menu
+    include shopping/cart

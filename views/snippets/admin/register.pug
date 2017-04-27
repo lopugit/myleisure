@@ -1,0 +1,40 @@
+include /snippets/head
+
+html 
+  body
+    #loginBlock
+      .login-container.container-fluid
+        .row
+          .col-xs-24.col-md-12.col-md-offset-6
+            h2 Register here:
+            form(method="post")
+              
+              //- input(type="hidden", name="_csrf", value=csrfToken)
+              
+              span username*
+              input(type="text", name="username", placeholder="username", id="username")
+                
+              span password*
+              input(type="password", name="password", placeholder="password", id="password")
+                
+              span confirm password*
+              input(type="password", name="confirmPassword", placeholder="password", id="confirmPassword")
+              
+              span email*
+              input(type="email", name="email", placeholder="email", id="email")
+
+              span first name
+              input(type="text", name="firstName", placeholder="first name", id="firstName")
+                
+              span last name
+              input(type="text", name="lastName", placeholder="last name", id="lastName")
+
+              span lucky number?
+              input(type="number", name="luck", placeholder="lucky number", id="luck")
+
+              input(type="submit")
+
+            -if(error)
+              h2 there was an error
+              span #{error}
+            

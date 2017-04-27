@@ -1,0 +1,21 @@
+html
+  body
+    section#finishes.clearfix.available-finishes
+
+      .col-xs-24.finishes-gallery
+        .col-xs-24
+          .col-md-5.col-md-offset-2.finish-title-container
+            .h1.title Finishes
+            a(href='/Possibilities#Finishes').subtitle Commercial Options
+        
+        each finish in finishes
+          each tag in finish.tags
+            -if(tag === "all")
+              
+              .col-md-4
+                img(data-original= finish.url, data-original-set= finish.url , sizes='100vw, 100vw', alt='Lettini Sun Lounger with frame finish option ' + finish.url).finishes-img.finish-img
+                .each-finish-label
+                  .each-finish-title= finish.finish
+                  
+                  
+    

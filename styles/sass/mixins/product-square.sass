@@ -1,0 +1,176 @@
+@for $i from 1 through 15
+	+canopy(100%, $i, nth($colour-array, random(length($colour-array))))  
+.product-container
+	width: 30%
+	position: relative
+	height: auto
+	margin: 1%
+	text-align: center
+	flex-grow: 1
+	align-self: flex-start
+	@media(max-width: 600px)
+		margin-top: 3%
+	.chair-1
+		border-radius: 2px
+		background: lighten(black, 93)
+		&:hover
+			background: darken($nav-bg-colour, 10)
+			cursor: pointer
+		.product-img-wrapper
+			width: 100%
+			height: 100%
+			position: relative
+			overflow: hidden
+			.product-img
+				background-size: cover !important
+				background-position: center !important
+				background-repeat: no-repeat !important
+				width: 100%
+				height: 100%
+			$item-height: 45px
+			.item-popup
+				position: absolute
+				vertical-align: center
+				line-height: $item-height + 2
+				bottom: 0
+				font-size: 14px
+				letter-spacing: 1px
+				text-transform: uppercase
+				font-family: futura-lt-light
+				color: $nav-font-colour
+				width: 100%
+				height: $item-height 
+				text-align: center
+				display: block
+				z-index: 5
+				background: rgba(#F7FCFD, .6)
+				animation: slideupout 300ms ease-out 1 forwards 
+				display: block
+				i
+					font-size: 18px
+			&:hover
+				.item-popup
+					animation: slideup 300ms ease-out 1 forwards
+			@keyframes slideup
+				0%
+					margin-bottom: - $item-height
+				100%
+					margin-bottom: 0px
+				
+			@keyframes slideupout
+				0%
+					margin-bottom: 0px
+
+				100%
+					margin-bottom: - $item-height
+
+	.product-details
+		display: block
+		text-align: center
+		.product-title
+			height: auto
+			&:hover
+				text-decoration: none
+				cursor: pointer
+			.p-title
+				display: block
+				font-family: futura-lt-light
+				font-size: 2.2rem
+				padding-top: 5px
+				line-height: 1.2em
+				@media (max-width: 500px)
+					font-size: 1.2rem
+					font-family: futura-lt-medium
+					padding-top: 1px
+					line-height: 1.4em
+				color: darken($nav-font-colour,0)
+				letter-spacing: 1px
+				text-transform: capitalize
+				vertical-align: top
+			.price
+				font-size: 1.3rem
+				letter-spacing: 0px
+				font-family: futura-lt-medium
+				color: lighten(black,30)
+				vertical-align: top
+				margin-left: -2px
+.product-container:nth-child(-n + 2)
+	.options
+		$bgsize: 40px
+		$shopfont: 8px
+		display: block
+		margin-top: 7px
+		@media(max-width: 654px)
+			// margin-top: 15px
+			font-size: $shopfont - 1
+		@media(max-width: 500px)
+			// margin-top: 5px
+			font-size: $shopfont - 2
+		font-size: $shopfont
+		font-family: futura-lt-medium
+		letter-spacing: 1px
+		color: darken($nav-font-colour,10)
+		text-align: right
+		text-transform: uppercase
+
+		&>div
+			cursor: pointer
+		&>*>div
+			border: 1px solid rgba(darken($nav-font-colour, 10),.35)
+			border-radius: 50%
+			
+		&>*>span
+			margin-top: 2px
+		@media(max-width: 654px)
+			.finish-circle, .pattern-circle
+				width: $bgsize - 10 !important
+				height: $bgsize - 10 !important
+		@media(max-width: 500px)
+			.finish-circle, .pattern-circle
+				width: $bgsize - 18 !important 
+				height: $bgsize - 18 !important
+		.finish
+			text-align: center
+			display: inline-block
+			vertical-align: middle
+			
+			>.finish-circle
+				width: $bgsize
+				height: $bgsize					
+				background-size: 100% !important
+				background-position: center center !important
+				background-repeat: no-repeat !important
+				display: block
+				overflow: hidden
+				margin: auto
+			span
+				display: block	
+				text-align: center
+				padding-left: 2px
+		.pattern-option
+			display: inline-block
+			text-align: center
+			margin-left: 10px
+			margin-right: 5px
+			@media(max-width: 500px)
+				margin-left: 1px
+			vertical-align: middle
+			height:  100%
+			>.pattern-circle
+				margin: auto
+				display: block
+				width: $bgsize
+				height: $bgsize
+				vertical-align: top
+				background-size: 110% !important
+				background-position: center center !important
+				background-repeat: repeat !important
+			span
+				display: block
+				padding-left: 2px
+	@media (max-width: 550px)
+		.product-details
+			.product-title
+				font-size: 16px
+				.price
+					font-size: 1rem

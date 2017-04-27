@@ -1,0 +1,52 @@
+html
+  block body
+   -var sliderClass = null
+    #productDisplay
+      -if(page == "home")
+        -var height = "70vh"
+      -else if(page == "showcase")
+        -var height = "85vh"
+      -else if(page == 'blog')
+        -var height = "500px"
+      -else
+        -var height = "85vh"
+      .img-text-container(style="height: "+height+';')
+        -if(page == "showcase")
+          -var sliderClass = "product-showcase-slider"
+        -else
+          -var sliderClass = "product-slider"
+        div(class= sliderClass)
+          each image, key in product.images
+            -if(image !== "thumb.jpg")
+              -if(key == 0)
+                //- -var dataType = 'original'
+                a.product-img-container(href="/shop/lettinis/"+ product.sku)
+                  .product-img
+                    img(data-original='/img/shop/lettinis/hq/'+product.sku+'/'+image)
+              -else
+                //- -var dataType = 'lazy'
+                a.product-img-container(href="/shop/lettinis/"+ product.sku)
+                  .product-img
+                    img(data-lazy='/img/shop/lettinis/hq/'+product.sku+'/'+image)
+        .product-img-text
+          //- .product-title Lettini
+          .product-name= product.colour
+          .product-price= product.formatted_price
+          .product-details
+            .finish
+              .finish-circle(style="background: url(/img/finishes/thumb/"+ encodeURIComponent(product.finish.trim()) + ".png)")
+              .finish-circle-bg
+              span= product.finish
+
+            //- .pattern-option
+            //-   .pattern-circle(style="background: url(/img/colours/150x/" + encodeURIComponent(product.colour.trim()) + ".jpg)")
+            //-   span= product.colour
+            .small-container
+              img(data-original="/img/colours/150x/" + encodeURIComponent(product.colour.trim()) + ".jpg", data-original-set="/img/colours/150x/" + encodeURIComponent(product.colour.trim()) + ".jpg", sizes='100vw, 100vw', alt='Lettini Sun Lounger with canopy Colour Option ' + product.colour).main-pattern
+              img(data-original="/img/colours/150x/" + encodeURIComponent(product.colour.trim()) + ".jpg", data-original-set="/img/colours/150x/" + encodeURIComponent(product.colour.trim()) + ".jpg", sizes='100vw, 100vw', alt='Lettini Sun Lounger with canopy Colour Option ' + product.colour).nd-img
+              .material-name= product.colour
+
+          .buttons
+            .add-to-cart(id= product.id + '-' + product.variantId) add to cart
+
+            a.shipping(id= product.id + '-' + product.variantId, href="/shop/lettinis/"+ product.sku + "#Shipping") shipping?

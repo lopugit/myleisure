@@ -1,0 +1,190 @@
+#foldable
+	max-height: 400px
+	width: 100%
+	max-width: 100%
+	display: table
+	text-align: center
+	overflow: hidden
+	position: relative
+	background: $gc
+	.col-xs-24
+		padding: 0 !important
+		overflow: hidden
+	.foldable-container
+		position: relative
+		display: flex
+		align-items: center
+		justify-content: center
+		flex-direction: column
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		max-width: 100%
+		overflow: hidden
+		// overflow: visible
+		@media(max-width: 993px)
+			margin-bottom: 58%
+			overflow-x: visible !important
+		@media(max-width: 600px)
+			margin-bottom: 65%
+			overflow-x: visible !important
+		// float: left
+		.foldable-row
+			position: absolute
+			top: 0
+			left: 0
+			height: 100%
+			width: 100%
+			max-width: 100%
+			overflow: hidden
+			padding: 0
+			margin: 0
+			.text-col
+				display: flex
+				justify-content: center
+				align-items: center
+				flex-direction: column
+				height: 100%
+			.vid-col
+				display: flex
+				justify-content: center
+				align-items: center
+				flex-direction: column
+				overflow: visible
+				height: 100%
+				&.vid-col-mobile
+					display: none
+				.video-wrapper
+					position: relative
+					padding-bottom: 53.5%
+					// padding-top: 25px
+					width: 95%
+					height: 0
+					overflow: visible
+					iframe
+						position: absolute
+						top: 0
+						left: 0
+						width: 100%
+						height: 100%
+						z-index: 500
+				@media(max-width: 993px)
+					display: none
+					&.vid-col-mobile
+						display: flex
+						justify-content: flex-start
+						align-items: flex-start
+						flex-direction: column
+						overflow: visible
+						height: 100%
+					.video-wrapper
+						// margin-top: -40px
+						padding-bottom: 56.5%
+						width: 100%
+	.foldable-text
+		position: absolute
+		display: flex
+		justify-content: center
+		align-items: flex-start
+		flex-direction: column
+		vertical-align: middle
+		text-align: left
+		// margin-left: 9%
+		margin-top: -3%
+		// top: 20%
+		// left: 7%
+		z-index: 50
+		max-width: 80%
+		@media(max-width: 993px)
+			justify-content: center
+			align-items: center
+			text-align: center
+		.foldable-header
+			color: white
+			font-size: 7.5rem
+			font-family: futura-lt-heavy
+			margin-top: 0px
+			// text-shadow: 4px 4px 4px rgba(black, .25)
+			// +textshadows(2, rgba(black,.5))
+		.foldable-subheader
+			font-size: 3rem
+			font-family: futura-lt-heavy
+			color: white
+		.buttons
+			display: block
+			height: auto
+
+			.video-button
+				border: solid 1px white
+				border-radius: 2px
+				background: rgba(white, 1)
+				padding: 12px 35px
+				margin: 10px
+				margin-top: 5%
+				color: rgba(black, 1)
+				text-transform: capitalize
+				font-size: 1.6rem
+				font-family: futura-lt-medium
+				+animate(all, 250ms, ease)
+				text-decoration: none
+				// display: block
+				width: auto
+				position: relative
+				display: inline-block
+				&:hover
+					background: rgba(white, .85)
+			.choose-a-lettini
+				background: $gc
+				border-radius: 2px
+				padding: 12px 15px
+				margin: 10px
+				margin-top: 5%
+				border: 2px solid lighten($gc, 6)
+				text-transform: capitalize
+				font-size: 1.6rem
+				display: inline-block
+				color: white
+				font-family: futura-lt-medium
+				+animate(all, 300ms, ease)
+				&:hover
+					text-decoration: none
+					transform: translate(-4px, -4px)
+					+makeboxshadows(4, $dgc)
+		@media(max-width: 840px)
+			.foldable-header
+				margin-top: 0px
+
+		// @media(max-width: 990px)
+		// 	top: 15%
+		@media(max-width: 700px)
+			.foldable-header
+				font-size: 5rem
+		@media(max-width: 550px)
+			// top: 7%
+			.foldable-header
+				font-size: 4rem
+
+			.foldable-subheader
+				margin-top: 0
+				font-size: 2rem
+			.video-button
+				margin-top: 10px
+				padding: 10px 30px
+		@media(max-width: 350px)
+			// top: 0
+			.foldable-header
+				// margin-top: 15px
+	.foldable-img
+		text-align: center
+		// display: table-cell
+		vertical-align: middle
+		width: 100%
+		// max-width: 100%
+		overflow: hidden
+		height: auto
+		// max-width: 100%
+		@media(max-width: 740px)
+			width: 115%
+		@media(max-width: 550px)
+			width: 140%
