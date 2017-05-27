@@ -11,32 +11,30 @@ shopify = require('shopify-buy')
 nodemailer = require('nodemailer')
 forms = require('mongoose-forms')
 moment = require('moment')
-var Form = forms.Form
-Bridge = forms.Bridge
+var Form = forms.Form,
+Bridge = forms.Bridge,
 RedisStore = require('connect-redis')(session)
 var app = express()
 var http = require('http').Server(app)
 var io = require('socket.io')(http)
-
+var emailConf = require('./conf/email')
 
 /// SET SESSION CONFIG
-app.use(session({
-	name: "myleisure.sid",
-	secret: "4378vbh43o87gvb34wovb34o87gb4rybv3go43efgfg4gfg4fgboue78234ergfoh",
-	resave: false,
-	saveUninitialized: false,
-	store: new RedisStore({
-		host: 'localhost',
-		port: 6379,
-		ttl: 260
+app.use(
+	session({
+		name: "myleisure.sid",
+		secret: "4378vbh43o87gvb34wovb34o87gb4rybv3go43efgfg4gfg4fgboue78234ergfoh",
+		resave: false,
+		saveUninitialized: false,
+		store: new RedisStore({
+			host: 'localhost',
+			port: 6379,
+			ttl: 260
+		})
 	})
-})
 )
 
-console.log("wh");
-
-// const routes = require('./routes')
-/// SET SESSION RELATED MIDDLEWARE
+/// SET PERSISTENT LOGIN MIDDLEWARE AND FUNCTIONS
 app.use(function(req, res, next) {
 	if (req.session && req.session.user) {
 		User.findOne({ username: req.session.user.username }, function(err, user) {
@@ -65,7 +63,7 @@ function reqLog(req, res, next) {
 // app.use(router)
 // app.use('/', routes.index && routes.CMS)
 
-
+//// CSRF THINGS
 // app.use(csrf())
 // app.use(function(req, res, next) {
 //
@@ -78,7 +76,10 @@ function reqLog(req, res, next) {
 
 /// SET SITE WIDE VARIABLES
 app.locals.site = "My Leisure"
+app.locals.deploy = "local"
 app.locals.siteurl = "/Home"
+app.locals.title = "Sun Safe Sun Lounges | My Leisure Lettini's are revolutionizing beach experiences everywhere"
+// "My Leisure | Lettinis, Italian made Sun Lounges"
 
 ///// Create Shopify Client
 var shopifyClient = shopify.buildClient({
@@ -99,9 +100,8 @@ app.locals.basedir = path.join(__dirname, 'views')
 var MongoClient = require('mongodb')
 var mongoose = require('mongoose')
 mongoose.Promise = require('bluebird')
-mongoose.connect("mongodb://localhost:27017/myleisure")
-var db = mongoose.connection
-
+var db = mongoose.createConnection("mongodb://localhost:27017/myleisure")
+var nodes = mongoose.createConnection("mongodb://localhost:27017/nodes")
 
 // /////// LOAD ALL MODELS
 var adminModels = require('./models/admin')
@@ -202,7 +202,6 @@ app.get('/(|home|index)$*', function(req, res) {
   .then(function(objects){
 		res.render('Home',
 	  {
-		title: "My Leisure | Lettinis, Italian made Sun Lounges",
 		description: objects.description.description,
 	  }
 	)
@@ -210,7 +209,6 @@ app.get('/(|home|index)$*', function(req, res) {
   })
 
 })
-
 app.get('/(|showcase|lettinis)$*', function(req, res) {
 
 	res.locals.page = "showcase"
@@ -229,7 +227,6 @@ app.get('/(|showcase|lettinis)$*', function(req, res) {
 		})
 	})
 })
-
 app.get('/commercial/apply*', function(req, res) {
 
 	res.locals.page = "apply"
@@ -274,7 +271,6 @@ app.get('/aboutus*', function(req, res) {
 	  res.render('AboutUs',
 		{
 		  nav: objects.nav,
-		  title: "My Leisure | Lettinis, Italian made Sun Lounges",
 		  description: objects.description.description
 		}
 	  )
@@ -285,14 +281,11 @@ app.get('/aboutus*', function(req, res) {
 	/// END app.get()
 
 })
-
 app.get('/cart', function(req, res) {
 
 	res.render('Cart')
 
 })
-
-///// ABOUT US
 app.get('/termsandconditions*', function(req, res) {
 
 	/// START app.get()
@@ -325,7 +318,6 @@ app.get('/termsandconditions*', function(req, res) {
 	  res.render('TermsAndConditions',
 		{
 		  nav: objects.nav,
-		  title: "My Leisure | Lettinis, Italian made Sun Lounges",
 		  description: objects.description.description
 		}
 	  )
@@ -336,8 +328,6 @@ app.get('/termsandconditions*', function(req, res) {
 	/// END app.get()
 
 })
-
-
 ///// CONTACT US
 app.get('/contact*', function(req, res) {
 
@@ -371,7 +361,6 @@ app.get('/contact*', function(req, res) {
 	  res.render('ContactUs',
 		{
 		  nav: objects.nav,
-		  title: "My Leisure | Lettinis, Italian made Sun Lounges Contact Us",
 		  description: objects.description.description
 		}
 	  )
@@ -392,8 +381,8 @@ app.post('/contact*', function(req, res) {
 	  service: 'Gmail',
 	  auth: {
 		  // xoauth2: xoauth2.createXOAuth2Generator({
-			user: "ireply@myleisure.com.au",
-			pass: "myleisure"
+			user: emailConf.email,
+			pass: emailConf.password
 		  // })
 	  }
   })
@@ -418,8 +407,6 @@ app.post('/contact*', function(req, res) {
   })
 
 })
-
-
 ///// ACCESSORIES
 app.get('/accessories*', function(req, res) {
 
@@ -453,7 +440,6 @@ app.get('/accessories*', function(req, res) {
 	  res.render('Accessories',
 		{
 		  nav: objects.nav,
-		  title: "My Leisure | Lettinis, Italian made Sun Lounges Contact Us",
 		  description: objects.description.description
 		}
 	  )
@@ -464,8 +450,6 @@ app.get('/accessories*', function(req, res) {
 	/// END app.get()
 
 })
-
-
 ///// CUSTOMIZE
 app.get('/customize*', function(req, res) {
 
@@ -499,7 +483,6 @@ app.get('/customize*', function(req, res) {
 	  res.render('Customize',
 		{
 		  nav: objects.nav,
-		  title: "My Leisure | Lettinis, Italian made Sun Lounges Contact Us",
 		  description: objects.description.description
 		}
 	  )
@@ -510,8 +493,6 @@ app.get('/customize*', function(req, res) {
 	/// END app.get()
 
 })
-
-
 ///// DESIGN
 app.get('/design*', function(req, res) {
 
@@ -581,7 +562,6 @@ app.get('/design*', function(req, res) {
 	  res.render('Design',
 		{
 		  nav: objects.nav,
-		  title: "My Leisure | Lettinis, Italian made Sun Lounges Contact Us",
 		  description: objects.description.description,
 		  colours: objects.colours,
 		  products: objects.products.attrs,
@@ -597,9 +577,6 @@ app.get('/design*', function(req, res) {
 	/// END app.get()
 
 })
-
-
-///// ABOUT US
 app.get('/possibilities*', function(req, res) {
 
 	/// START app.get()
@@ -658,7 +635,6 @@ app.get('/possibilities*', function(req, res) {
 	  res.render('Possibilities',
 			{
 			  nav: objects.nav,
-			  title: "My Leisure | Lettinis, Italian made Sun Lounges Contact Us",
 			  description: objects.description.description,
 			  colours: objects.colours,
 			  finishes: objects.finishes,
@@ -672,7 +648,6 @@ app.get('/possibilities*', function(req, res) {
 	/// END app.get()
 
 })
-
 ///// SHOP/LETTINIS
 app.get('/(|lettini|shop|products|products/lettinis|shop/lettinis)$*', function(req, res) {
 
@@ -720,7 +695,6 @@ app.get('/(|lettini|shop|products|products/lettinis|shop/lettinis)$*', function(
 	  res.render('Lettini',
 		{
 		  nav: objects.nav,
-		  title: "My Leisure | Lettinis, Italian made Sun Lounges Contact Us",
 		  description: objects.description.description,
 		  // colours: objects.colours,
 		  // typesOfColour: ['woven', 'gradient','square'],
@@ -736,9 +710,7 @@ app.get('/(|lettini|shop|products|products/lettinis|shop/lettinis)$*', function(
 	/// END app.get()
 
 })
-
-
-///// LETTINI PRODUCT PAGES
+///// INDIVIDUAL LETTINI PRODUCT PAGES
 app.get('/shop/lettinis/:sku*', function(req, res) {
 
   var sku = req.params.sku
@@ -775,7 +747,6 @@ app.get('/shop/lettinis/:sku*', function(req, res) {
 		nav: objects.nav,
 		product: objects.product,
 		description: objects.description,
-		title: objects.product.colour + " " + objects.product.finish + " Lettini Sun lounge with canopy"
 
 
 
@@ -793,8 +764,6 @@ app.get('/shop/lettinis/:sku*', function(req, res) {
   })
 
 })
-
-
 //// SHIPPING PAGE
 app.get('/shipping?:sku*', function(req, res) {
 
@@ -837,7 +806,6 @@ app.get('/shipping?:sku*', function(req, res) {
 	res.render('Shipping',
 	  {
 		nav: objects.nav,
-		title: "Our shipping fees My Leisure | Lettinis, Italian made Sun Lounges",
 		description: objects.description.description,
 		product: objects.product
 	  }
@@ -849,7 +817,6 @@ app.get('/shipping?:sku*', function(req, res) {
   /// END app.get()
 
 })
-
 app.get('/stockists', function(req, res) {
 
 	nav.find({name: "main nav"}).then(function(nav){
@@ -859,7 +826,6 @@ app.get('/stockists', function(req, res) {
 	})
 
 })
-
 app.post('/stockists', function(req, res) {
 
   var mailOpts, smtpTrans
@@ -894,7 +860,6 @@ app.post('/stockists', function(req, res) {
   })
 
 })
-
 app.get('/hotels', function(req, res) {
 
 	nav.find({name: "main nav"}).then(function(nav){
@@ -904,22 +869,54 @@ app.get('/hotels', function(req, res) {
 	})
 
 })
-
 app.get('/build', function(req, res) {
+	res.locals.choices = [
+		{
+			frame: "Silver",
+			frameText: "silver",
+			colours: []
+		},
+		{
+			frame: "White",
+			frameText: "white",
+			colours: []
+		},
+		{
+			frame: "Bronze",
+			frameText: "bronze",
+			colours: []
+		}
+	]
+	var frames = []
+	product.then(function(product){
+		product.find({}).exec().then(function(products){
+			for(i=0;i<products.length;i++){
+				for(j=0;j<res.locals.choices.length;j++){
+					if(res.locals.choices[j].colours.indexOf(products[i].colour) < 0){
+						if(products[i].finish == res.locals.choices[j].frame){
+							res.locals.choices[j].colours.push(products[i].colour)
+						}
+					}
+				}
+				if(i==products.length-1){
+					return
+				}
+			}
+		}).then(function(){
+			nav.find({name: "main nav"}).exec().then(function(nav) {
+				res.locals.nav = nav[0]
+				return true
+			})
+			.then(function(){
 
-	res.locals.choice = 'frame'
-	res.locals.choices = ['silver', 'white', 'bronze']
-	nav.find({name: "main nav"}).exec().then(function(nav) {
-			res.locals.nav = nav[0]
-			return true
+				res.render('Builder')
+			})
 		})
-		.then(function(){
 
-		res.render('Builder')
 	})
 
-})
 
+})
 app.get('/blogs(|/:blogTitle)', function(req, res) {
 
 	res.locals.page = 'blog'
@@ -946,13 +943,11 @@ app.get('/blogs(|/:blogTitle)', function(req, res) {
 		})
 	})
 })
-
-
 app.post('/build?:frame', function(req, res) {
 	res.locals.frame = req.params.frame
 
 })
-
+//// LOGIN AND REGISTRATION AND DASHBOARD
 app.get('/login*', function(req, res) {
 	if (req.session && req.session.user) {
 		User.findOne({username: req.session.user.username}, function(err, user) {
@@ -970,7 +965,6 @@ app.get('/login*', function(req, res) {
 		res.render('snippets/admin/login')
 	}
 })
-
 app.post('/login', function(req, res) {
 
 	// console.log(req.session)
@@ -998,10 +992,7 @@ app.post('/login', function(req, res) {
 		}
 	})
 })
-
-
 app.get("/dashboard", reqLog, function(req, res) {
-
 	Blog.find({'editors': req.session.user.username}, function(err, blogs) {
 		res.locals.blogCount = blogs.length
 		res.locals.blogs = blogs
@@ -1016,7 +1007,6 @@ app.get("/dashboard", reqLog, function(req, res) {
 		})
 	})
 })
-
 app.post('/dashboard', reqLog, function(req, res) {
 	Blog.findById(req.body.blogId, function(err, blog){
 		res.locals.blog = blog
@@ -1028,14 +1018,11 @@ app.post('/dashboard', reqLog, function(req, res) {
 
 	})
 })
-
 app.get("/admin", reqLog, function(req, res) {
 
 	res.redirect('/Dashboard')
 
 })
-
-
 app.get('/register*', function(req, res) {
 
 	if(req.session && req.session.user) {
@@ -1053,31 +1040,23 @@ app.get('/register*', function(req, res) {
 	}
 
 })
-
 app.post('/register', function(req, res) {
-
-
 	if (req.body.password === req.body.confirmPassword) {
-
 		var hash = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(12))
-
 		var newUser = new User({
 			firstName: req.body.firstName.toLowerCase(),
 			lastName: req.body.lastName.toLowerCase(),
 			username: req.body.username,
 			password: hash,
 			email: req.body.email.toLowerCase(),
-			luckyNumber: req.body.luckyNumber
+			luckyNumber: req.body.luck
 		})
-
 		newUser.save(function(err){
 			if(err){
-				var error = "Something bad hrouterened :O" + err
-
+				var error = "Something bad happened :O" + err
 				if(err.code === 11000){
 					res.locals.error = "The email or username you specified is already in use, please try another"
 				}
-
 				res.render('snippets/admin/register')
 			} else {
 				req.session.user = newUser
@@ -1090,16 +1069,11 @@ app.post('/register', function(req, res) {
 		res.locals.error = "Your passwords did not match"
 		res.render('snippets/admin/register')
 	}
-
 })
-
-
 app.get("/logout", function(req, res) {
 	req.session.destroy()
 	res.redirect('/')
 })
-
-
 
 /// TEMPLATING FUNCTIONS
 var blogTemplatePath = 'CMS/blogs/blogTemplate'
@@ -1152,6 +1126,11 @@ app.get('/test', function(req, res){
 	})
 })
 
-http.listen(3002, () => console.log('listening on 3002'))
+/// 404 HANDLERS
+app.get('*', function(req, res){
+	res.render("404")
+})
+
 //// APP LISTENER FOR CLIENTS
 // app.listen(3002)
+http.listen(3002, () => console.log('listening on 3002'))

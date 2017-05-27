@@ -1,7 +1,7 @@
 html
-  
+
   body
-    .blog-editable.lopu(id= blog.slug.url)
+    .blog-editable.l(id= blog.slug.url)
       .container-fluid
         .row
           .col-lg-12.col-lg-offset-4.col-md-16.col-md-offset-2
@@ -15,9 +15,9 @@ html
               //- .textarea-shadow(id="blog.title.text")= blog.title.text
               //- textarea(type="text", id="blog.title.text", placeholder="Enter your blogs title")= blog.title.text
 
-            .author 
+            .author
               .descriptor
-                .editable(contenteditable="true") By 
+                .editable(contenteditable="true") By
               a
                 .editable(contenteditable="true")= blog.author.firstName + ' ' + blog.author.lastName
             .date
@@ -29,21 +29,21 @@ html
             .subtitle
               .editable(contenteditable="true")= blog.subtitle.text
             .social-icons-box
-              a(href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fmyleisure.com.au%2Fblogs%2F"+blog.slug.url)            
+              a(href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fmyleisure.com.au%2Fblogs%2F"+blog.slug.url)
                 .fa.fa-facebook-square
               a(href="http://twitter.com/intent/tweet?text=our%20first%20blog%20post&url=https%3A%2F%2Fmyleisure.com.au%2Fblogs%2F"+blog.slug.url)
                 .fa.fa-twitter-square
-              //- a(href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fdailytekk.com%2Fthe-100-best-most-interesting-blogs-and-websites-of-2015%2F&t=The+100+Best%2C+Most+Interesting+Blogs+and+Websites+of+2015")                    
+              //- a(href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fdailytekk.com%2Fthe-100-best-most-interesting-blogs-and-websites-of-2015%2F&t=The+100+Best%2C+Most+Interesting+Blogs+and+Websites+of+2015")
               //-   .fa.fa-pinterest-square
               //- .fa.fa-mail
-            
+
         .row.content-row
           .col-lg-12.col-lg-offset-4.col-md-16.col-md-offset-2
-            .body.pt1 
+            .body.pt1
               each paragraph, key in blog.content.intro.paragraphs
                 p.editable(contenteditable="true")!= paragraph
-              .add-block-container
-                .add-block
+              .adder
+                .add-block-container
                   .add-block-button
                     .fa.fa-plus
             .highlights
@@ -67,31 +67,31 @@ html
                       each highlightParagraph, key in highlight.content.paragraphs
                         p
                           .editable(contenteditable="true")!= highlightParagraph
-                    .add-block-container.littler
-                      .add-block
+                    .adder.littler
+                      .add-block-container
                         .add-block-button
-                          .fa.fa-plus    
-              .add-block-container
-                .add-block
+                          .fa.fa-plus
+              .adder
+                .add-block-container
                   .add-block-button
                     .fa.fa-plus
             //- .highlight.highlight1
-            //-   .number 01. 
+            //-   .number 01.
             //-   a(href="/sunsmart").highlight-title The Canopy
             //-   .highlight-image-container
             //-     img(data-original="/img/splash/hq/sunsmart.jpg")
             //-   .highlight-subtitle
             //-     span Using a canopy blocks nearly all harmful UV and Sun rays
             //-   .highlight-content
-            //-     p Are you a hotel or resort chain looking to spice up the atmosphere of your customer experience? Our Lettinis offer a HUGE 900+ combination assortment so you can tailor make a range of Lettinis to suit your own brand and style. We even offer you the choice to custom 
-            //-     
-            //-     p Are you a 
-            //-       a(href="/something") hotel or resort chain 
+            //-     p Are you a hotel or resort chain looking to spice up the atmosphere of your customer experience? Our Lettinis offer a HUGE 900+ combination assortment so you can tailor make a range of Lettinis to suit your own brand and style. We even offer you the choice to custom
+            //-
+            //-     p Are you a
+            //-       a(href="/something") hotel or resort chain
             //-       | looking to spice up the atmosphere of your customer experience? Our Lettinis offer a HUGE 900+ combination assortment so you can
-            //-   
-            //-     p Are you a hotel or resort chain looking to spice up the atmosphere of your customer experience? Our Lettinis offer a HUGE 900+ combination assortment so you can tailor make a range of Lettinis to suit your own brand and style.          
+            //-
+            //-     p Are you a hotel or resort chain looking to spice up the atmosphere of your customer experience? Our Lettinis offer a HUGE 900+ combination assortment so you can tailor make a range of Lettinis to suit your own brand and style.
             //- .highlight.highlight2
-            //-   .number 02. 
+            //-   .number 02.
             //-   a(href="/showcase").highlight-title Colour and Customization
             //-   .highlight-image-container
             //-     img(data-original="/img/splash/hq/colours_refined.jpg")
@@ -99,14 +99,14 @@ html
             //-     span Our Lettinis come in over 900 different possible combinations
             //-   .highlight-content
             //-     p Are you a hotel or resort chain looking to spice up the atmosphere of your customer experience? Our Lettinis offer a HUGE 900+ combination assortment so you can tailor make a range of Lettinis to suit your own brand and style. We even offer you the choice to custom print your own brand logo in any colour you want on any size, finish, or colour Lettini too. The choice is yours
-            //-     
-            //-     p Are you a 
-            //-       a(href="/something") hotel or resort chain 
+            //-
+            //-     p Are you a
+            //-       a(href="/something") hotel or resort chain
             //-       | looking to spice up the atmosphere of your customer experience? Our Lettinis offer a HUGE 900+ combination assortment so you can tailor make a range of Lettinis to suit your own brand and style. We even offer you the choice to custom print your own brand logo in any colour you want on any size, finish, or colour Lettini too. The choice is yours
-            //-   
+            //-
             //-     p Are you a hotel or resort chain looking to spice up the atmosphere of your customer experience? Our Lettinis offer a HUGE 900+ combination assortment so you can tailor make a range of Lettinis to suit your own brand and style.
             //- .highlight.highlight3
-            //-   .number 03. 
+            //-   .number 03.
             //-   a(href="/design#finishes").highlight-title Quality
             //-   .highlight-image-container
             //-     img(data-original="/img/splash/hq/bronze.jpg")
@@ -114,14 +114,14 @@ html
             //-     span When you buy a Lettini you will almost time travel 10 years into the future
             //-   .highlight-content
             //-     p Are you a hotel or resort chain looking to spice up the atmosphere of your customer experience? Our Lettinis offer a HUGE 900+ combination assortment so you can tailor make a range of Lettinis to suit your own brand and style. We even offer you the choice to custom print your own brand logo in any colour you want on any size, finish, or colour Lettini too. The choice is yours
-            //-     
-            //-     p Are you a 
-            //-       a(href="/something") hotel or resort chain 
+            //-
+            //-     p Are you a
+            //-       a(href="/something") hotel or resort chain
             //-       | looking to spice up the atmosphere of your customer experience? Our Lettinis offer a HUGE 900+ combination assortment so you can tailor make a range of Lettinis to suit your own brand and style. We even offer you the choice to custom print your own brand logo in any colour you want on any size, finish, or colour Lettini too. The choice is yours
-            //-   
+            //-
             //-     p Are you a hotel or resort chain looking to spice up the atmosphere of your customer experience? Our Lettinis offer a HUGE 900+ combination assortment so you can tailor make a range of Lettinis to suit your own brand and style.
             //- .highlight.highlight4
-              .number 04. 
+              .number 04.
               a(href="/accessories").highlight-title Accessories
               .highlight-image-container
                 img(data-original="/img/splash/hq/ashtray_open.jpg")
@@ -129,11 +129,11 @@ html
                 span When you buy a Lettini you will almost time travel 10 years into the future
               .highlight-content
                 p Are you a hotel or resort chain looking to spice up the atmosphere of your customer experience? Our Lettinis offer a HUGE 900+ combination assortment so you can tailor make a range of Lettinis to suit your own brand and style. We even offer you the choice to custom print your own brand logo in any colour you want on any size, finish, or colour Lettini too. The choice is yours
-                
-                p Are you a 
-                  a(href="/something") hotel or resort chain 
+
+                p Are you a
+                  a(href="/something") hotel or resort chain
                   | looking to spice up the atmosphere of your customer experience? Our Lettinis offer a HUGE 900+ combination assortment so you can tailor make a range of Lettinis to suit your own brand and style. We even offer you the choice to custom print your own brand logo in any colour you want on any size, finish, or colour Lettini too. The choice is yours
-              
+
                 p Are you a hotel or resort chain looking to spice up the atmosphere of your customer experience? Our Lettinis offer a HUGE 900+ combination assortment so you can tailor make a range of Lettinis to suit your own brand and style.
         -var author = blog.author
         include /CMS/blogs/authorTemplateEditable

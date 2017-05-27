@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var db = mongoose.createConnection("mongodb://localhost:27017/myleisure")
 var Schema = mongoose.Schema;
 
 var blogHighlightSchema = new Schema({
@@ -22,7 +23,7 @@ var blogHighlightSchema = new Schema({
 
 })
 
-var blogHighlight = mongoose.model('blogHighlight', blogHighlightSchema);
+var blogHighlight = db.model('blogHighlight', blogHighlightSchema);
 
 // Blog.remove({});
 // testBlog.save({});

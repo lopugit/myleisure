@@ -1,19 +1,30 @@
 html
-  body
-    #builder
-      .container-fluid
-        .row
-          .col-lg-24
-            h3 Here you can choose your frame finish, material colour, and any extras you may want
-          .col-lg-24.current-option-container
-            .title To begin, choose a #{choice}
-            .choices-container(data-number-of-choices= choices.length)
-              -if(choice = 'frame')
-                for option in choices
-                  .choice-box(id= option, onclick='select'+choice+'(this)')
-                    .frame-choice-circle
-                      img(data-original="/img/finishes/centered/hq/"+option+'.png')
-                    
-                    .next-link
-                      a(href="/build?"+option) Step 2
-                        i.fa.fa-chevron-small-right
+	body
+		#builder
+			.container-fluid
+				.row
+					.col-lg-24
+						#instruction.title To begin, choose a frame
+					.builder-container
+						.frame-option-container
+							.choices-container
+								for option in choices
+									.choice-box(id= option.frameText, onclick='selectFrame(this)')
+										.frame-choice-circle
+											img(data-original="/img/finishes/centered/hq/"+option.frameText+'.png')
+
+										.label
+											span= option.frameText
+										
+										.next-link
+											span Frame
+												//- i.fa.fa-chevron-small-right
+										
+						.colour-option-container
+							#colours.choices-container
+								for option in choices
+									for colour in option.colours
+										.colour-container(id= option.frameText)
+											.colour
+												img(src="/img/colours/150x/"+encodeURIComponent(colour.trim())+".jpg")
+											.colour-label= colour

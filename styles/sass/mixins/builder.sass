@@ -1,85 +1,165 @@
 #builder
-  background-color: white
-  padding: 50px 0 70px 0
-  .current-option-container
-    display: flex
-    align-items: center
-    justify-content: center
-    flex-direction: column
-    .title
-      font-size: 5rem
-      color: $dgc
-      // padding-left: 20px
-      padding-bottom: 20px
-      font-family: futura-lt-light
-      +textshadows(0, white)
-    .choices-container
-      position: relative
-      display: flex
-      align-items: center
-      justify-content: center
-      flex-wrap: wrap
-      flex-direction: row
+	background-color: white
+	padding: 150px 0 150px 0
+	.title
+		font-size: 5rem
+		color: $dgc
+		padding-bottom: 40px
+		font-family: futura-lt-light
+		+textshadows(0, white)
+	.builder-container
+		display: flex
+		align-items: flex-start
+		justify-content: flex-start
+		flex-direction: row
+		flex-wrap: nowrap
+		width: 100%
+		.frame-option-container
+			display: flex
+			align-items: center
+			justify-content: center
+			flex-direction: column
+			flex-wrap: nowrap
+			margin-top: 0px
+			width: 100%
+			+animate(all, 550ms, ease-out)
+			.choices-container
+				position: relative
+				display: flex
+				align-items: center
+				justify-content: center
+				flex-wrap: nowrap
+				flex-direction: row
+				.choice-box
+					width: auto
+					height: auto
+					max-width: 100%
+					max-height: 100%
+					position: relative
+					display: flex
+					justify-content: center
+					align-items: center
+					flex-direction: column
+					margin: 50px
+					+animate(all, 400ms, ease)
+					opacity: 1
+					// &:first-child
+					//   margin-left: 0px
+					.frame-choice-circle
+						border-radius: 50%
+						width: 250px
+						height: 250px
+						max-width: 100%
+						overflow: hidden
+						display: flex
+						align-items: center
+						justify-content: center
+						background-color: rgba($gc, 0)
+						border: 2px solid rgba($dgc, .2)
+						+animate(all, 300ms, ease)
+						img
+							object-fit: cover
+							object-position: center
+							max-width: 160%
+							+animate(all, 500ms, ease-in-out)
+						&:hover
+							img
+								// max-width: 230%
+								cursor: pointer
+					&.selected
+						margin-left: 0px
+						margin-right: 0px
+						.frame-choice-circle
+							border-color: rgba(darken($dgc, 25),.3)
+						.label
+							color: rgba(darken($dgc, 25),.8)
 
-      .choice-box
-        width: auto
-        height: auto
-        max-width: 100%
-        max-height: 100%
-        position: relative
-        display: flex
-        justify-content: center
-        align-items: center
-        margin: 30px
-        +animate(all, 500ms, ease)
-        opacity: 1
-        // &:first-child
-        //   margin-left: 0px
-        .frame-choice-circle
-          border-radius: 50%
-          width: 250px
-          height: 250px
-          max-width: 100%
-          overflow: hidden
-          display: flex
-          align-items: center
-          justify-content: center
-          background-color: $gc
-          img
-            object-fit: cover
-            object-position: center
-            max-width: 160%
-            +animate(all, 500ms, ease-in-out)
-          &:hover
-            img
-              // max-width: 230%
-              cursor: pointer
-        &.selected
-          margin-left: 0px
-          margin-right: 0px
-        &.unselected
-          opacity: 0
-          display: none
-          overflow: hidden
-          margin: 0
-        .next-link
-          font-size: 4.5rem
-          color: $dgc
-          position: relative
-          padding-left: 15px
-          opacity: 0
-          max-width: 0px
-          height: auto
-          +animate(all, 250ms, ease)
-          font-family: futura-lt-light
-          white-space: nowrap
-          a
-            display: none
-            +animate(all, 250ms, ease)
-            &:hover
-              text-decoration: none
-          &.show
-            opacity: 1
-            max-width: 200px
-            a
-              display: inline-block
+					&.unselected
+						opacity: 0
+						display: none
+						overflow: hidden
+						margin: 0
+					.label
+						color: rgba($dgc, .4)
+						text-transform: capitalize
+						font-size: 2rem
+						font-family: futura-lt-light
+						letter-spacing: 1px
+						margin-top: 15px
+						+animate(all, 300ms, ease)
+
+					.next-link
+						font-size: 4.5rem
+						position: relative
+						margin-top: 15px
+						opacity: 0
+						max-width: 0px
+						height: auto
+						+animate(all, 250ms, ease)
+						font-family: futura-lt-light
+						white-space: nowrap
+						color: $dgc
+						overflow: hidden
+						display: inline-block
+						&.show
+							opacity: 1
+							max-width: 200px
+							color: $dgc
+						&:hover
+							cursor: pointer
+					&:hover
+						.frame-choice-circle
+							border-color: rgba(darken($dgc, 25),.3)
+						.label
+							color: rgba(darken($dgc, 25),.8)
+			&.done
+				width: 25%
+				border-right: 1px solid rgba($dgc, .3)
+		.colour-option-container
+			width: 0%
+			max-width: 0%
+			overflow: hidden
+
+			&.active
+				width: auto
+				max-width: 60%
+			#colours
+				display: flex
+				justify-content: flex-start
+				align-items: center
+				flex-direction: row
+				flex-wrap: wrap
+				padding-top: 10px
+				padding-left: 40px
+				.colour-container
+					margin-right: 50px
+					margin-bottom: 40px
+					text-align: center
+					color: rgba(black, .65)
+					font-family: futura-lt-light
+					.colour
+						border-radius: 3px
+						overflow: hidden
+						display: flex
+						align-items: center
+						justify-content: center
+						width: 150px
+						height: 40px
+						box-shadow: 0px 6px 5px -3px rgba(black, .4)
+						+animate(all, 250ms, ease)
+						img
+							display: block
+							object-fit: cover
+							object-position: center
+							height: 100%
+							width: 100%
+					.colour-label
+						margin-top: 7px
+						+animate(all, 250ms, ease)
+					&:hover
+						cursor: pointer
+						.colour
+							transform: translateY(-2px)
+							box-shadow: 0px 10px 5px -6px rgba(black, .25)
+						.colour-label
+							color: rgba(black, .9)

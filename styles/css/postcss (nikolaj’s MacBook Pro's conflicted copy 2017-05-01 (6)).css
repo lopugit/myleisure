@@ -1,0 +1,78 @@
+/*
+Error: Invalid CSS after "include /adders": expected "/", was ""
+        on line 1 of styles/sass/lopu/lopu.sass
+        from line 15 of /home/ggg/Dropbox/host-root/var/www/node/myleisurenode/styles/sass/sass.sass
+
+1: @import mixins/mixins
+2: @import ../fonts/fonts
+3: @import var
+4: @import global
+5: @import mixins/nav
+6: @import mixins/nav-menu
+
+Backtrace:
+styles/sass/lopu/lopu.sass:1
+/home/ggg/Dropbox/host-root/var/www/node/myleisurenode/styles/sass/sass.sass:15
+/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:1179:in `expected'
+/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:1115:in `expected'
+/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:1110:in `tok!'
+/usr/lib/ruby/vendor_ruby/sass/scss/static_parser.rb:147:in `reference_combinator'
+/usr/lib/ruby/vendor_ruby/sass/scss/static_parser.rb:139:in `combinator'
+/usr/lib/ruby/vendor_ruby/sass/scss/static_parser.rb:119:in `selector'
+/usr/lib/ruby/vendor_ruby/sass/scss/static_parser.rb:86:in `selector_comma_sequence'
+/usr/lib/ruby/vendor_ruby/sass/scss/parser.rb:1093:in `expr!'
+/usr/lib/ruby/vendor_ruby/sass/scss/static_parser.rb:20:in `parse_selector'
+/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:425:in `visit_rule'
+/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:36:in `visit'
+/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:158:in `block in visit'
+/usr/lib/ruby/vendor_ruby/sass/stack.rb:79:in `block in with_base'
+/usr/lib/ruby/vendor_ruby/sass/stack.rb:115:in `with_frame'
+/usr/lib/ruby/vendor_ruby/sass/stack.rb:79:in `with_base'
+/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:158:in `visit'
+/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:326:in `block (2 levels) in visit_import'
+/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:326:in `map'
+/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:326:in `block in visit_import'
+/usr/lib/ruby/vendor_ruby/sass/stack.rb:88:in `block in with_import'
+/usr/lib/ruby/vendor_ruby/sass/stack.rb:115:in `with_frame'
+/usr/lib/ruby/vendor_ruby/sass/stack.rb:88:in `with_import'
+/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:323:in `visit_import'
+/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:36:in `visit'
+/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:158:in `block in visit'
+/usr/lib/ruby/vendor_ruby/sass/stack.rb:79:in `block in with_base'
+/usr/lib/ruby/vendor_ruby/sass/stack.rb:115:in `with_frame'
+/usr/lib/ruby/vendor_ruby/sass/stack.rb:79:in `with_base'
+/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:158:in `visit'
+/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:52:in `map'
+/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:52:in `visit_children'
+/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:179:in `with_environment'
+/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:166:in `visit_children'
+/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:36:in `block in visit'
+/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:186:in `visit_root'
+/usr/lib/ruby/vendor_ruby/sass/tree/visitors/base.rb:36:in `visit'
+/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:157:in `visit'
+/usr/lib/ruby/vendor_ruby/sass/tree/visitors/perform.rb:8:in `visit'
+/usr/lib/ruby/vendor_ruby/sass/tree/root_node.rb:36:in `css_tree'
+/usr/lib/ruby/vendor_ruby/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/usr/lib/ruby/vendor_ruby/sass/engine.rb:378:in `_render_with_sourcemap'
+/usr/lib/ruby/vendor_ruby/sass/engine.rb:295:in `render_with_sourcemap'
+/usr/lib/ruby/vendor_ruby/sass/plugin/compiler.rb:490:in `update_stylesheet'
+/usr/lib/ruby/vendor_ruby/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/usr/lib/ruby/vendor_ruby/sass/plugin/compiler.rb:209:in `each'
+/usr/lib/ruby/vendor_ruby/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/usr/lib/ruby/vendor_ruby/sass/plugin/compiler.rb:471:in `on_file_changed'
+/usr/lib/ruby/vendor_ruby/sass/plugin/compiler.rb:328:in `block in watch'
+/var/lib/gems/2.3.0/gems/listen-3.1.5/lib/listen/event/config.rb:23:in `call'
+/var/lib/gems/2.3.0/gems/listen-3.1.5/lib/listen/event/processor.rb:115:in `_process_changes'
+/var/lib/gems/2.3.0/gems/listen-3.1.5/lib/listen/event/processor.rb:19:in `block in loop_for'
+/var/lib/gems/2.3.0/gems/listen-3.1.5/lib/listen/event/processor.rb:15:in `loop'
+/var/lib/gems/2.3.0/gems/listen-3.1.5/lib/listen/event/processor.rb:15:in `loop_for'
+/var/lib/gems/2.3.0/gems/listen-3.1.5/lib/listen/event/loop.rb:84:in `_wait_for_changes'
+/var/lib/gems/2.3.0/gems/listen-3.1.5/lib/listen/event/loop.rb:42:in `block in setup'
+/var/lib/gems/2.3.0/gems/listen-3.1.5/lib/listen/internals/thread_pool.rb:6:in `block in add'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"include /adders\": expected \"/\", was \"\"\A         on line 1 of styles/sass/lopu/lopu.sass\A         from line 15 of /home/ggg/Dropbox/host-root/var/www/node/myleisurenode/styles/sass/sass.sass\A \A 1: @import mixins/mixins\A 2: @import ../fonts/fonts\A 3: @import var\A 4: @import global\A 5: @import mixins/nav\A 6: @import mixins/nav-menu"; }

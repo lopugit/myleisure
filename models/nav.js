@@ -1,13 +1,6 @@
 var MongoClient = require('mongodb');
-
-// mongodb = MongoClient.connect('mongodb://localhost/myleisure');
-
 var mongoose = require('mongoose');
-
-// mongoose.connect("mongodb://localhost/myleisure");
-//
-// var db = mongoose.connection;
-
+var db = mongoose.createConnection("mongodb://localhost:27017/myleisure")
 var write = true;
 
 var Schema = mongoose.Schema;
@@ -85,9 +78,9 @@ var navSocialSchema = new Schema({
 });
 
 
-var nav = mongoose.model("nav", navSchema);
-var navItem = mongoose.model("navItem", navItemSchema);
-var socials = mongoose.model("socials", navSocialSchema);
+var nav = db.model("nav", navSchema);
+var navItem = db.model("navItem", navItemSchema);
+var socials = db.model("socials", navSocialSchema);
 
 
 var Socials = new socials({

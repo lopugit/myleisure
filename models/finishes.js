@@ -1,13 +1,8 @@
 var MongoClient = require('mongodb');
-
-// mongodb = MongoClient.connect('mongodb://localhost/myleisure');
-
 var mongoose = require('mongoose');
-
+var db = mongoose.createConnection("mongodb://localhost:27017/myleisure")
 var fs = require('fs');
 var path = require('path');
-
-
 var write = false;
 
 // mongoose.connect("mongodb://localhost/myleisure");
@@ -32,10 +27,10 @@ var finishSchema = new Schema({
   url: {type: String, default: null}
 });
 
-// var descriptionsDb = mongoose.model("descriptions", descriptionsDbSchema);
-var finish = mongoose.model("finish", finishSchema);
+// var descriptionsDb = db.model("descriptions", descriptionsDbSchema);
+var finish = db.model("finish", finishSchema);
 
-var finishes = mongoose.model("finishes", finishesDbSchema);
+var finishes = db.model("finishes", finishesDbSchema);
 
 var finishesDir = "/img/finishes/hq/";
 

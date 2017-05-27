@@ -1,6 +1,6 @@
 var MongoClient = require('mongodb');
-
 var mongoose = require('mongoose');
+var db = mongoose.createConnection("mongodb://localhost:27017/myleisure")
 var simpl = require('simpl-schema');
 var fs = require('fs');
 var path = require('path');
@@ -47,7 +47,7 @@ var productSchema = new Schema({
 
 });
 
-var product = mongoose.model('product', productSchema);
+var product = db.model('product', productSchema);
 
 if(write){
   module.exports = product;

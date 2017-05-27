@@ -1,6 +1,7 @@
 
 var mongoose = require('mongoose');
 Schema = mongoose.Schema;
+var nodes = mongoose.createConnection("mongodb://localhost:27017/nodes")
 
 var userSchema = new Schema({
   username: {type: String, unique: true},
@@ -11,6 +12,6 @@ var userSchema = new Schema({
   luckyNumber: {type: Number, default: 8}
 });
 
-var user = mongoose.model('user', userSchema);
+var user = nodes.model('user', userSchema);
 
 module.exports = user;

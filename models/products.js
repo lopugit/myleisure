@@ -1,18 +1,11 @@
 var MongoClient = require('mongodb');
-
-// mongodb = MongoClient.connect('mongodb://localhost/myleisure');
-
 var mongoose = require('mongoose');
-
+var db = mongoose.createConnection("mongodb://localhost:27017/myleisure")
 var fs = require('fs');
 var path = require('path');
-
 var generateSchema = require('generate-schema');
-
 var Schema = mongoose.Schema;
-
 var shopify = require('shopify-buy');
-
 var client = shopify.buildClient({
   accessToken: '30197388c16741334138de5dd1de3f1a',
   domain: 'my-leisure.myshopify.com',
@@ -41,7 +34,7 @@ module.exports = client.fetchProduct('8461073805').then(function(products) {
     id: {type: String, default: objects.products.attrs.product_id},
     variantId: {type: String, default: null}
   });
-  var productModel = mongoose.model("productModel", productSchema);
+  var productModel = db.model("productModel", productSchema);
   productModel.remove({});
   objects.product = productModel;
   return objects;

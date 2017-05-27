@@ -1,13 +1,7 @@
 var MongoClient = require('mongodb');
-
-// mongodb = MongoClient.connect('mongodb://localhost/myleisure');
-
 var mongoose = require('mongoose');
-
-// mongoose.connect("mongodb://localhost/myleisure");
-
+var db = mongoose.createConnection("mongodb://localhost:27017/myleisure")
 var Schema = mongoose.Schema;
-
 var write = false;
 
 var descriptionSchema = new Schema({
@@ -19,8 +13,8 @@ var descriptionSchema = new Schema({
   description: {type: String, default: null}
 });
 
-// var descriptionsDb = mongoose.model("descriptions", descriptionsDbSchema);
-var description = mongoose.model("description", descriptionSchema);
+// var descriptionsDb = db.model("descriptions", descriptionsDbSchema);
+var description = db.model("description", descriptionSchema);
 
 
 var Default = new description({

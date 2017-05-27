@@ -83,6 +83,12 @@ body {
 img:not([src]):not([srcset]) {
   visibility: hidden; }
 
+a {
+  color: #F5F5F5;
+  transition: all 250ms ease; }
+  a:hover {
+    color: white !important; }
+
 nav {
   position: relative;
   display: block;
@@ -925,10 +931,15 @@ nav {
     align-items: center; }
     .btn--cart-tab .cart-holder text {
       position: absolute;
-      top: -4px;
-      right: -5px;
-      color: #0e4c83;
-      transition: all 200ms ease; }
+      top: -7px;
+      right: -11px;
+      color: white;
+      transition: all 200ms ease;
+      border-radius: 50%;
+      background: #0e4c83;
+      font-size: 1.3rem;
+      width: 20px;
+      height: 20px; }
   .btn--cart-tab.js-active {
     opacity: 1; }
 @media(max-width: 416px) {
@@ -997,10 +1008,11 @@ nav {
 .cart-subtitle {
   font-size: 14px;
   display: block;
-  margin-top: -8px; }
+  margin-top: -8px;
+  color: #1574c8; }
   .cart-subtitle:hover {
     cursor: pointer;
-    color: #177fda; }
+    color: #177fda !important; }
 
 .cart-section {
   position: relative;
@@ -2502,7 +2514,239 @@ input[type=number]::-webkit-outer-spin-button {
     position: relative;
     display: block; }
 
-.lopu .add-block-container {
+#adminPanel {
+  position: relative;
+  width: 20%;
+  height: auto;
+  background: #1574c8;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  color: white;
+  font-family: futura-lt-heavy;
+  transition: all 200ms ease-out;
+  z-index: 9999; }
+  #adminPanel.active {
+    transform: translateX(0%); }
+  #adminPanel.inactive {
+    transform: translateX(-100%); }
+  #adminPanel .close-button {
+    font-size: 2.5rem;
+    color: inherit;
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    transition: all 200ms ease-out;
+    z-index: 9999; }
+    #adminPanel .close-button:hover {
+      transform: translate(-2px, -2px);
+      text-shadow:  1px 1px 0px #0e4c83 , 2px 2px 0px #0e4c83;
+      cursor: pointer; }
+  #adminPanel .tag {
+    position: absolute;
+    top: 0px;
+    right: -25px;
+    height: 100vh;
+    min-height: 100%;
+    width: 25px;
+    border-radius: 0px 5px 5px 0px;
+    background: rgba(0, 0, 0, 0.1);
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; }
+    #adminPanel .tag.active {
+      display: flex; }
+    #adminPanel .tag.inactive {
+      display: none; }
+  #adminPanel .title-sec {
+    position: relative;
+    display: block;
+    padding: 10px;
+    width: 100%;
+    max-width: 100%; }
+    #adminPanel .title-sec .hide-nav {
+      margin-left: 10px;
+      display: inline-block;
+      cursor: pointer;
+      transition: all 250ms ease; }
+      #adminPanel .title-sec .hide-nav:hover {
+        color: rgba(255, 255, 255, 0.8); }
+  #adminPanel .controls {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    display: block; }
+    #adminPanel .controls .sub-menu {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-direction: column;
+      height: auto; }
+      #adminPanel .controls .sub-menu .button-container {
+        width: 100%;
+        padding-right: 0px;
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        cursor: pointer;
+        border-bottom: dotted 1px #1574c8;
+        z-index: 10;
+        transition: all 250ms ease; }
+        #adminPanel .controls .sub-menu .button-container .button, #adminPanel .controls .sub-menu .content .button-container .button {
+          width: 100%;
+          padding: 15px 10px;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: row;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          background: #1367b1;
+          text-transform: uppercase;
+          font-size: 1.5rem;
+          cursor: pointer;
+          z-index: 10;
+          transition: all 250ms ease; }
+          #adminPanel .controls .sub-menu .button-container .button .title-cont {
+            padding: 10px 10px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; }
+            #adminPanel .controls .sub-menu .button-container .button .title-cont .title {
+              letter-spacing: 2px;
+              font-size: 2rem;
+              text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2); }
+            #adminPanel .controls .sub-menu .button-container .button .title-cont .detail-cont {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: row; }
+              #adminPanel .controls .sub-menu .button-container .button .title-cont .detail-cont .detail {
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                background: orange;
+                display: flex;
+                align-items: center;
+                justify-content: center; }
+                #adminPanel .controls .sub-menu .button-container .button .title-cont .detail-cont .detail span {
+                  font-size: 1rem;
+                  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3); }
+            #adminPanel .controls .sub-menu .button-container .button .title-cont .author {
+              font-size: 1.2rem;
+              color: #0e4c83;
+              text-transform: capitalize;
+              font-family: futura-lt-medium; }
+        #adminPanel .controls .sub-menu .button-container .actions-cont {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: row;
+          flex-grow: 1;
+          position: relative;
+          width: 100%;
+          height: auto;
+          max-height: 0px;
+          z-index: 11;
+          transition: all 300ms ease-out;
+          overflow: hidden; }
+          #adminPanel .controls .sub-menu .button-container .actions-cont .action {
+            display: flex;
+            flex: 1 1 auto;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            padding: 10px 10px;
+            width: auto;
+            font-size: 1.2rem;
+            transition: all 200ms ease-out;
+            background: rgba(255, 255, 255, 0.15);
+            color: white; }
+            #adminPanel .controls .sub-menu .button-container .actions-cont .action:hover {
+              background: rgba(255, 255, 255, 0.1);
+              color: orange;
+              text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25); }
+        #adminPanel .controls .sub-menu .button-container:hover {
+          background: #146cba; }
+          #adminPanel .controls .sub-menu .button-container:hover .actions-cont {
+            max-height: 50px; }
+      #adminPanel .controls .sub-menu .content {
+        height: auto;
+        max-height: 0px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        position: relative;
+        width: 100%;
+        overflow: hidden; }
+        #adminPanel .controls .sub-menu .content .button-container .button {
+          transition: max-height 600ms ease-out;
+          max-height: 0px;
+          padding: 15px 20px;
+          background: rgba(255, 255, 255, 0.2);
+          justify-content: flex-start;
+          flex-wrap: wrap; }
+          #adminPanel .controls .sub-menu .content .button-container .button .title-cont {
+            justify-content: flex-start;
+            align-items: flex-start;
+            text-align: left;
+            padding-left: 2px; }
+            #adminPanel .controls .sub-menu .content .button-container .button .title-cont .title {
+              text-align: left;
+              text-transform: none;
+              letter-spacing: 1px; }
+            #adminPanel .controls .sub-menu .content .button-container .button .title-cont .date-created {
+              font-size: 1.2rem; }
+          #adminPanel .controls .sub-menu .content .button-container .button .thumbnail-cont {
+            min-width: 80px;
+            max-width: 70%;
+            width: auto;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center; }
+            #adminPanel .controls .sub-menu .content .button-container .button .thumbnail-cont .thumbnail {
+              width: 100%;
+              height: 90%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border: 0px solid rgba(255, 255, 255, 0);
+              border-radius: 6px;
+              padding: 0px;
+              box-shadow: 0px 8px 6px -2px rgba(0, 0, 0, 0.15);
+              overflow: hidden;
+              margin: 0px; }
+              #adminPanel .controls .sub-menu .content .button-container .button .thumbnail-cont .thumbnail img {
+                object-position: center;
+                object-fit: cover;
+                width: 100%;
+                min-height: 100%;
+                min-width: 100%;
+                height: auto; }
+        #adminPanel .controls .sub-menu .content.active {
+          max-height: 100%; }
+          #adminPanel .controls .sub-menu .content.active .button-container .button {
+            transition: max-height 600ms ease-out;
+            max-height: 400px; }
+        #adminPanel .controls .sub-menu .content.inactive {
+          max-height: 0px; }
+
+.l .adder {
   width: 100%;
   height: auto;
   margin-top: 10px;
@@ -2510,7 +2754,7 @@ input[type=number]::-webkit-outer-spin-button {
   justify-content: flex-start;
   align-items: center;
   position: relative; }
-  .lopu .add-block-container .add-block {
+  .l .adder .add-block-container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -2521,7 +2765,7 @@ input[type=number]::-webkit-outer-spin-button {
     position: relative;
     padding: 6px 5px;
     transition: all 300ms ease; }
-    .lopu .add-block-container .add-block .add-block-button {
+    .l .adder .add-block-container .add-block-button {
       transition: all 300ms ease;
       height: 25px;
       width: 25px;
@@ -2531,26 +2775,30 @@ input[type=number]::-webkit-outer-spin-button {
       display: flex;
       align-items: center;
       justify-content: center; }
-      .lopu .add-block-container .add-block .add-block-button .fa {
+      .l .adder .add-block-container .add-block-button .fa {
         margin-top: 1px;
         font-size: 1.75rem;
         font-weight: bold;
         color: white; }
-  .lopu .add-block-container:hover .add-block, .lopu .add-block-container:visited .add-block, .lopu .add-block-container:focus .add-block, .lopu .add-block-container:active .add-block {
+  .l .adder:hover .add-block-container, .l .adder:visited .add-block-container, .l .adder:focus .add-block-container, .l .adder:active .add-block-container {
+    padding: 8px 5px;
     background: rgba(0, 0, 0, 0.05); }
-    .lopu .add-block-container:hover .add-block .add-block-button, .lopu .add-block-container:visited .add-block .add-block-button, .lopu .add-block-container:focus .add-block .add-block-button, .lopu .add-block-container:active .add-block .add-block-button {
+    .l .adder:hover .add-block-container .add-block-button, .l .adder:visited .add-block-container .add-block-button, .l .adder:focus .add-block-container .add-block-button, .l .adder:active .add-block-container .add-block-button {
       background: #1781df; }
-  .lopu .add-block-container.littler .add-block {
+  .l .adder.littler .add-block-container {
     width: 90%;
     height: auto;
     padding: 5px 5px; }
-    .lopu .add-block-container.littler .add-block .add-block-button {
+    .l .adder.littler .add-block-container .add-block-button {
       width: 22px;
       height: 22px;
       border-radius: 3px; }
-      .lopu .add-block-container.littler .add-block .add-block-button .fa {
+      .l .adder.littler .add-block-container .add-block-button .fa {
         font-size: 1.5rem; }
-.lopu .fill-parent {
+  .l .adder.littler:hover .add-block-container, .l .adder.littler:visited .add-block-container, .l .adder.littler:focus .add-block-container, .l .adder.littler:active .add-block-container {
+    padding: 6px 5px; }
+
+.l .fill-parent {
   width: 100%;
   height: 100%; }
 
@@ -3467,7 +3715,7 @@ input[type=number]::-webkit-outer-spin-button {
         border-radius: 0px 0px 10px 10px;
         box-shadow: 4px 0px 6px 0px rgba(0, 0, 0, 0.12), -4px 0px 6px 0px rgba(0, 0, 0, 0.12), 0px -3px 7px 0px rgba(0, 0, 0, 0.08);
         transition: all 250ms ease-out; }
-        #Shop .shop-products .shop-products-column .product-container:hover, #Shop .shop-products .shop-products-column .product-container:focus {
+        #Shop .shop-products .shop-products-column .product-container:hover, #Shop .shop-products .shop-products-column .product-container:focus, #Shop .shop-products .shop-products-column .product-container:active, #Shop .shop-products .shop-products-column .product-container:visited {
           box-shadow: 7px 0px 9px -3px rgba(0, 0, 0, 0.2), -7px 0px 9px -3px rgba(0, 0, 0, 0.2), 0px -4px 7px -1px rgba(0, 0, 0, 0.12), 0px 4px 7px -1px rgba(0, 0, 0, 0.12); }
 @media(max-width: 600px) {
   #Shop .shop-products .shop-products-column .product-container {
@@ -4371,7 +4619,8 @@ input[type=number]::-webkit-outer-spin-button {
   width: 100%;
   max-width: 100%;
   height: auto;
-  position: relative; }
+  position: relative;
+  padding-bottom: 80px; }
   #hotelsAndResorts .splash-image {
     width: 100%;
     height: auto;
@@ -4393,7 +4642,7 @@ input[type=number]::-webkit-outer-spin-button {
     width: 100%;
     height: auto;
     z-index: 6;
-    margin-top: -100px; }
+    margin-top: -200px; }
     #hotelsAndResorts .application-container .application-form {
       z-index: 6;
       height: auto;
@@ -7012,316 +7261,162 @@ footer {
   background-size: cover;
   background-repeat: no-repeat; }
 
-#adminPanel {
-  position: relative;
-  width: 20%;
-  height: auto;
-  background: #1574c8;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
-  color: white;
-  font-family: futura-lt-heavy;
-  transition: all 200ms ease-out;
-  z-index: 9999; }
-  #adminPanel.active {
-    transform: translateX(0%); }
-  #adminPanel.inactive {
-    transform: translateX(-100%); }
-  #adminPanel .close-button {
-    font-size: 2.5rem;
-    color: inherit;
-    position: absolute;
-    top: 0px;
-    right: 20px;
-    transition: all 200ms ease-out;
-    z-index: 9999; }
-    #adminPanel .close-button:hover {
-      transform: translate(-2px, -2px);
-      text-shadow:  1px 1px 0px #0e4c83 , 2px 2px 0px #0e4c83;
-      cursor: pointer; }
-  #adminPanel .tag {
-    position: absolute;
-    top: 0px;
-    right: -25px;
-    height: 100vh;
-    min-height: 100%;
-    width: 25px;
-    border-radius: 0px 5px 5px 0px;
-    background: rgba(0, 0, 0, 0.1);
-    font-size: 1.3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer; }
-    #adminPanel .tag.active {
-      display: flex; }
-    #adminPanel .tag.inactive {
-      display: none; }
-  #adminPanel .title-sec {
-    position: relative;
-    display: block;
-    padding: 10px;
-    width: 100%;
-    max-width: 100%; }
-    #adminPanel .title-sec .hide-nav {
-      margin-left: 10px;
-      display: inline-block;
-      cursor: pointer;
-      transition: all 250ms ease; }
-      #adminPanel .title-sec .hide-nav:hover {
-        color: rgba(255, 255, 255, 0.8); }
-  #adminPanel .controls {
-    width: 100%;
-    max-width: 100%;
-    position: relative;
-    display: block; }
-    #adminPanel .controls .sub-menu {
-      width: 100%;
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      flex-direction: column;
-      height: auto; }
-      #adminPanel .controls .sub-menu .button-container {
-        width: 100%;
-        padding-right: 0px;
-        position: relative;
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
-        flex-direction: column;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        text-transform: uppercase;
-        font-size: 1.5rem;
-        cursor: pointer;
-        border-bottom: dotted 1px #1574c8;
-        z-index: 10;
-        transition: all 250ms ease; }
-        #adminPanel .controls .sub-menu .button-container .button, #adminPanel .controls .sub-menu .content .button-container .button {
-          width: 100%;
-          padding: 15px 10px;
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-direction: row;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          background: #1367b1;
-          text-transform: uppercase;
-          font-size: 1.5rem;
-          cursor: pointer;
-          z-index: 10;
-          transition: all 250ms ease; }
-          #adminPanel .controls .sub-menu .button-container .button .title-cont {
-            padding: 10px 10px;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column; }
-            #adminPanel .controls .sub-menu .button-container .button .title-cont .title {
-              letter-spacing: 2px;
-              font-size: 2rem;
-              text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2); }
-            #adminPanel .controls .sub-menu .button-container .button .title-cont .detail-cont {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              flex-direction: row; }
-              #adminPanel .controls .sub-menu .button-container .button .title-cont .detail-cont .detail {
-                border-radius: 50%;
-                width: 20px;
-                height: 20px;
-                background: orange;
-                display: flex;
-                align-items: center;
-                justify-content: center; }
-                #adminPanel .controls .sub-menu .button-container .button .title-cont .detail-cont .detail span {
-                  font-size: 1rem;
-                  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3); }
-            #adminPanel .controls .sub-menu .button-container .button .title-cont .author {
-              font-size: 1.2rem;
-              color: #0e4c83;
-              text-transform: capitalize;
-              font-family: futura-lt-medium; }
-        #adminPanel .controls .sub-menu .button-container .actions-cont {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: row;
-          flex-grow: 1;
-          position: relative;
-          width: 100%;
-          height: auto;
-          max-height: 0px;
-          z-index: 11;
-          transition: all 300ms ease-out;
-          overflow: hidden; }
-          #adminPanel .controls .sub-menu .button-container .actions-cont .action {
-            display: flex;
-            flex: 1 1 auto;
-            justify-content: center;
-            align-items: center;
-            height: auto;
-            padding: 10px 10px;
-            width: auto;
-            font-size: 1.2rem;
-            transition: all 200ms ease-out;
-            background: rgba(255, 255, 255, 0.15);
-            color: white; }
-            #adminPanel .controls .sub-menu .button-container .actions-cont .action:hover {
-              background: rgba(255, 255, 255, 0.1);
-              color: orange;
-              text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25); }
-        #adminPanel .controls .sub-menu .button-container:hover {
-          background: #146cba; }
-          #adminPanel .controls .sub-menu .button-container:hover .actions-cont {
-            max-height: 50px; }
-      #adminPanel .controls .sub-menu .content {
-        height: auto;
-        max-height: 0px;
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        flex-direction: column;
-        position: relative;
-        width: 100%;
-        overflow: hidden; }
-        #adminPanel .controls .sub-menu .content .button-container .button {
-          transition: max-height 600ms ease-out;
-          max-height: 0px;
-          padding: 15px 20px;
-          background: rgba(255, 255, 255, 0.2);
-          justify-content: flex-start;
-          flex-wrap: wrap; }
-          #adminPanel .controls .sub-menu .content .button-container .button .title-cont {
-            justify-content: flex-start;
-            align-items: flex-start;
-            text-align: left;
-            padding-left: 2px; }
-            #adminPanel .controls .sub-menu .content .button-container .button .title-cont .title {
-              text-align: left;
-              text-transform: none;
-              letter-spacing: 1px; }
-            #adminPanel .controls .sub-menu .content .button-container .button .title-cont .date-created {
-              font-size: 1.2rem; }
-          #adminPanel .controls .sub-menu .content .button-container .button .thumbnail-cont {
-            min-width: 80px;
-            max-width: 70%;
-            width: auto;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center; }
-            #adminPanel .controls .sub-menu .content .button-container .button .thumbnail-cont .thumbnail {
-              width: 100%;
-              height: 90%;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              border: 0px solid rgba(255, 255, 255, 0);
-              border-radius: 6px;
-              padding: 0px;
-              box-shadow: 0px 8px 6px -2px rgba(0, 0, 0, 0.15);
-              overflow: hidden;
-              margin: 0px; }
-              #adminPanel .controls .sub-menu .content .button-container .button .thumbnail-cont .thumbnail img {
-                object-position: center;
-                object-fit: cover;
-                width: 100%;
-                min-height: 100%;
-                min-width: 100%;
-                height: auto; }
-        #adminPanel .controls .sub-menu .content.active {
-          max-height: 100%; }
-          #adminPanel .controls .sub-menu .content.active .button-container .button {
-            transition: max-height 600ms ease-out;
-            max-height: 400px; }
-        #adminPanel .controls .sub-menu .content.inactive {
-          max-height: 0px; }
-
 #builder {
   background-color: white;
-  padding: 50px 0 70px 0; }
-  #builder .current-option-container {
+  padding: 150px 0 150px 0; }
+  #builder .title {
+    font-size: 5rem;
+    color: #0e4c83;
+    padding-bottom: 40px;
+    font-family: futura-lt-light;
+    text-shadow:  1px 1px 0px white , 0px 0px 0px white; }
+  #builder .builder-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column; }
-    #builder .current-option-container .title {
-      font-size: 5rem;
-      color: #0e4c83;
-      padding-bottom: 20px;
-      font-family: futura-lt-light;
-      text-shadow:  1px 1px 0px white , 0px 0px 0px white; }
-    #builder .current-option-container .choices-container {
-      position: relative;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%; }
+    #builder .builder-container .frame-option-container {
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-wrap: wrap;
-      flex-direction: row; }
-      #builder .current-option-container .choices-container .choice-box {
-        width: auto;
-        height: auto;
-        max-width: 100%;
-        max-height: 100%;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      margin-top: 0px;
+      width: 100%;
+      transition: all 550ms ease-out; }
+      #builder .builder-container .frame-option-container .choices-container {
         position: relative;
         display: flex;
-        justify-content: center;
         align-items: center;
-        margin: 30px;
-        transition: all 500ms ease;
-        opacity: 1; }
-        #builder .current-option-container .choices-container .choice-box .frame-choice-circle {
-          border-radius: 50%;
-          width: 250px;
-          height: 250px;
-          max-width: 100%;
-          overflow: hidden;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background-color: #1574c8; }
-          #builder .current-option-container .choices-container .choice-box .frame-choice-circle img {
-            object-fit: cover;
-            object-position: center;
-            max-width: 160%;
-            transition: all 500ms ease-in-out; }
-          #builder .current-option-container .choices-container .choice-box .frame-choice-circle:hover img {
-            cursor: pointer; }
-        #builder .current-option-container .choices-container .choice-box.selected {
-          margin-left: 0px;
-          margin-right: 0px; }
-        #builder .current-option-container .choices-container .choice-box.unselected {
-          opacity: 0;
-          display: none;
-          overflow: hidden;
-          margin: 0; }
-        #builder .current-option-container .choices-container .choice-box .next-link {
-          font-size: 4.5rem;
-          color: #0e4c83;
-          position: relative;
-          padding-left: 15px;
-          opacity: 0;
-          max-width: 0px;
+        justify-content: center;
+        flex-wrap: nowrap;
+        flex-direction: row; }
+        #builder .builder-container .frame-option-container .choices-container .choice-box {
+          width: auto;
           height: auto;
-          transition: all 250ms ease;
-          font-family: futura-lt-light;
-          white-space: nowrap; }
-          #builder .current-option-container .choices-container .choice-box .next-link a {
+          max-width: 100%;
+          max-height: 100%;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          margin: 50px;
+          transition: all 400ms ease;
+          opacity: 1; }
+          #builder .builder-container .frame-option-container .choices-container .choice-box .frame-choice-circle {
+            border-radius: 50%;
+            width: 250px;
+            height: 250px;
+            max-width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(21, 116, 200, 0);
+            border: 2px solid rgba(14, 76, 131, 0.2);
+            transition: all 300ms ease; }
+            #builder .builder-container .frame-option-container .choices-container .choice-box .frame-choice-circle img {
+              object-fit: cover;
+              object-position: center;
+              max-width: 160%;
+              transition: all 500ms ease-in-out; }
+            #builder .builder-container .frame-option-container .choices-container .choice-box .frame-choice-circle:hover img {
+              cursor: pointer; }
+          #builder .builder-container .frame-option-container .choices-container .choice-box.selected {
+            margin-left: 0px;
+            margin-right: 0px; }
+            #builder .builder-container .frame-option-container .choices-container .choice-box.selected .frame-choice-circle {
+              border-color: rgba(2, 9, 15, 0.3); }
+            #builder .builder-container .frame-option-container .choices-container .choice-box.selected .label {
+              color: rgba(2, 9, 15, 0.8); }
+          #builder .builder-container .frame-option-container .choices-container .choice-box.unselected {
+            opacity: 0;
             display: none;
+            overflow: hidden;
+            margin: 0; }
+          #builder .builder-container .frame-option-container .choices-container .choice-box .label {
+            color: rgba(14, 76, 131, 0.4);
+            text-transform: capitalize;
+            font-size: 2rem;
+            font-family: futura-lt-light;
+            letter-spacing: 1px;
+            margin-top: 15px;
+            transition: all 300ms ease; }
+          #builder .builder-container .frame-option-container .choices-container .choice-box .next-link {
+            font-size: 4.5rem;
+            position: relative;
+            margin-top: 15px;
+            opacity: 0;
+            max-width: 0px;
+            height: auto;
+            transition: all 250ms ease;
+            font-family: futura-lt-light;
+            white-space: nowrap;
+            color: #0e4c83;
+            overflow: hidden;
+            display: inline-block; }
+            #builder .builder-container .frame-option-container .choices-container .choice-box .next-link.show {
+              opacity: 1;
+              max-width: 200px;
+              color: #0e4c83; }
+            #builder .builder-container .frame-option-container .choices-container .choice-box .next-link:hover {
+              cursor: pointer; }
+          #builder .builder-container .frame-option-container .choices-container .choice-box:hover .frame-choice-circle {
+            border-color: rgba(2, 9, 15, 0.3); }
+          #builder .builder-container .frame-option-container .choices-container .choice-box:hover .label {
+            color: rgba(2, 9, 15, 0.8); }
+      #builder .builder-container .frame-option-container.done {
+        width: 25%;
+        border-right: 1px solid rgba(14, 76, 131, 0.3); }
+    #builder .builder-container .colour-option-container {
+      width: 0%;
+      max-width: 0%;
+      overflow: hidden; }
+      #builder .builder-container .colour-option-container.active {
+        width: auto;
+        max-width: 60%; }
+      #builder .builder-container .colour-option-container #colours {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding-top: 10px;
+        padding-left: 40px; }
+        #builder .builder-container .colour-option-container #colours .colour-container {
+          margin-right: 50px;
+          margin-bottom: 40px;
+          text-align: center;
+          color: rgba(0, 0, 0, 0.65);
+          font-family: futura-lt-light; }
+          #builder .builder-container .colour-option-container #colours .colour-container .colour {
+            border-radius: 3px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+            height: 40px;
+            box-shadow: 0px 6px 5px -3px rgba(0, 0, 0, 0.4);
             transition: all 250ms ease; }
-            #builder .current-option-container .choices-container .choice-box .next-link a:hover {
-              text-decoration: none; }
-          #builder .current-option-container .choices-container .choice-box .next-link.show {
-            opacity: 1;
-            max-width: 200px; }
-            #builder .current-option-container .choices-container .choice-box .next-link.show a {
-              display: inline-block; }
+            #builder .builder-container .colour-option-container #colours .colour-container .colour img {
+              display: block;
+              object-fit: cover;
+              object-position: center;
+              height: 100%;
+              width: 100%; }
+          #builder .builder-container .colour-option-container #colours .colour-container .colour-label {
+            margin-top: 7px;
+            transition: all 250ms ease; }
+          #builder .builder-container .colour-option-container #colours .colour-container:hover {
+            cursor: pointer; }
+            #builder .builder-container .colour-option-container #colours .colour-container:hover .colour {
+              transform: translateY(-2px);
+              box-shadow: 0px 10px 5px -6px rgba(0, 0, 0, 0.25); }
+            #builder .builder-container .colour-option-container #colours .colour-container:hover .colour-label {
+              color: rgba(0, 0, 0, 0.9); }
 
 /*# sourceMappingURL=css.css.map */

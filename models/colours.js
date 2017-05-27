@@ -1,12 +1,8 @@
 var MongoClient = require('mongodb');
-
-// mongodb = MongoClient.connect('mongodb://localhost/myleisure');
-
 var mongoose = require('mongoose');
-
+var db = mongoose.createConnection("mongodb://localhost:27017/myleisure")
 var fs = require('fs');
 var path = require('path');
-
 var write = false;
 
 // mongoose.connect("mongodb://localhost/myleisure");
@@ -30,10 +26,10 @@ var colourSchema = new Schema({
   image: {type: String, default: null}
 });
 
-// var descriptionsDb = mongoose.model("descriptions", descriptionsDbSchema);
-var colour = mongoose.model("colour", colourSchema);
+// var descriptionsDb = db.model("descriptions", descriptionsDbSchema);
+var colour = db.model("colour", colourSchema);
 
-var colours = mongoose.model("colours", coloursDbSchema);
+var colours = db.model("colours", coloursDbSchema);
 
 var newColoursDb = new colours({
   id: "colours",

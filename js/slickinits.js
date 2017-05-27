@@ -83,7 +83,7 @@ $('document').ready(function(){
 		arrows: false,
 		// fade: true,
 		// asNavFor: '.product-slider-nav',
-		lazyLoad: 'progressive',
+		lazyLoad: 'ondemand',
 		infinite: true
 	});
 
