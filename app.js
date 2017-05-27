@@ -18,12 +18,12 @@ var app = express()
 var http = require('http').Server(app)
 var io = require('socket.io')(http)
 var emailConf = require('./conf/email')
-
+var sessionConf = require('./conf/sessions')
 /// SET SESSION CONFIG
 app.use(
 	session({
 		name: "myleisure.sid",
-		secret: "4378vbh43o87gvb34wovb34o87gb4rybv3go43efgfg4gfg4fgboue78234ergfoh",
+		secret: sessionConf.secret,
 		resave: false,
 		saveUninitialized: false,
 		store: new RedisStore({
