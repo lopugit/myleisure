@@ -329,7 +329,7 @@ router.get('/design', function(req, res) {
 	})
 	.then(function(objects) {
 
-	  return shopifyClient.fetchProduct("8461073805")
+	  return shopifyClient.fetchProduct("9540545291")
 		.then(function(product) {
 
 		  objects.products = product;

@@ -4,13 +4,16 @@ $('document').ready(function(){
 		lazyLoad: 'progressive',
 		slidesToShow: 1,
 		slidesToScroll: 1,
-		autoplay: false,
-		// autoplaySpeed: 5000,
+		autoplay: true,
+		autoplaySpeed: 4000,
 		speed: 700,
 		infinite: true,
 		zIndex: 105,
 		// arrows: true,
-		dots: false
+		dots: false,
+		pauseOnFocus: true,
+		pauseOnHover: false
+		// centerMode: true
 	});
 	// ACCESSORIES SLIDERS
 	$('.slider-main-cushion').slick({
@@ -83,7 +86,7 @@ $('document').ready(function(){
 		arrows: false,
 		// fade: true,
 		// asNavFor: '.product-slider-nav',
-		lazyLoad: 'ondemand',
+		lazyLoad: 'progressive',
 		infinite: true
 	});
 

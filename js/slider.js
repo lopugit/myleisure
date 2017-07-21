@@ -5,11 +5,13 @@ $('document').ready(function(){
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		autoplay: true,
-		autoplaySpeed: 5500,
+		autoplaySpeed: 4000,
 		infinite: true,
 		zIndex: 105,
-		dots: false
+		dots: false,
+		centerMode: true
 	});
+	console.log("yeah we're doing this")
 	// ACCESSORIES SLIDERS
 	$('.slider-main-cushion').slick({
 		slidesToShow: 1,

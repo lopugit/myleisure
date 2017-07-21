@@ -7,16 +7,16 @@ var generateSchema = require('generate-schema');
 var Schema = mongoose.Schema;
 var shopify = require('shopify-buy');
 var client = shopify.buildClient({
-  accessToken: '30197388c16741334138de5dd1de3f1a',
-  domain: 'my-leisure.myshopify.com',
+  accessToken: 'b064ae6e618e3677e2a78cce4eb248d6',
+  domain: 'myieisure.myshopify.com',
   appId: '6'
 });
 
-var write = false;
+var write = true;
 
 //Only uncomment if you want to export hell
 // module.exports = function (callback) {
-module.exports = client.fetchProduct('8461073805').then(function(products) {
+module.exports = client.fetchProduct('9540545291').then(function(products) {
   var objects = {};
   objects.schema = generateSchema.mongoose(products.attrs.variants[0]);
   objects.products = products;

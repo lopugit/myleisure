@@ -4,8 +4,8 @@ $(function() {
 
 	/// MOSTLY SHOPIFY STUFF
 	var client = ShopifyBuy.buildClient({
-    apiKey: '30197388c16741334138de5dd1de3f1a',
-    domain: 'my-leisure.myshopify.com',
+    apiKey: 'b064ae6e618e3677e2a78cce4eb248d6',
+    domain: 'myieisure.myshopify.com',
     appId: '6'
   });
 	/* variablessssss
@@ -30,7 +30,7 @@ $(function() {
 
 
 
-	client.fetchProduct("8461073805").then(function(product, error){
+	client.fetchProduct("9540545291").then(function(product, error){
 		// console.log(product);
 
 		var count = 0;
@@ -225,7 +225,7 @@ $(function() {
 			frameConf.innerHTML = "Silver";
 			currentFrame = 'Silver';
 			currentFrameSpaced = currentFrame.replace(/ /g, "-");
-			currentId = "8461073805-28583411469";
+			currentId = "9540545291-28583411469";
 			document.getElementById("replaceWithId").setAttribute('id', currentId);
 			currentSKU = "BIASC";
 			fallbackSKU = currentSKU;

@@ -12,8 +12,8 @@ var Schema = mongoose.Schema;
 var shopify = require('shopify-buy');
 
 var client = shopify.buildClient({
-  accessToken: '30197388c16741334138de5dd1de3f1a',
-  domain: 'my-leisure.myshopify.com',
+  accessToken: 'b064ae6e618e3677e2a78cce4eb248d6',
+  domain: 'myieisure.myshopify.com',
   appId: '6'
 });
 

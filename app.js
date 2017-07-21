@@ -18,12 +18,12 @@ var app = express()
 var http = require('http').Server(app)
 var io = require('socket.io')(http)
 var emailConf = require('./conf/email')
-var sessionConf = require('./conf/sessions')
+
 /// SET SESSION CONFIG
 app.use(
 	session({
 		name: "myleisure.sid",
-		secret: sessionConf.secret,
+		secret: "4378vbh43o87gvb34wovb34o87gb4rybv3go43efgfg4gfg4fgboue78234ergfoh",
 		resave: false,
 		saveUninitialized: false,
 		store: new RedisStore({
@@ -76,15 +76,15 @@ function reqLog(req, res, next) {
 
 /// SET SITE WIDE VARIABLES
 app.locals.site = "My Leisure"
-app.locals.deploy = "local"
 app.locals.siteurl = "/Home"
-app.locals.title = "Sun Safe Sun Lounges | My Leisure Lettini's are revolutionizing beach experiences everywhere"
+// app.locals.title = "Sun Safe Sun Lounges | My Leisure Lettini's are revolutionizing beach experiences everywhere"
+app.locals.title = "Lettini Sun Lounges, the Ground Breaking Sun Smart Alternative. Now Available in Australia"
 // "My Leisure | Lettinis, Italian made Sun Lounges"
 
 ///// Create Shopify Client
 var shopifyClient = shopify.buildClient({
-	accessToken: '30197388c16741334138de5dd1de3f1a',
-	domain: 'my-leisure.myshopify.com',
+	accessToken: 'b064ae6e618e3677e2a78cce4eb248d6',
+	domain: 'myieisure.myshopify.com',
 	appId: '6'
 })
 
@@ -537,7 +537,7 @@ app.get('/design*', function(req, res) {
 	})
 	.then(function(objects) {
 
-	  return shopifyClient.fetchProduct("8461073805")
+	  return shopifyClient.fetchProduct("9540545291")
 		.then(function(product) {
 
 		  objects.products = product

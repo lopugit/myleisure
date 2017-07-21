@@ -1,8 +1,8 @@
 $(function() {
 
 	var client = ShopifyBuy.buildClient({
-    apiKey: '30197388c16741334138de5dd1de3f1a',
-    domain: 'my-leisure.myshopify.com',
+    apiKey: 'b064ae6e618e3677e2a78cce4eb248d6',
+    domain: 'myieisure.myshopify.com',
     appId: '6'
   });
 	/* variablessssss
