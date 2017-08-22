@@ -1,0 +1,103 @@
+.text-styling-products.portfolio-modal.modal(id="promoPopup", tabindex='-1', role='dialog', aria-hidden='true', style="display: none")
+    .modal-content
+        .close-modal(data-dismiss='modal')
+            .lr
+                .rl
+        .container-fluid
+            .row
+                .col-lg-16.col-lg-offset-4
+                    .modal-body
+                        .text Leave us your email for a 15% OFF! Winter Sale discount code on your first 2 Lettini Sun Lounges, 
+                            .note We'll send you occasional updates on offers and new styles we get in store
+                        form(action="/subscribe", method="post", id="giftCodePromo", name="giftCodePromo", novalidate="")
+                            #inputs
+                                input(type="email", id="email", name="email", placeholder="Email")
+                                input(type="submit", id="submit", value="receive") 
+                            #success
+                        //- button.btn.btn-default(type='button', data-dismiss='modal')
+                        //-     i.fa.fa-times
+                        //-     |  Close
+.promoButton(onclick="$('#promoPopup').modal('show')")
+    //- .text promo
+    i.fa.fa-gift
+script.
+    $('document').ready(function() {
+        var poppedUp = localStorage.getItem("poppedUp")
+        setTimeout(function() {
+            if (poppedUp == 'false') {
+                $("#promoPopup").modal('show')
+                localStorage.setItem("poppedUp", true)
+            }
+        }, 7777)
+    })
+
+    $(function(){
+        $("#giftCodePromo input, #giftCodePromo textarea").jqBootstrapValidation({
+            preventSubmit: true,
+            submitError: function($form, event, errors) {
+                // additional error messages or events
+            },
+            submitSuccess: function($form, event) {
+                event.preventDefault(); // prevent default submit behaviour
+                // get values from FORM
+                var email = $("#giftCodePromo input#email").val();
+                // var message = $("textarea#message").val();
+                // Check for white space in name for Success/Fail message
+                $.ajax({
+                    url: "/subscribe",
+                    type: "POST",
+                    data: {
+                        email: email,
+                        origin: "giftCodePromo"
+                        // message: message
+                    },
+                    cache: false,
+                    success: function(res) {
+                        console.log(res.random);
+                        // Success message
+                        $('#giftCodePromo #success').html("<div class='alert alert-success'>");
+                        $('#giftCodePromo #success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+                            .append("</button>");
+                        $('#giftCodePromo #success > .alert-success')
+                            .append("<strong>You should receive your gift code in the next few seconds, thanks for entrusting us with your email, it's in good hands </strong>");
+                        $('#giftCodePromo #success > .alert-success')
+                            .append('</div>');
+
+                        //clear all fields
+                        $('#giftCodePromo').trigger("reset");
+                    },
+                    error: function() {
+
+                        // Fail message
+                        $('#giftCodePromo #success').html("<div class='alert alert-danger'>");
+                        $('#giftCodePromo #success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+                            .append("</button>");
+                        $('#giftCodePromo #success > .alert-danger').append("<strong>Sorry " + firstName + ", it seems that my mail server is not responding. Please try again later!");
+                        $('#giftCodePromo #success > .alert-danger').append('</div>');
+                        //clear all fields
+                        $('#giftCodePromo').trigger("reset");
+                    },
+                })
+            },
+            filter: function() {
+                return $(this).is(":visible");
+            },
+        });
+
+
+        $("a[data-toggle=\"tab\"]").click(function(e) {
+            e.preventDefault();
+            $(this).tab("show");
+        });
+
+        // Floating label headings for the contact form
+        $(function() {
+            $("body").on("input propertychange", ".floating-label-form-group", function(e) {
+                $(this).toggleClass("floating-label-form-group-with-value", !! $(e.target).val());
+            }).on("focus", ".floating-label-form-group", function() {
+                $(this).addClass("floating-label-form-group-with-focus");
+            }).on("blur", ".floating-label-form-group", function() {
+                $(this).removeClass("floating-label-form-group-with-focus");
+            });
+        });
+    })

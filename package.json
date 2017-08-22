@@ -22,7 +22,7 @@
     "mongoose": "^4.9.1",
     "mongoose-forms": "0.0.5",
     "node-vibrant": "^3.0.0-alpha.2",
-    "nodemailer": "^3.1.8",
+    "nodemailer": "^4.0.1",
     "pug": "^2.0.0-beta11",
     "shopify-buy": "^0.7.0",
     "simpl-schema": "^0.2.3",

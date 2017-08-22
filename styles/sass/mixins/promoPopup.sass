@@ -1,0 +1,118 @@
+#promoPopup
+    display: flex
+    align-items: center
+    justify-content: center
+    .modal-content
+        text-align: center
+        padding-top: 80px
+        padding-bottom: 120px
+        border-radius: 3px
+        background: $gw
+        .text
+            font-size: 2.15rem
+            font-family: 'futura-lt-medium'
+            font-weight: 400
+        .note
+            font-size: 1.4rem
+            padding-top: 8px
+            padding-bottom: 30px
+            opacity: .65
+        .close-modal
+            position: absolute
+            top: 15px
+            right: 15px
+            width: 70px
+            height: 70px
+            background-color: transparent
+            cursor: pointer
+            display: flex
+            align-items: center
+            justify-content: center
+            .lr
+                z-index: 1052
+                width: 1px
+                height: 30px
+                background: $gc
+                transform: rotate(45deg)
+                .rl
+                    @extend .lr
+                    transform: rotate(90deg)
+    form
+        width: 100%
+        height: auto
+        display: flex
+        justify-content: flex-start
+        align-items: flex-start
+        flex-direction: column
+        #inputs
+            width: 100%
+            height: auto
+            display: flex
+            justify-content: center
+            align-items: stretch
+            flex-direction: row
+            #email
+                width: 90%
+                padding: 15px 10px
+                border-radius: 10px 0px 0px 10px
+                border: 0px
+                font-size: 1.5rem
+                &::-webkit-input-placeholder
+                    font-family: futura-lt-medium
+                &:visited,
+                &:active,
+                &:hover,
+                &:focus
+                    outline-color: rgba(white, 0)
+            #submit
+                height: auto
+                border: 0px
+                padding-left: 15px
+                padding-right: 15px
+                margin-bottom: -2px
+                background-color: $dgc
+                font-family: futura-lt-heavy
+                text-transform: uppercase
+                font-size: 1.3rem
+                color: white
+                border-radius: 0px 10px 10px 0px
+                +animate(all, 200ms, ease)
+                &:hover,
+                &:visited,
+                &:active,
+                &:focus
+                    outline-color: rgba(white, 0)
+                    background: darken($dgc, 4)
+        #success
+            padding-top: 10px
+            margin-left: 10px
+            display: block
+.promoButton
+    position: fixed
+    right: 3%
+    bottom: 3%
+    width: 60px
+    height: 60px
+    background: $gc
+    border-radius: 50%
+    display: flex
+    align-items: center
+    justify-content: center
+    cursor: pointer
+    z-index: 1030
+    color: $gw
+    font-size: 3.5rem
+    i
+        margin-left: 2px
+        margin-top: -2px
+        +animate(all, 250ms, ease)
+    .text
+        font-weight: 800
+        font: 'futura-lt-heavy'
+        text-transform: capitalize
+        margin-top: 1px
+        text-decoration: italic
+    &:hover
+        i
+            transform: translate(0px, -1px)
+            text-shadow: 1px 1px 3px rgba(black, .15)

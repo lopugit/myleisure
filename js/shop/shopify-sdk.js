@@ -2536,7 +2536,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                 if (quantity < 1) {
                     return this.removeLineItem(id)
                 };
-            
+
 
                 var lineItem = this.lineItems.filter(function(item) {
                     return item.variant_id === id

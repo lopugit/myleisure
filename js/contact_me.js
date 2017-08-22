@@ -7,10 +7,10 @@ $(function() {
         submitSuccess: function($form, event) {
             event.preventDefault(); // prevent default submit behaviour
             // get values from FORM
-            var name = $("input#name").val();
-            var email = $("input#email").val();
-            var phone = $("input#phone").val();
-            var message = $("textarea#message").val();
+            var name = $("#contactForm input#name").val();
+            var email = $("#contactForm input#email").val();
+            var phone = $("#contactForm input#phone").val();
+            var message = $("#contactForm textarea#message").val();
             var firstName = name; // For Success/Failure Message
             // Check for white space in name for Success/Fail message
             if (firstName.indexOf(' ') >= 0) {
@@ -29,12 +29,12 @@ $(function() {
                 success: function(res) {
                     console.log(res.random);
                     // Success message
-                    $('#success').html("<div class='alert alert-success'>");
-                    $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+                    $('#contactForm #success').html("<div class='alert alert-success'>");
+                    $('#contactForm #success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
-                    $('#success > .alert-success')
+                    $('#contactForm #success > .alert-success')
                         .append("<strong>Your message has been sent </strong>");
-                    $('#success > .alert-success')
+                    $('#contactForm #success > .alert-success')
                         .append('</div>');
 
                     //clear all fields
@@ -43,11 +43,11 @@ $(function() {
                 error: function() {
 
                     // Fail message
-                    $('#success').html("<div class='alert alert-danger'>");
-                    $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+                    $('#contactForm #success').html("<div class='alert alert-danger'>");
+                    $('#contactForm #success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
-                    $('#success > .alert-danger').append("<strong>Sorry " + firstName + ", it seems that my mail server is not responding. Please try again later!");
-                    $('#success > .alert-danger').append('</div>');
+                    $('#contactForm #success > .alert-danger').append("<strong>Sorry " + firstName + ", it seems that my mail server is not responding. Please try again later!");
+                    $('#contactForm #success > .alert-danger').append('</div>');
                     //clear all fields
                     $('#contactForm').trigger("reset");
                 },
@@ -57,58 +57,6 @@ $(function() {
             return $(this).is(":visible");
         },
     });
-
-    $("#stockistApplication input, #stockistApplication textarea").jqBootstrapValidation({
-        preventSubmit: true,
-        submitError: function($form, event, errors) {
-            // additional error messages or events
-        },
-        submitSuccess: function($form, event) {
-            event.preventDefault(); // prevent default submit behaviour
-            // get values from FORM
-            var email = $("input#email").val();
-            // var message = $("textarea#message").val();
-            // Check for white space in name for Success/Fail message
-            $.ajax({
-                url: "/stockists",
-                type: "POST",
-                data: {
-                    email: email,
-                    // message: message
-                },
-                cache: false,
-                success: function(res) {
-                    console.log(res.random);
-                    // Success message
-                    $('#success').html("<div class='alert alert-success'>");
-                    $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-                        .append("</button>");
-                    $('#success > .alert-success')
-                        .append("<strong>Your message has been sent </strong>");
-                    $('#success > .alert-success')
-                        .append('</div>');
-
-                    //clear all fields
-                    $('#contactForm').trigger("reset");
-                },
-                error: function() {
-
-                    // Fail message
-                    $('#success').html("<div class='alert alert-danger'>");
-                    $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-                        .append("</button>");
-                    $('#success > .alert-danger').append("<strong>Sorry " + firstName + ", it seems that my mail server is not responding. Please try again later!");
-                    $('#success > .alert-danger').append('</div>');
-                    //clear all fields
-                    $('#contactForm').trigger("reset");
-                },
-            })
-        },
-        filter: function() {
-            return $(this).is(":visible");
-        },
-    });
-
 
     $("a[data-toggle=\"tab\"]").click(function(e) {
         e.preventDefault();
@@ -118,7 +66,7 @@ $(function() {
     // Floating label headings for the contact form
     $(function() {
         $("body").on("input propertychange", ".floating-label-form-group", function(e) {
-            $(this).toggleClass("floating-label-form-group-with-value", !! $(e.target).val());
+            $(this).toggleClass("floating-label-form-group-with-value", !!$(e.target).val());
         }).on("focus", ".floating-label-form-group", function() {
             $(this).addClass("floating-label-form-group-with-focus");
         }).on("blur", ".floating-label-form-group", function() {

@@ -144,7 +144,17 @@ var shop = new navItem({
 });
 var lettini = new navItem({
   name: "lettinis",
-  url: "/shop/lettinis"
+	type: "dropdown",
+	dropdowns: [
+		new navItem({
+			name: "shop",
+			url: "/shop/lettinis"
+		}),
+		new navItem({
+			name: "accessories",
+			url: "/shop/lettinis/accessories"
+		})
+	]
 });
 var customizeYourOwn = new navItem({
   name: "customize your own",

@@ -22,12 +22,12 @@ html
                 //- -var dataType = 'original'
                 a.product-img-container(href="/shop/lettinis/"+ product.sku)
                   .product-img
-                    img(data-original='/img/shop/lettinis/hq/'+product.sku+'/'+image)
+                    img(data-original='/img/shop/lettinis/hq/'+product.sku+'/'+image, alt="Sun Smart Lettini Sun Lounge")
               -else
                 //- -var dataType = 'lazy'
                 a.product-img-container(href="/shop/lettinis/"+ product.sku)
                   .product-img
-                    img(data-lazy='/img/shop/lettinis/hq/'+product.sku+'/'+image)
+                    img(data-lazy='/img/shop/lettinis/hq/'+product.sku+'/'+image, alt="Sun Smart Lettini Sun Lounge")
         .product-img-text
           //- .product-title Lettini
           .product-name= product.colour
