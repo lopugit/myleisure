@@ -114,15 +114,30 @@ var adminModels = require('./models/admin')
 var cmsModels = require('./models/CMS')
 var blogModels = require('./models/CMS/blogs')
 var models = require('./models')
-
-
+    //update shopify products every minute
+updateProducts()
 var nav = models.nav
 var description = models.description
 var colours = models.colours
 var finishes = models.finishes
-var product = models.products
+var product = models.products()
 var User = adminModels.user
 var Blog = blogModels.blog
+
+function updateProducts() {
+    console.log("updating products")
+    setTimeout(function() {
+        product.then((model, err) => {
+            if (!err) {
+                if (model) {
+                    // console.log(model)
+                    var tmp = models.products({ model: model })
+                    setTimeout(updateProducts, 10000)
+                }
+            }
+        })
+    }, 10000)
+}
 
 app.use(function(req, res, next) {
     nav.find({ name: "main nav" }).exec().then(function(nav) {
@@ -896,8 +911,8 @@ app.post('/subscribe', function(req, res) {
         custMailOpts = {
             from: 'gift@myleisure.com.au', //grab form data from the request body object
             to: req.body.email,
-            subject: 'My Leisure Lettini gift code',
-            text: "Here is your 1 time use discount code: My Leisure! \n\nEnter it when you checkout along with your email to receive 15% off on orders of up to 2 Lettini's \n\nThanks for subscribing to our mailing list, we'll only send you what we think is a great read",
+            subject: 'My Leisure Lettini discount code',
+            text: "Here is your 1 time use discount code: SPRING \n\nEnter it when you checkout along with your email to receive 15% off on orders of up to 2 Lettini's \n\nThanks for subscribing to our mailing list, we'll only send you what we think is a great read",
         }
         adminMailOpts = {
             from: req.body.email, //grab form data from the request body object

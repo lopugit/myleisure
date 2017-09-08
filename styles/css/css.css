@@ -740,7 +740,7 @@ nav {
   top: 0;
   display: none;
   z-index: 1005;
-  background: #1c1e28;
+  background: rgba(28, 30, 40, 0.98);
   animation-name: navMenuSlideOut;
   animation-duration: 280ms;
   animation-fill-mode: forwards;
@@ -2824,6 +2824,8 @@ input[type=number]::-webkit-outer-spin-button {
       margin-top: -15%;
       width: 100%;
       z-index: 5; }
+  #stockists .btn-lg {
+    colour: #0b0b0b; }
   #stockists .stockists-container {
     margin-top: 150px;
     width: 100%;
@@ -4664,9 +4666,11 @@ input[type=number]::-webkit-outer-spin-button {
         margin: 5px;
         text-transform: capitalize;
         background: rgba(255, 255, 255, 0.9);
+        color: rgba(0, 0, 0, 0.96);
         transition: all 250ms ease;
         box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.15); }
         #hotelsAndResorts .application-container .application-form .btn:hover, #hotelsAndResorts .application-container .application-form .btn:focus, #hotelsAndResorts .application-container .application-form .btn:visited {
+          color: rgba(0, 0, 0, 0.9);
           background: white;
           box-shadow: 1px 4px 3px -3px rgba(0, 0, 0, 0.15); }
 
