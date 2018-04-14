@@ -206,18 +206,22 @@ app.get('/(|home|index)$*', function(req, res) {
         })
         .then(function(objects) {
             return product.then(function(model) {
-                return model.find({}).exec().then(function(products) {
-                    // if (!err) {
-                    frontPageProducts = [
-                            products[0],
-                            products[3],
-                            products[6]
-                        ]
-                        // res.locals.frontPageProducts = frontPageProducts
-                    res.locals.product = products[Math.floor(Math.random() * products.length)]
+                if(model){
+                    return model.find({}).exec().then(function(products) {
+                        // if (!err) {
+                        frontPageProducts = [
+                                products[0],
+                                products[3],
+                                products[6]
+                            ]
+                            // res.locals.frontPageProducts = frontPageProducts
+                        res.locals.product = products[Math.floor(Math.random() * products.length)]
+                        return objects
+                            // }
+                    })
+                } else {
                     return objects
-                        // }
-                })
+                }
             })
         })
         .then(function(objects) {
@@ -697,13 +701,15 @@ app.get('/(|lettini|shop|products|products/lettinis|shop/lettinis)$*', function(
 
             })
             .then(function(objects) {
-
-
                 return product.then(function(productModel) {
-                    return productModel.find({}).exec().then(function(products) {
-                        objects.products = products
+                    if(productModel){
+                        return productModel.find({}).exec().then(function(products) {
+                            objects.products = products
+                            return objects
+                        })
+                    } else {
                         return objects
-                    })
+                    }
                 })
             })
             .then(function(objects) {
@@ -716,7 +722,7 @@ app.get('/(|lettini|shop|products|products/lettinis|shop/lettinis)$*', function(
                     // colours: objects.colours,
                     // typesOfColour: ['woven', 'gradient','square'],
                     products: objects.products,
-                    lettiniId: objects.products.id
+                    lettiniId: objects.products ? objects.products.id : undefined
                         // finishes: objects.finishes
                 })
 
@@ -1013,16 +1019,28 @@ app.get('/blogs(|/:blogTitle)', function(req, res) {
 
     res.locals.page = 'blog'
     product.then(function(model) {
-        model.find({}).exec().then(function(products) {
-            // if (!err) {
-            frontPageProducts = [
-                    products[0],
-                    products[3],
-                    products[6]
-                ]
-                // res.locals.frontPageProducts = frontPageProducts
-            res.locals.product = products[Math.floor(Math.random() * products.length)]
-            console.log(req.params.blogTitle)
+        if(model){
+            model.find({}).exec().then(function(products) {
+                // if (!err) {
+                frontPageProducts = [
+                        products[0],
+                        products[3],
+                        products[6]
+                    ]
+                    // res.locals.frontPageProducts = frontPageProducts
+                res.locals.product = products[Math.floor(Math.random() * products.length)]
+                console.log(req.params.blogTitle)
+                if (req.params.blogTitle) {
+                    res.locals.blog = req.params.blogTitle
+                    res.render('CMS/blogs/blog-' + req.params.blogTitle)
+    
+                } else {
+                    res.locals.blog = "our-first-blog"
+                    res.redirect('/blogs/are-you-really-protected')
+                }
+                // }
+            })
+        } else {
             if (req.params.blogTitle) {
                 res.locals.blog = req.params.blogTitle
                 res.render('CMS/blogs/blog-' + req.params.blogTitle)
@@ -1031,8 +1049,7 @@ app.get('/blogs(|/:blogTitle)', function(req, res) {
                 res.locals.blog = "our-first-blog"
                 res.redirect('/blogs/are-you-really-protected')
             }
-            // }
-        })
+        }
     })
 })
 app.post('/build?:frame', function(req, res) {

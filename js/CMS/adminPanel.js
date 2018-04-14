@@ -48,7 +48,7 @@ function hideNav(){
 }
 
 // $(function(){
-var socket = io.connect('http://my.dev:3002');
+var socket = io.connect('http://myleisure.src:3002');
 // })
 
 socket.on('blog form', function(html){

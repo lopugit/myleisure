@@ -7,15 +7,16 @@ html
             .pattern-type-title
               | Woven
             .patterns-container
-              each colour, key in colours.colours
-                
-                each tag, key in colour.tags
-                  -if(tag == "woven")
-                    -if(!colour.name.endsWith("1"))
-                      .small-container
-                        img(data-original=colour.image, data-original-set=colour.image + ', ' + colour.image, sizes='100vw, 100vw', alt='Lettini Sun Lounger with canopy Colour Option ' + colour.name)
-                        img(data-original= colour.image, data-original-set= colour.image +', ' + colour.image , sizes='100vw, 100vw', alt='Lettini Sun Lounger with canopy Colour Option ' + colour.name).nd-img
-                        .material-name= colour.name
+              -if(colours && colours.colours)      
+                each colour, key in colours.colours
+                  
+                  each tag, key in colour.tags
+                    -if(tag == "woven")
+                      -if(!colour.name.endsWith("1"))
+                        .small-container
+                          img(data-original=colour.image, data-original-set=colour.image + ', ' + colour.image, sizes='100vw, 100vw', alt='Lettini Sun Lounger with canopy Colour Option ' + colour.name)
+                          img(data-original= colour.image, data-original-set= colour.image +', ' + colour.image , sizes='100vw, 100vw', alt='Lettini Sun Lounger with canopy Colour Option ' + colour.name).nd-img
+                          .material-name= colour.name
                       
                 
                 
@@ -24,15 +25,16 @@ html
             .pattern-type-title
               | Designer
             .patterns-container
-              each colour, key in colours.colours
-                
-                each tag, key in colour.tags
-                  -if(tag == "designer")
-                    -if(!colour.name.endsWith("1"))
-                      .small-container
-                        img(data-original=colour.image, data-original-set=colour.image + ', ' + colour.image, sizes='100vw, 100vw', alt='Lettini Sun Lounger with canopy Colour Option ' + colour.name).designer
-                        img(data-original= colour.image, data-original-set= colour.image +', ' + colour.image , sizes='100vw, 100vw', alt='Lettini Sun Lounger with canopy Colour Option ' + colour.name).nd-img.designer
-                        .material-name= colour.name
+              -if(colours && colours.colours)      
+                each colour, key in colours.colours
+                  
+                  each tag, key in colour.tags
+                    -if(tag == "designer")
+                      -if(!colour.name.endsWith("1"))
+                        .small-container
+                          img(data-original=colour.image, data-original-set=colour.image + ', ' + colour.image, sizes='100vw, 100vw', alt='Lettini Sun Lounger with canopy Colour Option ' + colour.name).designer
+                          img(data-original= colour.image, data-original-set= colour.image +', ' + colour.image , sizes='100vw, 100vw', alt='Lettini Sun Lounger with canopy Colour Option ' + colour.name).nd-img.designer
+                          .material-name= colour.name
                         
                         
         .row  
@@ -40,15 +42,16 @@ html
             .pattern-type-title
               | Gradients
             .patterns-container
-              each colour, key in colours.colours
-                
-                each tag, key in colour.tags
-                  -if(tag == "gradient")
-                    -if(!colour.name.endsWith("1"))
-                      .small-container
-                        img(data-original=colour.image, data-original-set=colour.image + ', ' + colour.image, sizes='100vw, 100vw', alt='Lettini Sun Lounger with canopy Colour Option ' + colour.name)
-                        img(data-original= colour.image, data-original-set= colour.image +', ' + colour.image , sizes='100vw, 100vw', alt='Lettini Sun Lounger with canopy Colour Option ' + colour.name).nd-img
-                        .material-name= colour.name
+              -if(colours && colours.colours)      
+                each colour, key in colours.colours
+                  
+                  each tag, key in colour.tags
+                    -if(tag == "gradient")
+                      -if(!colour.name.endsWith("1"))
+                        .small-container
+                          img(data-original=colour.image, data-original-set=colour.image + ', ' + colour.image, sizes='100vw, 100vw', alt='Lettini Sun Lounger with canopy Colour Option ' + colour.name)
+                          img(data-original= colour.image, data-original-set= colour.image +', ' + colour.image , sizes='100vw, 100vw', alt='Lettini Sun Lounger with canopy Colour Option ' + colour.name).nd-img
+                          .material-name= colour.name
           
       
       
@@ -56,15 +59,16 @@ html
             .pattern-type-title
               | Square
             .patterns-container
-              each colour, key in colours.colours
-                
-                each tag, key in colour.tags
-                  -if(tag == "square")
-                    -if(!colour.name.endsWith("1"))
-                      .small-container
-                        img(data-original=colour.image, data-original-set=colour.image + ', ' + colour.image, sizes='100vw, 100vw', alt='Lettini Sun Lounger with canopy Colour Option ' + colour.name)
-                        img(data-original= colour.image, data-original-set= colour.image +', ' + colour.image , sizes='100vw, 100vw', alt='Lettini Sun Lounger with canopy Colour Option ' + colour.name).nd-img
-                        .material-name= colour.name
+              -if(colours && colours.colours)      
+                each colour, key in colours.colours
+                  
+                  each tag, key in colour.tags
+                    -if(tag == "square")
+                      -if(!colour.name.endsWith("1"))
+                        .small-container
+                          img(data-original=colour.image, data-original-set=colour.image + ', ' + colour.image, sizes='100vw, 100vw', alt='Lettini Sun Lounger with canopy Colour Option ' + colour.name)
+                          img(data-original= colour.image, data-original-set= colour.image +', ' + colour.image , sizes='100vw, 100vw', alt='Lettini Sun Lounger with canopy Colour Option ' + colour.name).nd-img
+                          .material-name= colour.name
                       
                       
         //- .row      
@@ -72,6 +76,7 @@ html
         //-     .pattern-type-title
         //-       | All
         //-     .patterns-container
+                
         //-       each colour, key in colours.colours
         //-         
         //-         each tag, key in colour.tags

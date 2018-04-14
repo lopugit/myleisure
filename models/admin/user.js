@@ -1,7 +1,11 @@
 
 var mongoose = require('mongoose');
 Schema = mongoose.Schema;
-var nodes = mongoose.createConnection("mongodb://localhost:27017/nodes")
+dbconf = require('secrets')
+dbconf = dbconf.mongodb
+let uri = "mongodb://" + (dbconf.auth ? dbconf.username + ":" + dbconf.password + "@" : '') + dbconf.server + ":" + dbconf.port + "/" + dbconf.db + (dbconf.auth ? "?authSource="+dbconf.authDb+"" : '')
+let options = { useMongoClient: true }
+let db = mongoose.createConnection(uri, options)
 
 var userSchema = new Schema({
   username: {type: String, unique: true},
@@ -12,6 +16,6 @@ var userSchema = new Schema({
   luckyNumber: {type: Number, default: 8}
 });
 
-var user = nodes.model('user', userSchema);
+var user = db.model('user', userSchema);
 
 module.exports = user;

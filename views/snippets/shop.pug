@@ -40,67 +40,67 @@ html
 						-var gradients = ['BOUSC', 'SBCSC', 'SGGSC', 'SRGSC', 'SVBSC']
 						-var linear = ['BOUSC', 'DESSC', 'SBCSC', 'SGGSC', 'SLISC', 'SRGSC', 'SBBSC', 'SVBSC']
 						-var toIgnore = ['BIASC','FANWC','SBBSC','SVBSC']
-						
-						each product, key in products
-							-var tags = 'all'
-							-if(toIgnore.indexOf(product.sku) > -1)
-								-var order = 2
-							-else
-								-var order = 1
-							-if(colourful.indexOf(product.sku) > -1)
-								-var tags = tags + ' colourful'
-							-if(light.indexOf(product.sku) > -1)
-								-var tags = tags + ' light'
-							-if(dark.indexOf(product.sku) > -1)
-								-var tags = tags + ' dark'
-							-if(gradients.indexOf(product.sku) > -1)
-								-var tags = tags + ' gradients'
-							-if(linear.indexOf(product.sku) > -1)
-								-var tags = tags + ' linear'
-							-var tags = tags + ' '+product.finish
-							.product-container.clearfix(id=product.sku, style="order: "+order+";", data-tags= tags)
-								//- span= product.sku
-								a.product-img-container(href="/shop/lettinis/"+ product.sku)
-									.product-img-wrapper
-										.two-view-buttons
-											i.fa.fa-search
-										img(data-original='/img/shop/lettinis/400x/'+product.sku+'/thumb.jpg').product-img
-								.product-details
-									.product-header
-										//- span.p-title= 'Lettini in ' + product.finish + ' with our ' + product.colour + ' woven fabric'
-										span.p-title= product.colour + ' Lettini'
-										//- span.p-title= product.sku
-										span.price= product.formatted_price
-											//- i.space +
-											//- i.fa.fa-local-shipping
-									.options
-										p(style="padding-left: 3px; font-size: 1.2rem; padding-top: 5px; font-family: futura-lt-heavy") Options:
-										.finish
-											.finish-circle(style="background: url(/img/finishes/thumb/"+ encodeURIComponent(product.finish.trim()) + ".png)")
-											span(style="margin-left: -2px")= product.finish
-										.pattern-option
-											.pattern-circle(style="background: url(/img/colours/150x/" + encodeURIComponent(product.colour.trim()) + ".jpg)")
-											span= product.colour
-											//- span= product.available
-											//- .cart-root
-											//-   .cart-circle(id= product.id + "-" +product.variantId)
-											//-     i.fa.fa-cart-arrow-down
-											//-   span add
-											
-										//- .buttons
-										.two-buttons(id= product.id + '-' + product.variantId)
-											-if(product.available == false)
-												.order-button.soldout
-													| sold out
-											-else
-												.order-button
-													| add to cart
-											//- a(href="/shop/lettinis/"+product.sku).btn
-											//- 	.view-button
-											//- 		| view
-											
-							//- .shop-cart-button
-											i.fa.fa-shopping-cart
+						-if(products)
+							each product, key in products
+								-var tags = 'all'
+								-if(toIgnore.indexOf(product.sku) > -1)
+									-var order = 2
+								-else
+									-var order = 1
+								-if(colourful.indexOf(product.sku) > -1)
+									-var tags = tags + ' colourful'
+								-if(light.indexOf(product.sku) > -1)
+									-var tags = tags + ' light'
+								-if(dark.indexOf(product.sku) > -1)
+									-var tags = tags + ' dark'
+								-if(gradients.indexOf(product.sku) > -1)
+									-var tags = tags + ' gradients'
+								-if(linear.indexOf(product.sku) > -1)
+									-var tags = tags + ' linear'
+								-var tags = tags + ' '+product.finish
+								.product-container.clearfix(id=product.sku, style="order: "+order+";", data-tags= tags)
+									//- span= product.sku
+									a.product-img-container(href="/shop/lettinis/"+ product.sku)
+										.product-img-wrapper
+											.two-view-buttons
+												i.fa.fa-search
+											img(data-original='/img/shop/lettinis/400x/'+product.sku+'/thumb.jpg').product-img
+									.product-details
+										.product-header
+											//- span.p-title= 'Lettini in ' + product.finish + ' with our ' + product.colour + ' woven fabric'
+											span.p-title= product.colour + ' Lettini'
+											//- span.p-title= product.sku
+											span.price= product.formatted_price
+												//- i.space +
+												//- i.fa.fa-local-shipping
+										.options
+											p(style="padding-left: 3px; font-size: 1.2rem; padding-top: 5px; font-family: futura-lt-heavy") Options:
+											.finish
+												.finish-circle(style="background: url(/img/finishes/thumb/"+ encodeURIComponent(product.finish.trim()) + ".png)")
+												span(style="margin-left: -2px")= product.finish
+											.pattern-option
+												.pattern-circle(style="background: url(/img/colours/150x/" + encodeURIComponent(product.colour.trim()) + ".jpg)")
+												span= product.colour
+												//- span= product.available
+												//- .cart-root
+												//-   .cart-circle(id= product.id + "-" +product.variantId)
+												//-     i.fa.fa-cart-arrow-down
+												//-   span add
+												
+											//- .buttons
+											.two-buttons(id= product.id + '-' + product.variantId)
+												-if(product.available == false)
+													.order-button.soldout
+														| sold out
+												-else
+													.order-button
+														| add to cart
+												//- a(href="/shop/lettinis/"+product.sku).btn
+												//- 	.view-button
+												//- 		| view
+												
+								//- .shop-cart-button
+												i.fa.fa-shopping-cart
 				.row
 					.col-lg-23.col-lg-offset-1.col-md-23.col-md-offset-1.col-sm-24.shop-products-column#noProducts
 						.no-products.hidden

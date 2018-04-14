@@ -1,6 +1,10 @@
 var MongoClient = require('mongodb');
 var mongoose = require('mongoose');
-var db = mongoose.createConnection("mongodb://localhost:27017/myleisure")
+dbconf = require('secrets')
+dbconf = dbconf.mongodb
+let uri = "mongodb://" + (dbconf.auth ? dbconf.username + ":" + dbconf.password + "@" : '') + dbconf.server + ":" + dbconf.port + "/" + dbconf.db + (dbconf.auth ? "?authSource="+dbconf.authDb+"" : '')
+let options = { useMongoClient: true }
+let db = mongoose.createConnection(uri, options)
 var fs = require('fs');
 var path = require('path');
 var generateSchema = require('generate-schema');

@@ -1,6 +1,9 @@
 var mongoose = require('mongoose')
-var db = mongoose.createConnection("mongodb://localhost:27017/myleisure")
-Schema = mongoose.Schema,
+dbconf = require('secrets')
+dbconf = dbconf.mongodb
+let uri = "mongodb://" + (dbconf.auth ? dbconf.username + ":" + dbconf.password + "@" : '') + dbconf.server + ":" + dbconf.port + "/" + dbconf.db + (dbconf.auth ? "?authSource="+dbconf.authDb+"" : '')
+let options = { useMongoClient: true }
+let db = mongoose.createConnection(uri, options)
     moment = require('moment'),
     highlight = require('./blogHighlight')
 var something = Date.now;
@@ -214,18 +217,20 @@ var testBlog3 = new blog({
 
 })
 blog.find({ 'author.username': 'lopu' }, (err, blogs) => {
-    if (blogs.length > 0) {
-        blog.remove(function(err, removed) {})
+    if(blogs){
+        if (blogs.length > 0) {
+            blog.remove(function(err, removed) {})
+                // firstBlog.save({})
+            testBlog1.save({})
+            testBlog2.save({})
+            testBlog3.save({})
+        } else {
             // firstBlog.save({})
-        testBlog1.save({})
-        testBlog2.save({})
-        testBlog3.save({})
-    } else {
-        // firstBlog.save({})
-        testBlog1.save({})
-        testBlog2.save({})
-        testBlog3.save({})
-
+            testBlog1.save({})
+            testBlog2.save({})
+            testBlog3.save({})
+    
+        }
     }
 })
 
