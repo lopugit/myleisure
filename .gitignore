@@ -2,7 +2,7 @@
 img/
 help/
 conf/
-
+secrets/
 # Logs
 logs
 *.log
