@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
-dbconf = require('secrets')
-dbconf = dbconf.mongodb
-let uri = "mongodb://" + (dbconf.auth ? dbconf.username + ":" + dbconf.password + "@" : '') + dbconf.server + ":" + dbconf.port + "/" + dbconf.db + (dbconf.auth ? "?authSource="+dbconf.authDb+"" : '')
-let options = { useMongoClient: true }
+let secrets = require('secrets')
+dbconf = secrets.mongodb
+let uri = secrets.mongodb.uri
+let options = {  useNewUrlParser: true, useUnifiedTopology: true }
 let db = mongoose.createConnection(uri, options)
 var Schema = mongoose.Schema;
 

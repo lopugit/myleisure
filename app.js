@@ -11,6 +11,7 @@ shopify = require('shopify-buy')
 nodemailer = require('nodemailer')
 forms = require('mongoose-forms')
 moment = require('moment')
+let secrets = require('./local_modules/secrets')
 var Form = forms.Form,
     Bridge = forms.Bridge,
     RedisStore = require('connect-redis')(session)
@@ -106,8 +107,8 @@ app.locals.basedir = path.join(__dirname, 'views')
 var MongoClient = require('mongodb')
 var mongoose = require('mongoose')
 mongoose.Promise = require('bluebird')
-var db = mongoose.createConnection("mongodb://localhost:27017/myleisure")
-var nodes = mongoose.createConnection("mongodb://localhost:27017/nodes")
+var db = mongoose.createConnection(secrets.mongodb.uri, { useNewUrlParser: true, useUnifiedTopology: true} )
+var nodes = mongoose.createConnection(secrets.mongodb.uri, { useNewUrlParser: true, useUnifiedTopology: true} )
 
 // /////// LOAD ALL MODELS
 var adminModels = require('./models/admin')
