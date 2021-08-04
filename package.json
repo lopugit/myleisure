@@ -27,7 +27,7 @@
     "pug": "2.0.0-beta11",
     "shopify-buy": "0.7.0",
     "simpl-schema": "0.2.3",
-    "socket.io": "1.7.3"
+    "socket.io": "2.4.0"
   },
   "devDependencies": {},
   "scripts": {
