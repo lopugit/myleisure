@@ -676,7 +676,7 @@ app.get('/(|lettini|shop|products|products/lettinis|shop/lettinis)$*', function(
 
         /// START app.get()
 
-        /// Gets all objects from mongodb before sending to jade pug
+        /// Gets all objects from mongodb before sending to pug
         console.log('wtf')
         var page = url.parse(req.url).pathname
         nav.find({ name: "main nav" }).exec()
