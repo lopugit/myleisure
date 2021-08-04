@@ -16,7 +16,7 @@
     "formage": "2.8.2",
     "generate-schema": "2.3.3",
     "glob": "7.1.1",
-    "lodash": "4.17.4",
+    "lodash": "4.17.21",
     "moment": "2.18.1",
     "mongodb": "^3.6.3",
     "mongoose": "^5.11.14",
