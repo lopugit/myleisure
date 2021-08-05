@@ -1,7 +1,7 @@
 #bloat like images and random stuff
 img/
 help/
-conf/sessions.js
+sessions.js
 secrets.js
 # Logs
 logs
