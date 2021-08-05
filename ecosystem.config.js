@@ -6,25 +6,25 @@ module.exports = {
   apps : [
     {
       name      : 'dev-myleisure',
-      script    : 'app.js',
+      script    : 'node node/app.js',
       env: {
         COMMON_VARIABLE: 'true'
       },
       env_production : {
         NODE_ENV: 'production'
       },
-      watch	: ["app.js","models","routes"]
+      watch	: ["node/app.js","node/models","node/routes"]
     },
     {
       name      : 'prod-myleisure',
-      script    : 'app.js',
+      script    : 'node node/app.js',
       env: {
         COMMON_VARIABLE: 'true'
       },
       env_production : {
         NODE_ENV: 'production'
       },
-      watch	: ["app.js","models","routes"]
+      watch	: ["node/app.js","node/models","node/routes"]
     },
   ],
 };

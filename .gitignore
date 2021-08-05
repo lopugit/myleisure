@@ -2,7 +2,7 @@
 img/
 help/
 conf/sessions.js
-local_modules/secrets/secrets.js
+secrets/secrets.js
 # Logs
 logs
 *.log
