@@ -1,8 +1,8 @@
 #bloat like images and random stuff
 img/
 help/
-conf/
-secrets/
+conf/sessions.js
+local_modules/secrets/secrets.js
 # Logs
 logs
 *.log
