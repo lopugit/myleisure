@@ -101,7 +101,10 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 //// SET VIEW ENGINE PUG/JADE
 app.set('view engine', 'pug')
-app.locals.basedir = path.join(__dirname, 'views')
+let viewPath = path.join(__dirname, 'views')
+console.log("Setting app.locals.basedir to: ", viewPath)
+app.locals.basedir = viewPath
+app.set('views', viewPath)
 
 /////// MONGODB AND MONGOOSE THINGS
 var MongoClient = require('mongodb')
@@ -677,7 +680,6 @@ app.get('/(|lettini|shop|products|products/lettinis|shop/lettinis)$*', function(
         /// START app.get()
 
         /// Gets all objects from mongodb before sending to pug
-        console.log('wtf')
         var page = url.parse(req.url).pathname
         nav.find({ name: "main nav" }).exec()
             .then(function(nav) {
@@ -1245,4 +1247,4 @@ app.get('*', function(req, res) {
 
 //// APP LISTENER FOR CLIENTS
 // app.listen(3002)
-http.listen(3002, () => console.log('listening on 3002'))
+http.listen(3002, () => console.log('Running at http://localhost:3002'))

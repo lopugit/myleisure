@@ -32,8 +32,10 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start.dev": "pm2 start ecosystem.config.js --only dev-myleisure",
-    "start.prod": "pm2 start ecosystem.config.js --only prod-myleisure",
+    "start.dev": "pm2 start ecosystem.config.js --only dev-myleisure ; npm run log.dev",
+    "start.prod": "pm2 start ecosystem.config.js --only prod-myleisure ; npm run log.prod",
+    "log.dev": "pm2 log dev-myleisure",
+    "log.prod": "pm2 log prod-myleisure",
     "delete.dev": "pm2 delete ecosystem.config.js --only dev-myleisure",
     "delete.prod": "pm2 delete ecosystem.config.js --only prod-myleisure",
     "log": "pm2 log myleisure"
