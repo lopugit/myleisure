@@ -330,17 +330,16 @@ var mainNav = new nav({
 
 
 
-if(write)
-  console.log("writing navs");
-  nav.remove({id: "main nav"}, function(err){
+// if(write)
 
-    if(err)
-      console.log(err)
-
-    else
-      mainNav.save();
-
-  });
+console.log("writing navs");
+nav.remove({id: "main nav"}, function(err){
+	if(err) {
+		console.log(err)
+	} else {
+		mainNav.save();
+	}
+});
 
 module.exports = nav;
 
